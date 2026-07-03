@@ -20,6 +20,7 @@ From top to bottom:
 
 ### 1. MetaHuman Assembler (character loading — topmost section)
 
+
 | Item | Description |
 |---|---|
 | **MetaHumans Directory** | Path to the parent folder containing MetaHuman character folders. The refresh button next to it re-scans the folder. |
@@ -34,10 +35,16 @@ From top to bottom:
 | ↳ Trash icon | Removes that character from the scene. |
 
 > There is no menu for loading individual DNA files - Assembling a character folder is the only load path. Saving (exporting) head/body DNA is handled in the **Export** section below.
+![metabridge_dna02.png](assets/metabridge_dna02.png)
+<br>
+<br>
 
 ### 2. Face Rig
 - **Append GUIArmature**: Adds the GUI armature (the slider-bone rig used to drive expressions) to the scene. This is the core control rig for posing expressions.
 - **Face Rig: ON/OFF**: Toggles whether GUI armature bone movement is applied to DNA blend shapes/joints in real time.
+![metabridge_dna03.png](assets/metabridge_dna03.png)
+<br>
+<br>
 
 ### 3. Rigify Body Control Rig
 Requires the Rigify addon to be enabled (`Edit > Preferences > Add-ons > Rigging: Rigify`).
@@ -49,6 +56,9 @@ Requires the Rigify addon to be enabled (`Edit > Preferences > Add-ons > Rigging
 4. **Link Head Rig** (shown after Retarget is applied): Connects the head rig to the body control rig so both move as one rig.
    - **Unlink Head Rig**: Disconnects it.
 5. **Remove Rigify Rig**: Removes all generated Rigify objects/constraints.
+![metabridge_dna04.png](assets/metabridge_dna04.png)
+<br>
+<br>
 
 ### 4. DNA RC Inspector
 A tool for checking/editing how DNA raw control channels are connected to GUI bones.
@@ -60,6 +70,9 @@ A tool for checking/editing how DNA raw control channels are connected to GUI bo
 - **Clear All**: Clears all manually configured connections.
 - **Print Full Map**: Prints the full mapping to the console.
 - Each row: **Connect / Change Bone** (connect or change), the gear icon (bone detail popup), and **X** (disconnect a manual link) manage each channel individually.
+![metabridge_dna05.png](assets/metabridge_dna05.png)
+<br>
+<br>
 
 ---
 
@@ -95,7 +108,9 @@ Collapsible sub-panels below the main panel. Click the arrow to expand.
 - You don't need to worry about the control bones' physical travel limit (±0.01, corresponding to a raw control value of 1.0) - since the saved preset values already respect that range, a slider at 1.0 exactly reproduces the pose as it was saved.
 - Each row's **X** button removes it individually; **Clear All Sliders** removes all of them and returns to the neutral pose.
 - Each slider is a regular Blender property, so it can be **keyframed and animated**. A handler is registered to recompute the blend every frame during animation playback and timeline scrubbing too, so it behaves identically to interactive dragging.
-
+![metabridge_dna06.png](assets/metabridge_dna06.png)
+<br>
+<br>
 #### External Preset Converter — `preset_convert.py` (sub-panel of Expression Presets)
 - **Convert & Import (Maya/Houdini)...**: Imports a JSON preset saved from Maya/Houdini, converting its bone names.
   - Supported input formats: `{"bones": {...}}`, `{"controls": {...}}`, a flat dictionary `{"<name>": [x,y,z]}`, or `{"<name>": value}` (a single value is treated as the Y axis)
