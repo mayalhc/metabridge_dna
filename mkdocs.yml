@@ -1,0 +1,33 @@
+# 사이트 설정
+site_name: Wiggle 2 RTX
+site_url: https://github.com/mayalhc/blender-wiggle-2
+site_author: chamiseul
+
+# 시놀로지 볼륨 매핑 경로와 일치
+docs_dir: 'docs'
+
+# 테마 설정
+theme:
+  name: readthedocs
+  highlightjs: true
+  collapse_navigation: false  # 전체를 항상 펼침
+  sticky_navigation: true
+  navigation_depth: 4
+  titles_only: false 
+
+# 마크다운 확장 기능 (기본 제공 모듈만 사용)
+markdown_extensions:
+  - admonition
+  - tables
+  - footnotes
+  - attr_list
+  - def_list
+
+# 네비게이션
+nav:
+  - Wiggle 2 RTX Guide: index.md
+  - "Go to GroomForge Wiki": integration.md
+
+# 플러그인 설정
+plugins:
+  - search
