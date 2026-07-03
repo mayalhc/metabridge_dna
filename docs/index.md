@@ -11,7 +11,7 @@ metabridge_dna is a Blender addon for importing and exporting Epic Games MetaHum
 - Manage multiple characters as slots; state survives save/reload automatically
 
 Everything lives in a single **MetaBridge DNA** tab in the 3D Viewport sidebar (`N` panel). (Character assembly is integrated as the top section of the main panel.)
-
+![metabridge_dna01.png](assets/metabridge_dna01.png)
 ---
 
 ## MetaBridge DNA Panel Layout
