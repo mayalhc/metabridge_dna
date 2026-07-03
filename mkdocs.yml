@@ -1,5 +1,5 @@
 # 사이트 설정
-site_name: Wiggle 2 RTX
+site_name: metabridge_dna
 site_url: https://github.com/mayalhc/metabridge_dna
 site_author: chamiseul
 
@@ -25,7 +25,7 @@ markdown_extensions:
 
 # 네비게이션
 nav:
-  - Wiggle 2 RTX Guide: index.md
+  - metabridge_dna Guide: index.md
   - "Go to GroomForge Wiki": integration.md
 
 # 플러그인 설정
