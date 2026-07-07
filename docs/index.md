@@ -14,6 +14,7 @@ With it you can:
 - Export everything back to DNA, FBX, or glTF
 
 Everything is in one place: open the **N panel** on the right side of the 3D Viewport, and look for the **MetaBridge DNA** tab.
+
 ![metabridge_dna01.png](assets/metabridge_dna01.png)
 ---
 
@@ -30,6 +31,7 @@ This is the first thing you do — it's at the very top of the panel.
 5. Click **Assemble**.
 
 ![metabridge_img01.gif](assets/metabridge_img01.gif)
+
 **Good to know:**
 
 - You can load more than one character — click **New** to add another one as a separate slot.
@@ -49,6 +51,7 @@ This is the first thing you do — it's at the very top of the panel.
 3. Select the GUIArmature in the viewport, go into **Pose Mode**, and move its bones. The face updates live as you move them.
 
 ![metabridge_img02.gif](assets/metabridge_img02.gif)
+
 **Good to know:**
 
 - You're never editing shape keys directly — you're only moving control bones, and the character's face updates itself.
@@ -105,6 +108,8 @@ Stream your real facial expressions live from an iPhone straight onto the MetaHu
 3. In the app, set the target IP address to your computer's address, and the port to **11111**.
 4. In Blender's ARKit Live panel, leave **Host** as `0.0.0.0` and **Port** as `11111`, then click **Connect**.
 5. Move your face — the character should follow along, and you'll see the **Preset Sliders** panel values change live.
+
+![metabridge_img05.gif](assets/metabridge_img05.gif)
 
 **Tuning the feel of the tracking:**
 
