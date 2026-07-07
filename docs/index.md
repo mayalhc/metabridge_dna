@@ -27,12 +27,13 @@ This is the first thing you do — it's at the very top of the panel.
 4. Pick a **LOD** level (0 = highest quality, higher numbers = lighter/faster).
 5. Click **Assemble**.
 
-**Good to know:**
-- You can load more than one character — click **New** to add another one as a separate slot.
-- The list at the bottom shows every character currently in your scene. Click the radio button next to one to make it "active" (the one you're currently editing).
-- The trash icon removes a character from the scene.
-- If you want to load a *different* LOD later, change the LOD number and click **Re-Assemble**.
-- There's no separate "load a single DNA file" option — Assemble is the only way in. Saving DNA files back out is done later, in the **Export** panel.
+
+   **Good to know:**
+   - You can load more than one character — click **New** to add another one as a separate slot.
+   - The list at the bottom shows every character currently in your scene. Click the radio button next to one to make it "active" (the one you're currently editing).
+   - The trash icon removes a character from the scene.
+   - If you want to load a *different* LOD later, change the LOD number and click **Re-Assemble**.
+   - There's no separate "load a single DNA file" option — Assemble is the only way in. Saving DNA files back out is done later, in the **Export** panel.
 
 ---
 
