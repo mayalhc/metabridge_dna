@@ -1,147 +1,160 @@
-# MetaBridge DNA
+# MetaBridge DNA — User Guide
 
-## Overview
+## What is this addon?
 
-metabridge_dna is a Blender addon for importing and exporting Epic Games MetaHuman **DNA files** (`.dna`).
+MetaBridge DNA lets you bring Epic Games **MetaHuman** characters into Blender, pose their faces in real time, and export them back out.
 
-- **Import/export** MetaHuman DNA files in Blender (DNA / FBX / glTF)
-- Manage Head and Body separately, then **assemble** them into one character
-- A **Face Rig board** for driving facial expressions (real-time preview via bone controls)
-- **Rigify integration** that auto-generates an FK/IK control rig on the body, extending it into an animatable rig
-- Manage multiple characters as slots; state survives save/reload automatically
+With it you can:
+- Load a MetaHuman character (head + body) into Blender
+- Move sliders or bones to make facial expressions — no shape key editing needed
+- Save your favorite expressions as reusable presets, and blend several at once
+- Drive the face **live from an iPhone** using Apple's Live Link Face app
+- Build an animatable body rig (Rigify) for the character
+- Export everything back to DNA, FBX, or glTF
 
-Everything lives in a single **MetaBridge DNA** tab in the 3D Viewport sidebar (`N` panel). (Character assembly is integrated as the top section of the main panel.)
-![metabridge_dna01.png](assets/metabridge_dna01.png)
+Everything is in one place: open the **N panel** on the right side of the 3D Viewport, and look for the **MetaBridge DNA** tab.
+
 ---
 
-## MetaBridge DNA Panel Layout
+## 1. Loading a Character
 
-From top to bottom:
+This is the first thing you do — it's at the very top of the panel.
 
-### 1. MetaHuman Assembler (character loading — topmost section)
+**Steps:**
+1. Click the folder icon and pick the folder that contains your MetaHuman characters.
+2. Click a character's thumbnail to select it.
+3. Turn Head / Body / Textures on or off, depending on what you want to load.
+4. Pick a **LOD** level (0 = highest quality, higher numbers = lighter/faster).
+5. Click **Assemble**.
 
+**Good to know:**
+- You can load more than one character — click **New** to add another one as a separate slot.
+- The list at the bottom shows every character currently in your scene. Click the radio button next to one to make it "active" (the one you're currently editing).
+- The trash icon removes a character from the scene.
+- If you want to load a *different* LOD later, change the LOD number and click **Re-Assemble**.
+- There's no separate "load a single DNA file" option — Assemble is the only way in. Saving DNA files back out is done later, in the **Export** panel.
 
-| Item | Description |
+---
+
+## 2. Making Facial Expressions (Face Rig)
+
+1. Click **Append GUIArmature** — this adds the control rig you'll use to make expressions.
+2. Turn **Face Rig: ON**.
+3. Select the GUIArmature in the viewport, go into **Pose Mode**, and move its bones. The face updates live as you move them.
+
+**Good to know:**
+- You're never editing shape keys directly — you're only moving control bones, and the character's face updates itself.
+- If you don't see any reaction when moving a bone, double check Face Rig is switched ON.
+
+---
+
+## 3. Expression Presets (save & reuse expressions)
+
+Instead of posing a face from scratch every time, save an expression once and reuse it — and mix several expressions together.
+
+**Saving a preset:**
+1. Pose the face the way you want it.
+2. Click **Save As Current Expression...** and give it a name.
+3. To update a preset you already saved, select it in the list and click **Save Current Expression**.
+
+**Using a preset:**
+1. Pick a preset from the dropdown.
+2. Click **Apply Preset** — it's added to the **Preset Sliders** list below, already turned on.
+3. Drag its slider between 0 (no expression) and 1 (full expression).
+
+**Blending multiple expressions:**
+- You can have many sliders active at once — they combine automatically. For example, a smile at 0.6 plus a raised eyebrow at 0.4, at the same time.
+- **Add All From Active Folder** loads every preset in your current folder as a slider, all starting at 0 — handy for building a combined expression from scratch by dialing several up together.
+- The **X** button removes one slider; **Clear All Sliders** resets everything back to neutral.
+- Sliders are normal Blender properties, so you can keyframe and animate them like anything else.
+
+**Good to know:**
+- **Set Folder...** lets you choose where presets are saved/loaded from — useful if you keep different expression sets for different projects. This choice is remembered even after restarting Blender.
+- **Import...** lets you bring in a preset file from anywhere on your computer.
+- Presets made in Maya or Houdini can also be imported — see **Convert & Import (Maya/Houdini)** below.
+
+### Converting presets from other programs
+
+- **Convert & Import (Maya/Houdini)...**: brings in a saved pose from Maya or Houdini and matches its bone names automatically. If some names can't be matched, they're listed in a mapping file you can fill in by hand and re-import.
+- **Convert ARKit Payload...**: a one-time setup step that generates the 52 `ARKit_...` presets used by ARKit Live (see below). You normally only need to run this once, when first setting up ARKit tracking for a character.
+
+---
+
+## 4. ARKit Live (real-time face tracking from your iPhone)
+
+Stream your real facial expressions live from an iPhone straight onto the MetaHuman character, using Apple's free **Live Link Face** app.
+
+**Setup:**
+1. Make sure your iPhone and your computer are on the same Wi-Fi network.
+2. In the Live Link Face app, make sure it's in its normal streaming mode (**not** "MetaHuman Animator" mode — that mode only records video for later processing in Unreal Engine and will never send anything live to Blender).
+3. In the app, set the target IP address to your computer's address, and the port to **11111**.
+4. In Blender's ARKit Live panel, leave **Host** as `0.0.0.0` and **Port** as `11111`, then click **Connect**.
+5. Move your face — the character should follow along, and you'll see the **Preset Sliders** panel values change live.
+
+**Tuning the feel of the tracking:**
+| Setting | What it does |
 |---|---|
-| **MetaHumans Directory** | Path to the parent folder containing MetaHuman character folders. The refresh button next to it re-scans the folder. |
-| **Character thumbnail browser** | Pick a scanned character by icon. Selecting one shows its name/path/Head·Body·Textures availability below. |
-| **Head / Body / Textures toggles** | Choose which parts to include when loading. |
-| **LOD slider** | Sets the LOD used for both mesh generation and RigLogic evaluation. (See the LOD section below.) |
-| **Assemble / Re-Assemble** | Loads the selected character into the scene. Becomes "Re-Assemble" once the active slot is already assembled. |
-| **New** | Adds the current character as a new slot, so multiple characters can exist in the scene at once. |
-| **Assembled Characters list** | List of characters currently loaded into the scene. For each entry: |
-| ↳ Radio button | Switches the active slot (the one being edited). Switching also syncs the directory/thumbnail/LOD above to that slot. |
-| ↳ **Rig ON/OFF** | Toggles that character's real-time facial rig evaluation. |
-| ↳ Trash icon | Removes that character from the scene. |
+| **Smoothing** | Makes movement smoother and less jittery. Higher = smoother but slightly slower to react. |
+| **Deadzone** | Ignores small, noisy values so the face doesn't drift or twitch at rest. Raise this if the face looks slightly "off" even when you're not making any expression. |
+| **Gain** | Boosts expressions that don't reach full strength — useful if opening your mouth all the way only makes the character open it a little. |
 
-> There is no menu for loading individual DNA files - Assembling a character folder is the only load path. Saving (exporting) head/body DNA is handled in the **Export** section below.
-![metabridge_dna02.png](assets/metabridge_dna02.png)
-<br>
-<br>
+**Recording:**
+- Click **Record** to save the live performance as keyframes on the timeline, starting from the current frame. Click **Stop Recording** when you're done.
+- Or, if you already have a recording exported from the Live Link Face app as a CSV file, use **Load Live Link Face CSV...** to bake it in instead.
 
-### 2. Face Rig
-- **Append GUIArmature**: Adds the GUI armature (the slider-bone rig used to drive expressions) to the scene. This is the core control rig for posing expressions.
-- **Face Rig: ON/OFF**: Toggles whether GUI armature bone movement is applied to DNA blend shapes/joints in real time.
-![metabridge_dna03.png](assets/metabridge_dna03.png)
-<br>
-<br>
+**Head Rotation (Experimental):**
+- Turns on head turning/tilting/nodding, driven by the same iPhone data.
+- Requires the body's **Rigify** rig to be set up first, with **Apply Retarget** and **Link Head Rig** both done (see the Rigify section below). The panel will tell you if this hasn't been done yet.
+- If the head turns the wrong way on some axis, use the **Invert Pitch / Yaw / Roll** buttons to flip it.
+- While a live head-rotation signal is coming in, you can't manually pose the head bone by hand — click **Disconnect** first if you need to.
 
-### 3. Rigify Body Control Rig
-Requires the Rigify addon to be enabled (`Edit > Preferences > Add-ons > Rigging: Rigify`).
-
-1. **1. Build Meta-Rig**: Generates a Rigify meta-rig (draft skeleton) matching the body skeleton. You can manually adjust bone positions after generation if needed.
-2. **2. Generate Rigify Rig**: Generates the actual FK/IK control rig from the meta-rig.
-3. **3. Apply Retarget**: Connects the generated control rig so it actually drives the MetaHuman body. (**Warning**: if the meta-rig is positioned incorrectly, the mesh can break — verify the rig is correctly placed after step 2 before applying.)
-   - **Remove Retarget**: Disconnects it.
-4. **Link Head Rig** (shown after Retarget is applied): Connects the head rig to the body control rig so both move as one rig.
-   - **Unlink Head Rig**: Disconnects it.
-5. **Remove Rigify Rig**: Removes all generated Rigify objects/constraints.
-![metabridge_dna04.png](assets/metabridge_dna04.png)
-<br>
-<br>
-
-### 4. DNA RC Inspector
-A tool for checking/editing how DNA raw control channels are connected to GUI bones.
-
-- **View (DNA RC View / Bone View)**: Switch between browsing by DNA channel or by GUI bone.
-- **Search box / Show filter (All / Mapped / Unmapped)**: Search by name, or filter to only connected / only unconnected entries.
-- **Per page**: Number of rows shown per page.
-- **Re-Auto Link**: Automatically reconnects channels to bones based on naming rules.
-- **Clear All**: Clears all manually configured connections.
-- **Print Full Map**: Prints the full mapping to the console.
-- Each row: **Connect / Change Bone** (connect or change), the gear icon (bone detail popup), and **X** (disconnect a manual link) manage each channel individually.
-![metabridge_dna05.png](assets/metabridge_dna05.png)
-<br>
-<br>
+**Troubleshooting:**
+- **Nothing moves at all, even though slider values are changing:** check for a red **Apply error** message in the panel, and make sure the correct character is Activated.
+- **The face looks slightly "off" even at rest** (eyes look a bit closed, mouth looks a bit open, etc.): this is usually the phone's tracking being a little uncalibrated for your face/lighting. Try the **Calibrate** feature inside the Live Link Face app first (hold a relaxed, neutral face and tap Calibrate), then fine-tune with Deadzone/Gain if needed.
+- **A specific expression looks strange only when moved by itself, all the way to maximum:** many MetaHuman expressions are designed to look natural only when combined with other expressions, the way a real face would. This is expected — it's rarely an issue once you're driving the face live or blending several sliders together.
 
 ---
 
-## Extended Features (Sub-Panels)
+## 5. Rigify Body Control Rig
 
-Collapsible sub-panels below the main panel. Click the arrow to expand.
+Turns the MetaHuman body into a fully animatable rig, so you can pose/animate the body the same way you would any Rigify character.
 
-### DNA Validation — `dna_validate.py`
-- **Validate DNA File...**: Checks a `.dna` file and reports corruption / signature errors / parse failures / RigLogic init failures separately, and prints joint/mesh/blend shape/LOD counts to the console.
-- **Validate Active Slot**: Validates both the head and body DNA files of the active slot in one go.
-- On a load failure, a specific reason is now shown instead of the generic "Invalid DNA file".
+Requires the **Rigify** addon to be enabled first (`Edit > Preferences > Add-ons`, search for "Rigify").
 
-### Pose Reset — `reset_pose.py`
-- **Reset All Controls**: Resets all facial controls of the active slot back to neutral (no expression).
-- **Reset Selected (Pose Mode)**: In Pose Mode, resets only the selected control bones.
-
-### Expression Presets — `pose_presets.py`
-- **Storage format/location**: Presets are JSON files, one file per preset, saved in a folder.
-  Format: `{"bones": {"<bone name>": [x, y, z]}}` — only non-zero control positions are recorded, keeping presets portable across characters.
-- **Save Current Expression**: Overwrites the preset currently selected in the dropdown with the current expression. (Confirms before saving; disabled if no preset is selected.)
-- **Save As Current Expression...**: Opens a file save dialog to save under a new file name. The save location is shown directly; the default location is the current preset folder.
-- Select a preset from the dropdown, then **Apply Preset**: instead of snapping instantly, adds it as a slider to the **Preset Sliders** list below (starting at 1.0 so the expression shows immediately). The slider moves an existing GUI board control bone directly - it does not create a shape key.
-- **Import...**: Pick a preset `.json` file from anywhere and copy it into the presets folder, adding it to the list. (Includes format validation.)
-- **Set Folder...**: Choose the folder used to save/list presets. The chosen folder is saved in the addon config and persists across restarts; picking the addon's own default presets folder again resets it to default. The current folder is shown at the bottom of the panel.
-- **Window icon button**: Opens the current presets folder in the file browser. Files dropped in directly are picked up automatically.
-- Trash icon: deletes the selected preset.
-
-#### Preset Sliders (blend multiple presets) — `preset_sliders.py` (sub-panel of Expression Presets, up to 100 entries)
-- Every time **Apply Preset** is clicked, a row (preset name + a 0-1 slider) is added to this list (if the preset already has a row, its value is just reset to 1.0). The initial value is 1.0, so the expression shows immediately.
-- **Add All From Active Folder**: Registers every preset in the currently selected presets folder as a slider in one go. These start at **0.0 (neutral)** — stacking dozens of presets at 1.0 simultaneously would produce a chaotic expression, so the intent is to register everything and then dial up only the ones you need. Presets already in the list are skipped.
-- A slider's value directly interpolates GUI board control bone positions between **Basis (0, neutral) and the saved preset pose (1, fully applied)**. No new shape key is created - it only moves the control bones that already exist, by that proportion.
-- Multiple sliders with a value above 0 at the same time blend additively per bone (e.g. a smile preset at 0.6 plus an eyebrow preset at 0.4, simultaneously).
-- You don't need to worry about the control bones' physical travel limit (±0.01, corresponding to a raw control value of 1.0) - since the saved preset values already respect that range, a slider at 1.0 exactly reproduces the pose as it was saved.
-- Each row's **X** button removes it individually; **Clear All Sliders** removes all of them and returns to the neutral pose.
-- Each slider is a regular Blender property, so it can be **keyframed and animated**. A handler is registered to recompute the blend every frame during animation playback and timeline scrubbing too, so it behaves identically to interactive dragging.
-![metabridge_dna06.png](assets/metabridge_dna06.png)
-<br>
-<br>
-#### External Preset Converter — `preset_convert.py` (sub-panel of Expression Presets)
-- **Convert & Import (Maya/Houdini)...**: Imports a JSON preset saved from Maya/Houdini, converting its bone names.
-  - Supported input formats: `{"bones": {...}}`, `{"controls": {...}}`, a flat dictionary `{"<name>": [x,y,z]}`, or `{"<name>": value}` (a single value is treated as the Y axis)
-  - Automatic matching order: ① user mapping file → ② exact match → ③ case-insensitive → ④ normalized comparison (strips the `rig:` namespace / `|` DAG path prefix, removes special characters) → ⑤ unique suffix/substring match
-  - **Value Scale** option: if the source values are in the -1..1 range, enter 0.01 to match the GUI board's travel amount.
-- **Names that failed to match** are automatically recorded in `name_mapping.json` as `"<source name>": ""`. Use the **Edit Name Mapping** button to open the file, fill in the target bone names, and re-import - that mapping is then applied first.
-- Detailed conversion results (matched/failed lists) are printed to the console.
-- **Convert ARKit Payload...**: Reads an ARKit remap payload JSON (the `arkit52` target/weight list) and generates one GUI board pose preset per ARKit target (JawOpen, BrowDownLeft, etc.).
-  - Reverse-looks-up source names like `ctrl_expressions_jawopen` against gui_mapping.json's `rc_names` to convert them into a bone + axis direction, and converts weights into board travel amounts (±0.01).
-  - Tiny weights below **Min Weight** (default 0.05) are excluded. Generated/skipped/unmatched details are printed to the console.
-
-### Animation Baker — `anim_baker.py`
-- Keyframe the GUI board bones first, then run **Bake Face Animation** to evaluate the whole frame range and bake the result into keyframes on the head rig bones and shape keys.
-- Options: frame range/step, bake bones, bake shape keys, auto-turn-off Face Rig after baking (so the timer doesn't overwrite the baked keys).
-- **Clear Baked Animation**: Removes the baked action.
-
-### Export (DNA / FBX / glTF) — `exporter.py`
-DNA saving and FBX/glTF export are unified into one panel.
-
-- **DNA (.dna)**: Only **Head / Body** buttons (no "Full" - head.dna and body.dna are always separate files by nature, so they can't be combined into one). Each button opens a file save dialog where you can set the location and file name directly, and vertex edits made in Blender are saved along with it.
-- **FBX / glTF**: Each format has **Full / Head / Body** buttons to export everything together or head/body separately. The file save dialog's options let you toggle Head/Body, whether to include the GUI board (excluded by default), and whether to include animation. `_Head`/`_Body` is appended to the file name automatically.
-
-### Batch Tools — `batch_ops.py`
-- **Assemble All Characters**: Assembles every scanned character into its own slot in one go. (Options to skip already-assembled characters and to cap the maximum count.)
-- **Export All Slots**: Batch-exports every assembled slot to a chosen folder as FBX/glTF.
+**Steps, in order:**
+1. **Build Meta-Rig** — creates a draft skeleton matching the body.
+2. **Generate Rigify Rig** — turns the draft into a real, posable control rig.
+3. **Apply Retarget** — connects the control rig so it actually drives the MetaHuman body.
+   > ⚠️ If the draft skeleton from step 1 wasn't positioned correctly, this can distort the mesh. Check that everything looks right after step 2, before applying.
+4. **Link Head Rig** — connects the head so it moves together with the body (e.g. when the body/neck turns, the head follows).
+5. **Remove Rigify Rig** removes everything from steps 1-4 if you need to start over.
 
 ---
 
-## LOD — `lod_manager.py`
-- **Location**: The **LOD** slider right below the Head/Body/Textures toggles in the MetaHuman Assembler section at the top of the main panel.
-- **Applied on load**: When you Assemble the DNA, the **mesh** is built at the configured LOD and RigLogic is initialized at the same LOD. Per-slot LOD is automatically restored after saving and reopening the file.
-- **Changing the mesh**: To switch an already-assembled character's mesh to a different LOD, change the LOD value and click **Re-Assemble**. A warning is shown if the slider value differs from the mesh's current LOD.
-- **Immediate effect (evaluation only)**: Changing the slider value immediately switches the active slot's RigLogic evaluation LOD. Switching slots syncs the slider to that slot's LOD.
-- LOD 0 = highest detail; higher numbers mean lower polygon count.
+## 6. Exporting
+
+One panel handles both saving DNA files and exporting to other formats.
+
+- **DNA**: separate **Head** and **Body** buttons (there's no combined "Full" option, since head and body are always saved as two separate `.dna` files). Any edits you made in Blender are included.
+- **FBX / glTF**: **Full / Head / Body** buttons. You can choose whether to include the control rig and animation in the export dialog.
+
+**Batch Tools** (for handling many characters at once):
+- **Assemble All Characters** — loads every character found in your folder in one go.
+- **Export All Slots** — exports every loaded character at once.
+
+---
+
+## 7. Other Useful Tools
+
+- **DNA RC Inspector**: shows how the control bones are connected to the character's underlying DNA data. Most people won't need to touch this — it's mainly for troubleshooting a specific control that isn't working.
+- **DNA Validation**: checks whether a `.dna` file is valid/undamaged before you try to use it.
+- **Pose Reset**: instantly resets the face back to neutral.
+- **Animation Baker**: turns your live/keyframed facial performance into a permanent, exportable animation (useful before exporting to FBX/glTF, since some programs don't support the same live-driving setup Blender uses).
+
+---
+
+## Quick Tips
+
+- **LOD 0** is always the highest quality — use it unless you need better performance.
+- You can combine **live ARKit tracking** with **manual Preset Sliders** — if the live tracking doesn't get an expression quite right, just nudge the corresponding slider by hand afterward.
+- If something that used to work suddenly doesn't move at all, it's often because **Face Rig** or the character's **Rig ON/OFF** got switched off by accident — check those first.
