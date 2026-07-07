@@ -21,6 +21,8 @@ Everything is in one place: open the **N panel** on the right side of the 3D Vie
 
 This is the first thing you do — it's at the very top of the panel.
 
+![metabridge_img01.gif](assets/metabridge_img01.gif)
+
 **Steps:**
 
 1. Click the folder icon and pick the folder that contains your MetaHuman characters.
