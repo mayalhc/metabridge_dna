@@ -21,8 +21,6 @@ Everything is in one place: open the **N panel** on the right side of the 3D Vie
 
 This is the first thing you do — it's at the very top of the panel.
 
-![metabridge_img01.gif](assets/metabridge_img01.gif)
-
 **Steps:**
 
 1. Click the folder icon and pick the folder that contains your MetaHuman characters.
@@ -31,6 +29,7 @@ This is the first thing you do — it's at the very top of the panel.
 4. Pick a **LOD** level (0 = highest quality, higher numbers = lighter/faster).
 5. Click **Assemble**.
 
+![metabridge_img01.gif](assets/metabridge_img01.gif)
 **Good to know:**
 
 - You can load more than one character — click **New** to add another one as a separate slot.
@@ -49,6 +48,7 @@ This is the first thing you do — it's at the very top of the panel.
 2. Turn **Face Rig: ON**.
 3. Select the GUIArmature in the viewport, go into **Pose Mode**, and move its bones. The face updates live as you move them.
 
+![metabridge_img02.gif](assets/metabridge_img02.gif)
 **Good to know:**
 
 - You're never editing shape keys directly — you're only moving control bones, and the character's face updates itself.
@@ -78,6 +78,8 @@ Instead of posing a face from scratch every time, save an expression once and re
 - **Add All From Active Folder** loads every preset in your current folder as a slider, all starting at 0 — handy for building a combined expression from scratch by dialing several up together.
 - The **X** button removes one slider; **Clear All Sliders** resets everything back to neutral.
 - Sliders are normal Blender properties, so you can keyframe and animate them like anything else.
+
+![metabridge_img04.gif](assets/metabridge_img04.gif)
 
 **Good to know:**
 
@@ -147,6 +149,7 @@ Requires the **Rigify** addon to be enabled first (`Edit > Preferences > Add-ons
 4. **Link Head Rig** — connects the head so it moves together with the body (e.g. when the body/neck turns, the head follows).
 5. **Remove Rigify Rig** removes everything from steps 1-4 if you need to start over.
 
+![metabridge_img03.gif](assets/metabridge_img03.gif)
 ---
 
 ## 6. Exporting
