@@ -14,7 +14,7 @@ With it you can:
 - Export everything back to DNA, FBX, or glTF
 
 Everything is in one place: open the **N panel** on the right side of the 3D Viewport, and look for the **MetaBridge DNA** tab.
-
+![metabridge_dna01.png](assets/metabridge_dna01.png)
 ---
 
 ## 1. Loading a Character
