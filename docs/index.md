@@ -4,8 +4,7 @@
 
 MetaBridge DNA lets you bring Epic Games **MetaHuman** characters into Blender, pose their faces in real time, and export them back out.
 
-[![MetaBridge DNA](https://youtube.com)](https://youtu.be/rnNuLmuO7JE)
-
+[![MetaBridge DNA](https://youtube.com)](https://youtu.be)
 
 With it you can:
 
