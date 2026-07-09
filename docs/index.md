@@ -1,5 +1,14 @@
 # MetaBridge DNA — User Guide
 
+## What's New
+
+**v1.3.0 — Body Correctives & auto-reconnect**
+- **Body Correctives**: the body rig now automatically adds realistic secondary deformation (shoulder/hip muscle bulge, limb twist correction) as you pose it — powered by data already built into the character's own DNA file, no extra setup needed.
+- **Manual fine-tuning (RBF Controllers)**: hand-adjust specific spots with small helper bones and blend sliders, for extra polish beyond the automatic result.
+- **The body rig now reconnects itself automatically** when you reopen a saved file — no more re-clicking Apply Retarget every time.
+
+---
+
 ## What is this addon?
 
 MetaBridge DNA lets you bring Epic Games **MetaHuman** characters into Blender, pose their faces in real time, and export them back out.
@@ -157,6 +166,30 @@ Requires the **Rigify** addon to be enabled first (`Edit > Preferences > Add-ons
 5. **Remove Rigify Rig** removes everything from steps 1-4 if you need to start over.
 
 ![metabridge_img03.gif](assets/metabridge_img03.gif)
+
+**Body Correctives — automatic muscle & twist detail**
+
+Once Apply Retarget is done, the body rig automatically adds secondary detail as you pose it — shoulder blade movement, muscle bulge, limb twist and similar corrections — using deformation data already built into the character's own DNA file. No setup needed; it just works.
+
+- **Body Correctives RBF: ON/OFF** — toggles the most detailed layer of correction. Leave it **ON** for the most realistic result. Some poses may look slightly different with it off, but basic twist/muscle correction stays active either way.
+- If a character's DNA doesn't include this data, the button shows **"none in this DNA"** and is grayed out — nothing to do there.
+
+**Fine-tuning by hand (RBF Controllers)**
+
+For the rare spot that needs a manual touch-up beyond the automatic result:
+
+1. In **Pose Mode**, select the control bone for the area you want to adjust (e.g. `shoulder.L`).
+2. Click **Show RBF Controls** — small diamond-shaped helper bones appear, only for that area.
+3. Move or rotate a helper bone by hand to nudge the correction.
+4. In the **Active RBF Controllers** list, drag each bone's slider (0–1) to set exactly how much of your hand-adjustment gets blended in — 0 keeps the automatic result untouched, 1 applies your edit in full.
+5. Click **Hide** when you're done to tidy the viewport back up.
+
+> Hand-adjustments are added *on top of* the automatic correction — an untouched helper bone (or a slider left at 0) never changes the automatic result, so it's always safe to experiment.
+
+**Good to know:**
+
+- Once Apply Retarget and Link Head Rig are set up, that connection is saved with your file — reopening it later just works, no need to press Apply Retarget again.
+
 ---
 
 ## 6. Exporting
