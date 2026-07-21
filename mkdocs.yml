@@ -30,7 +30,7 @@ extra_css:
 
 # 네비게이션 (메뉴 구조)
 nav:
-  - MetaBridgeForge Guide:
+  - MetaBridge DNA Guide:
     - "Welcome to MetaBridge DNA": index.md # 상위 메뉴 클릭 시 바로 보일 파일
     - "Strategy & Pipeline": groomforge.md
 #   - "Workflow": workflow.md
