@@ -1,7 +1,7 @@
 # MetaBridge DNA — User Guide
 
 <div align="center">
-  <iframe width="640" height="360" src="https://youtu.be/4FGSyQCPH8Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <iframe width="640" height="360" src="https://youtube.com/4FGSyQCPH8Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
 
 
