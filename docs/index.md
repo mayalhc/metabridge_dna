@@ -193,6 +193,7 @@ Requires the **Rigify** addon to be enabled first (`Edit > Preferences > Add-ons
 5. **Remove Rigify Rig** removes everything from steps 1–4 if you need to start over.
 
 **Additional Options**
+![Rigify_IK.gif](assets/Rigify_IK.gif)
 
 A collapsed section below **Remove Rigify Rig**, holding two switches you rarely need to touch:
 
@@ -281,18 +282,18 @@ The button is greyed out while the control rig is connected to this character, b
 ---
 
 ## 6. Body Blend (experimental)
+![Body_blend.gif](assets/Body_blend.gif)
 
 Combine two or more MetaHuman body types — and their matching heads — into a brand-new blended character. Found in its own **Body Blend (experimental)** panel, collapsed by default.
 
 **Adding sources:**
-
 - **Use Base DNA** — adds the addon's own reference character from the `base_dna/` folder.
 - **Add Folder...** — adds every character in a folder at once. **This is how you build a library.** See below.
 - **Add Body DNA** — add one specific `.dna` file by hand.
 - **Load Library...** — load a compact archetype library and add every archetype in it as a source.
 
 **Add Folder... — building a library**
-
+![Body_blend02.gif](assets/Body_blend02.gif)
 Point this at a folder holding **the original `.dna` files of several characters**, with each character's head and body sitting side by side:
 
 ```
@@ -361,7 +362,7 @@ Attach clothing (FBX) and hair/grooms (Alembic `.abc`) to the *active* character
 There are two ways to dress a character: import a **clothing FBX** built for a MetaHuman skeleton, or **rig any mesh already in your scene** yourself. Both end up following the character the same way afterward.
 
 **Clothing (FBX):**
-
+![cloth_FBX.gif](assets/cloth_FBX.gif)
 - **Top... / Bottom... / Full...** — import a MetaHuman-compatible clothing `.fbx` and attach it to the body, tagged with that category.
 - **Head Accessory...** — same idea, for things that attach to the head instead (glasses, earrings, ...).
 - **Retarget To Body Proportions** (on by default): fits the garment to this character's own proportions instead of the body it was originally made for — without going skin-tight, so a loose shirt stays loose.
@@ -371,7 +372,7 @@ There are two ways to dress a character: import a **clothing FBX** built for a M
 - **LOD0 only**: if the FBX bundles multiple LODs, only LOD0 is kept.
 
 **Scene Mesh Garment (Make + Bind):**
-
+![scene_garment.gif](assets/scene_garment.gif)
 For a mesh already in your scene that doesn't have a MetaHuman skeleton of its own.
 
 1. Select the garment mesh and click **Make Top / Bottom / Full / Shoes / Gloves / Head Acc** — this fits it to the character and rigs it to move with the character's skeleton. Works best on a garment already modeled to roughly fit the character.
@@ -392,7 +393,7 @@ If deformation looks off in an extreme pose at a tight spot (armpits, between th
 ---
 
 ## 8. Live Corrective Sculpting (Beta)
-
+![Live_corrective.gif](assets/Live_corrective.gif)
 **Beta** — a correction sculpted with only one pose holds steady if you pose further than that; sculpt more than one pose for the same correction if you want it to keep changing shape further into the pose. Head corrections can be written back into the character's `.dna` and used in Unreal — see **Sending a correction to Unreal** below. Body corrections stay inside Blender.
 
 Pose the character, then sculpt directly on top of that pose — the sculpt becomes a correction that fades in and out automatically from then on, every time the character moves toward and away from that pose. No keyframing needed. Works on both the face and the body, and automatically carries over to any clothing worn on the character.
@@ -436,7 +437,7 @@ Use the **Write to DNA (head only)** box. It writes a new `.dna` file and leaves
 There are two ways to do it.
 
 ### Fixing an expression that breaks — Export Edited Shape Keys
-
+![export_shapekey.gif](assets/export_shapekey.gif)
 This is the one to use when a face folds, spikes or collapses on a particular expression. You fix the character's own expression by hand and send that fix back into the `.dna`.
 
 1. **Make the expression with the face controls.** Move the controls until the problem is on screen — for example open the jaw until the mesh breaks.
