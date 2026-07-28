@@ -1,6 +1,53 @@
 # MetaBridge DNA — User Guide
 
+<div align="center">
+  <iframe width="640" height="360" src="https://youtu.be/4FGSyQCPH8Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
+
 ## What's New
+
+**v1.9.0 — Send corrections to Unreal, spine rebuild, face correction fixes**
+
+*Write to DNA (NEW)*
+
+- **NEW: Write to DNA** — a correction made on the head can now be written back into the character's `.dna` file and used in Unreal. Sculpted corrections are no longer Blender-only. See [section 8](#8-live-corrective-sculpting-beta).
+- **NEW: Export Edited Shape Keys** — pick one of the character's own expressions, sculpt it directly, and send the fixed expression back to the `.dna`.
+- **NEW: Bake All Correctives** — send every assigned correction in one click. Sending them one at a time used to keep only the last one.
+- A sculpt that spreads beyond the area the original expression covered is now written in full instead of being trimmed at the edges.
+
+*Live Corrective Sculpting*
+
+- **NEW: Head Driver Bone** — a face correction can now be triggered by a head bone as well as by the expression controls. This is what fixes a custom head that breaks when the controls move.
+- **NEW: Set Neutral** — teaches a correction where the character's rest position actually is, so it settles back to 0 instead of holding a leftover value.
+- Face corrections now play back on their own. They previously worked only in Manual mode.
+- Fixed a correction sculpted on a posed face being applied twice, making the expression too strong when sent to the `.dna`.
+- Corrections no longer take a long pause on a full-resolution head.
+
+*Sharing files with other people*
+
+- **NEW: Relink DNA** — opening a `.blend` someone else saved used to leave the character sitting there doing nothing, with no explanation. The character now says which `.dna` file it can't find and gives you a button to point it at the file on your own machine.
+- Your settings (the MetaHumans folder you last used, and so on) are now kept in one place per user instead of inside the addon folder. They survive updating the addon, they follow you between Blender versions, and they are never handed out with a copy of the addon.
+
+*Rigify body rig*
+
+- **NEW: Finger IK** — pose a finger by dragging a target at its fingertip instead of rotating each joint one at a time. All ten fingers, on a rig that normally has no finger IK at all. Each finger has its own slider, so a hand can hold a prop with some fingers planted on it and the rest posed by hand, and a finger can ease into a contact instead of popping onto it. Off by default, in **Additional Options**.
+- The spine now matches the MetaHuman skeleton, so the chest and spine controls turn the body from the right place instead of pushing it off to the side.
+- Fixed the wrist bending when the torso is rotated.
+- **NEW: Heel Pivot ON/OFF button** — rotating the foot control upward no longer pulls the foot away from the controller. Heel pivot is off by default and can be switched on when you want it.
+- **IK Stretch** and **Heel Pivot** moved into a collapsible **Additional Options** section below **Remove Rigify Rig**, out of the way of the main build steps.
+
+**v1.7.1 — Rigify leg/foot polish**
+
+*Rigify body rig*
+
+- Legs and arms no longer stretch when moving the IK foot/hand controls.
+- The toe control no longer drifts or bends the foot oddly when moving or rotating the foot control.
+- **NEW**: rotating the foot spin control backward now lifts the toe naturally, pivoting from the heel.
+- **NEW: IK Stretch ON/OFF button**, next to Generate Rigify Rig — switch limb stretching back on any time you want it, or leave it off (the new default) for rigid, non-stretchy limbs.
+- Fixed the knee not straightening fully when the foot had heel-roll applied and the foot control was pulled out.
+- Fixed the fingertip and toe bones (and their controllers) being generated bent 90° when building the meta-rig.
+- **NEW**: once a leg is fully extended, pulling the foot control further automatically rolls the heel up (foot goes on tiptoe), and pulling further still un-curls the toes onto their tips — both add on top of manual foot-roll/toe control.
 
 **v1.7.0 — Live Corrective Sculpting**
 
@@ -138,7 +185,7 @@ Instead of posing a face from scratch every time, save an expression once and re
 **Using a preset:**
 
 1. Pick a preset from the dropdown.
-2. Click **Apply Preset** — it's added to the **Preset Sliders** list, already turned on.
+2. Click **Apply Preset** — it appears in the **Active Sliders** list just below, already turned on.
 3. Drag its slider between 0 (no expression) and 1 (full expression).
 
 **Blending multiple expressions:**
@@ -215,6 +262,53 @@ Requires the **Rigify** addon to be enabled first (`Edit > Preferences > Add-ons
 4. **Link Head Rig** — connects the head so it moves with the body.
 5. **Remove Rigify Rig** removes everything from steps 1–4 if you need to start over.
 
+**Additional Options**
+
+A collapsed section below **Remove Rigify Rig**, holding two switches you rarely need to touch:
+
+- **IK Stretch ON/OFF** — off by default, so limbs stay rigid. Turn it on if you want the arms and legs to stretch when you pull the IK controls past full reach.
+- **Heel Pivot ON/OFF** — off by default. On, rotating the foot spin control pivots the foot around the heel; this also makes the foot drift away from its controller as you rotate it upward, so leave it off unless you specifically want heel pivoting.
+- **Finger IK ON/OFF** — off by default. See below.
+
+**Finger IK**
+
+Normally each finger joint has to be rotated one at a time. With Finger IK on, each finger gets a target at its fingertip — drag the target and the whole finger follows. Much faster for gripping a prop, planting a hand on a surface, or shaping a pose.
+
+Rigify has no finger IK of its own, so this is added by this addon. All ten fingers are covered, thumbs included.
+
+1. Turn on **Finger IK** in **Additional Options**. Ten small box controls appear at the fingertips.
+2. In **Pose Mode**, drag a fingertip control. That finger bends to reach it, and no other finger moves.
+3. Turn it off to go back to rotating the joints by hand.
+
+**Per-finger sliders**
+
+Under the button there is a slider for each of the ten fingers: **0** poses that finger by rotating its joints, **1** makes it follow its fingertip target. The ON/OFF button just sets all ten at once.
+
+This is what makes the feature useful for real hand animation:
+
+- **Holding a prop** — put the fingers touching the object on 1 so they stay planted while the wrist moves, and leave the fingers in the air on 0 where hand-posed arcs look better. The thumb usually wants its own setting.
+- **Easing into a contact** — a value in between blends the two. Keyframe a finger from 0 to 1 over a few frames as the hand lands on a surface and it settles into place instead of popping.
+- **Backing off one bad finger** — if one finger bends oddly, drop just that slider instead of turning the whole hand back to FK.
+
+**Switching without losing the pose — IK to FK / FK to IK**
+
+The two sliders hold two separate poses, so moving a slider swaps between them rather than carrying one across. These two buttons carry it across:
+
+- **IK to FK** — keeps the pose you built with the fingertip targets, hands it to the joint controls, and switches all ten fingers to 0. The fingers do not move. Use this once you're happy with an IK pose and want to keep refining it joint by joint, or before keyframing in FK.
+- **FK to IK** — keeps the pose you built by hand, moves the fingertip targets onto it, and switches all ten fingers to 1. Again nothing moves. Use this when a hand you posed by hand now needs to hold onto something.
+
+Both work on all ten fingers at once, and both are safe to press repeatedly.
+
+**Good to know:**
+
+- Switching it on keeps the fingers exactly where they already were — nothing jumps.
+- Switching it off leaves the pose exactly as it was too, so you can move back and forth freely.
+- The fingertip targets follow the hand, so posing the arm keeps the finger pose intact.
+- **Snap Fingertip Targets to Pose** moves all ten targets onto wherever the fingers are right now, without changing the pose. You need it when a slider sits between 0 and 1 — the finger is then somewhere between its two results and no longer touching its target — or after loading an animation.
+- Lowering a slider by hand does **not** keep the IK pose. The joint controls still hold whatever they held before, so the finger springs back to that. Use **IK to FK** instead — see below.
+- There is no elbow-style direction control for fingers, so the solver picks which way a finger bends. It follows the joints sensibly for normal poses, but pulling a target far sideways can twist the finger oddly. Lower that finger's slider if it does.
+- With Finger IK off, the rig behaves exactly like stock Rigify — the finger master curl and the individual joint controls work as usual.
+
 ![metabridge_img03.gif](assets/metabridge_img03.gif)
 
 **Body Correctives — automatic muscle & twist detail**
@@ -228,8 +322,10 @@ Once Apply Retarget is done, the body rig automatically adds secondary deformati
 
 For spots that need a manual touch-up beyond the automatic result:
 
-1. In **Pose Mode**, select the control bone for the area you want to adjust (e.g. `shoulder.L`).
+1. Pick the joint you want from the **Driver Bone** list, or leave it on **Auto** and select a control in **Pose Mode** (e.g. `shoulder.L`).
 2. Click **Show RBF Controls** — small diamond-shaped helper bones appear for that area.
+
+> Use the **Driver Bone** list for the knee. Its correctives belong to `calf_l` / `calf_r`, and while a leg is on IK there is no control you can select that points at those, so **Auto** finds nothing there.
 3. Adjust the **influence slider** (0–1) per bone in the **Active RBF Controllers** list:
    - `0` = automatic corrective **off** (bone stays at rest/neutral)
    - `1` = automatic corrective **fully applied** (default)
@@ -245,7 +341,7 @@ Apply a MetaHuman animation exported from Unreal (FBX) straight onto this charac
 1. Click **Import FBX Animation...** and pick the `.fbx` file.
 2. Both the body and head are keyframed with the retargeted animation.
 
-- If this character has an active Rigify **Apply Retarget** set up, turn it off first — otherwise the control rig keeps overriding the imported animation and you won't see it play.
+The button is greyed out while the control rig is connected to this character, because the rig would overwrite the imported animation every frame. Click **Remove Retarget** (and **Unlink Head Rig**) above, then import. Hover the greyed-out button to see this reminder.
 
 **Good to know:**
 
@@ -261,9 +357,29 @@ Combine two or more MetaHuman body types — and their matching heads — into a
 **Adding sources:**
 
 - **Use Base DNA** — adds the addon's own reference character from the `base_dna/` folder.
-- **Add Folder...** — scans a folder for `*_Body.dna` files and adds every one it finds.
+- **Add Folder...** — adds every character in a folder at once. **This is how you build a library.** See below.
 - **Add Body DNA** — add one specific `.dna` file by hand.
 - **Load Library...** — load a compact archetype library and add every archetype in it as a source.
+
+**Add Folder... — building a library**
+
+Point this at a folder holding **the original `.dna` files of several characters**, with each character's head and body sitting side by side:
+
+```
+MyBodies\
+   Boy01_body.dna    Boy01_head.dna
+   Boy02_body.dna    Boy02_head.dna
+   Boy03_body.dna    Boy03_head.dna
+   ...
+```
+
+Every character in that folder is added in one click, and each body is paired with its own head automatically. That folder is now your library — collect the characters you blend with into one place and you can load them all whenever you start a new blend.
+
+**Important:**
+
+- Both files must be in the **same folder**, named so they match (`Name_body.dna` and `Name_head.dna`). A body with no matching head is still added, but it can only contribute a body shape.
+- Only the folder you pick is read — characters in **sub-folders are not** included. Point it at the folder that directly holds the `.dna` files.
+- The addon's own `base_dna/` folder holds a single reference character, so picking it adds only that one. That is expected — use **Use Base DNA** for it instead.
 
 Weights don't need to add up to anything in particular — they're normalized automatically. **Use Base DNA** starts at `1.0`; all other sources start at `0.0`.
 
@@ -347,7 +463,7 @@ If deformation looks off in an extreme pose at a tight spot (armpits, between th
 
 ## 8. Live Corrective Sculpting (Beta)
 
-**Beta** — a correction sculpted with only one pose holds steady if you pose further than that; sculpt more than one pose for the same correction if you want it to keep changing shape further into the pose. Sculpted corrections stay inside Blender only — they don't currently export back out to Unreal or other tools.
+**Beta** — a correction sculpted with only one pose holds steady if you pose further than that; sculpt more than one pose for the same correction if you want it to keep changing shape further into the pose. Head corrections can be written back into the character's `.dna` and used in Unreal — see **Sending a correction to Unreal** below. Body corrections stay inside Blender.
 
 Pose the character, then sculpt directly on top of that pose — the sculpt becomes a correction that fades in and out automatically from then on, every time the character moves toward and away from that pose. No keyframing needed. Works on both the face and the body, and automatically carries over to any clothing worn on the character.
 
@@ -357,9 +473,14 @@ Pose the character, then sculpt directly on top of that pose — the sculpt beco
 2. Pose the character the way you want to fix or add detail to (a bent elbow, a stretched shoulder, an expression...).
 3. Type a name for the correction in the **Corrective** field.
 4. For a body correction, also pick which bone should trigger it from the **Body Driver Bone** list.
-5. Click **Begin (Face)** or **Begin (Body)** — this enters Sculpt Mode on a fresh shape key, already at full strength.
-6. Sculpt the correction.
-7. Click **Finish Sculpt**.
+5. For a face correction, you can also pick a **Head Driver Bone**. Do this when the character has a custom head that breaks as the controls move — the correction then follows that bone as well as the expression.
+6. Click **Begin (Face)** or **Begin (Body)** — this enters Sculpt Mode on a fresh shape key, already at full strength.
+7. Sculpt the correction.
+8. Click **Finish Sculpt**.
+
+**If a correction doesn't fade all the way out:**
+
+Return the character to its rest position and click **Set Neutral** on that correction. It then reads 0 at rest. A custom head often needs this.
 
 **Editing an existing correction:**
 
@@ -378,11 +499,45 @@ A correction sculpted on the skin automatically carries over to any clothing wor
 - **Export...** saves every correction on a character to a `.json` file.
 - **Import...** brings corrections from a file onto another character. It only works if that character has the same body/head as the one the file was exported from (built by this addon at the same LOD) — importing onto a mismatched character is rejected rather than corrupting the mesh.
 
+**Sending a correction to Unreal (head only):**
+
+Use the **Write to DNA (head only)** box. It writes a new `.dna` file and leaves the original untouched. There is no equivalent for the body — a MetaHuman body has no expression shapes to write into, so body corrections stay in Blender.
+
+There are two ways to do it.
+
+### Fixing an expression that breaks — Export Edited Shape Keys
+
+This is the one to use when a face folds, spikes or collapses on a particular expression. You fix the character's own expression by hand and send that fix back into the `.dna`.
+
+1. **Make the expression with the face controls.** Move the controls until the problem is on screen — for example open the jaw until the mesh breaks.
+
+2. **Find the shape key that expression is using.** With the head mesh selected, look at its shape key list: the ones the controls are driving are the ones whose **value is above 0**. Opening the jaw, for instance, puts a jaw shape key at **1.0**. That is the one to fix.
+
+   > Leave the face controls where they are. The shape key you are about to sculpt is only showing its shape because the controls are holding it there.
+
+3. **Sculpt it.** With that shape key active, enter **Sculpt Mode** and shape the face the way it should look. You are editing the character's own expression, not adding a new one.
+
+4. **Check it with the controls.** Leave Sculpt Mode and move the face controls through the expression again. The fix should follow the controls in and out. Keep sculpting until it does.
+
+5. **Click Export Edited Shape Keys** and save. Every expression you changed goes into the new `.dna`; the ones you didn't touch are left exactly as they were.
+
+**Good to know:**
+
+- You can fix several expressions in one session — pose, sculpt, pose the next, sculpt — and one click sends them all.
+- The button refuses to export if you haven't actually changed any of the character's expressions, so it never writes an empty file.
+- With more than one character loaded, the **active character** is the one exported — the one with the filled dot next to it in **Assembled Characters**.
+
+### Sending your own corrections
+
+Click the ⇱ button on a correction and choose which expression it should ride along with. **Bake All Correctives** then writes every assigned correction at once. Always use this rather than sending them one at a time.
+
+**In Unreal:** bring the new `.dna` in with **MetaHuman Creator ▸ From DNA**, and choose **Replace** with **Import Whole Rig** turned on. **Mesh Fit** rebuilds the expressions from scratch and will discard your edits.
+
 ---
 
 ## 9. Exporting
 
-- **DNA**: separate **Head** and **Body** buttons (head and body are always two separate `.dna` files).
+- **DNA**: separate **Head** and **Body** buttons (head and body are always two separate `.dna` files). To send a sculpted correction into the head `.dna` instead, use **Write to DNA** in [section 8](#8-live-corrective-sculpting-beta).
 - **FBX / glTF**: **Full / Head / Body** buttons. Choose whether to include the control rig and animation in the export dialog.
 
 **Batch Tools:**
@@ -392,7 +547,25 @@ A correction sculpted on the skin automatically carries over to any clothing wor
 
 ---
 
-## 10. Other Useful Tools
+## 10. Opening a File Someone Else Saved
+
+A `.blend` remembers where each character's `.dna` files were on the computer that saved it. On your machine those files are somewhere else, so the character appears but nothing about it responds.
+
+You'll see this in **MetaHuman Assembler ▸ Assembled Characters** — the character is marked with a warning instead of a checkmark, and shows the file it's looking for:
+
+> ⚠ Head DNA not found:
+> `D:\SomeoneElse\MetaHumans\Bob\head.dna`
+> **Relink Head DNA...**
+
+Click **Relink Head DNA...** (or **Relink Body DNA...**) and pick the same file on your own machine. The character comes back to life immediately, and the warning disappears. Save the file afterwards so you only do this once.
+
+If you pick the wrong file, nothing is broken — it's refused and the character stays as it was.
+
+**To avoid this when sending a file to someone**, send the `.dna` files along with the `.blend`. They still need to relink once, but they'll have the files to point at.
+
+---
+
+## 11. Other Useful Tools
 
 - **DNA RC Inspector**: shows how the control bones are connected to the character's DNA data. Mainly for troubleshooting a specific control.
 - **DNA Validation**: checks whether a `.dna` file is valid before you use it.
