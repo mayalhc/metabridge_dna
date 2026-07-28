@@ -37,76 +37,6 @@
 - **NEW: Heel Pivot ON/OFF button** — rotating the foot control upward no longer pulls the foot away from the controller. Heel pivot is off by default and can be switched on when you want it.
 - **IK Stretch** and **Heel Pivot** moved into a collapsible **Additional Options** section below **Remove Rigify Rig**, out of the way of the main build steps.
 
-**v1.7.1 — Rigify leg/foot polish**
-
-*Rigify body rig*
-
-- Legs and arms no longer stretch when moving the IK foot/hand controls.
-- The toe control no longer drifts or bends the foot oddly when moving or rotating the foot control.
-- **NEW**: rotating the foot spin control backward now lifts the toe naturally, pivoting from the heel.
-- **NEW: IK Stretch ON/OFF button**, next to Generate Rigify Rig — switch limb stretching back on any time you want it, or leave it off (the new default) for rigid, non-stretchy limbs.
-- Fixed the knee not straightening fully when the foot had heel-roll applied and the foot control was pulled out.
-- Fixed the fingertip and toe bones (and their controllers) being generated bent 90° when building the meta-rig.
-- **NEW**: once a leg is fully extended, pulling the foot control further automatically rolls the heel up (foot goes on tiptoe), and pulling further still un-curls the toes onto their tips — both add on top of manual foot-roll/toe control.
-
-**v1.7.0 — Live Corrective Sculpting**
-
-*Live Corrective Sculpting (NEW)*
-
-- **NEW: Live Corrective Sculpting panel** — pose the character, then sculpt directly on top of that pose to add or fix a shape correction (a muscle bulge on a bent arm, a wrinkle at a joint...). It plays back automatically from then on, every time the pose repeats. Works on both the face and the body. See [section 8](#8-live-corrective-sculpting-beta).
-- A correction sculpted on the skin automatically carries over to any clothing worn on the character, so a sleeve bulges along with the arm underneath it.
-- Any correction can be switched to **Manual** and adjusted by hand with a slider instead of following the pose.
-- **Export / Import** saves a sculpted correction to a file so it can be shared with another character or another user with the same body/head.
-
-**v1.6.0 — Wearables, Body Blend improvements, Rigify body rig polish**
-
-*Wearables (NEW)*
-
-- **NEW: Wearables panel** — dress a character in clothing (FBX) and hair (Alembic `.abc`). See [section 7](#7-wearables-experimental).
-- Clothing now fits properly at the collar, doesn't tear or balloon, and adapts to the character's real body shape instead of just its skeleton.
-- A **Clothing Offset** slider lets you float clothing slightly off the skin if it's clipping.
-- **NEW: rig any mesh in your scene as clothing** (Make + Bind) — no MetaHuman-compatible FBX needed. Includes shoes, gloves, and head accessories.
-- Hair now keeps its imported shape and follows the head correctly, including through Body Blend changes.
-
-*Body Blend*
-
-- **The bundled character library now has 39 bodies**: the 29 standard MetaHuman types plus **10 child bodies**.
-- Posing the face on a blended character no longer resets it to the original build.
-- **Replace** and the weight sliders now survive saving/reloading the file and reloading the addon.
-- Fixed a blend sometimes failing to build with a confusing error.
-- Blended characters now shade smoothly and have correct UVs, matching a normal Assemble.
-
-*Archetype Library*
-
-- **Export** now saves exactly the sources listed in the Body Blend panel, instead of scanning whatever folder happened to be open.
-- Loading a library replaces the previous one instead of piling up duplicate rows.
-- You can build entirely from a library — the original `.dna` files don't need to still exist.
-
-*Rigify body rig*
-
-- **NEW: Import FBX Animation (Beta)** — apply a MetaHuman animation exported from Unreal onto the body and head at once, automatically. See [section 5](#5-rigify-body-control-rig).
-- Fixed the upper body twisting incorrectly with hip movement, a floor gap at the foot, and feet dragging when the torso moves.
-- Muscle/twist correctives no longer lag a frame behind.
-- **Show RBF Controls** now always appears in the right place, even after adjusting Body Blend.
-
-*General*
-
-- Loading DNA with **Load Head DNA** / **Load Body DNA** now works with export and Wearables too.
-- **Material defaults**: drop a `material_defaults.json` next to the addon to auto-apply your preferred material look to every new character.
-- Panels are less cluttered — tips now live in this guide and in each button's tooltip.
-
-**v1.5.0 — Body Blend (experimental) + individual DNA loading**
-- **NEW: Body Blend panel** — combine two or more MetaHuman body types (and their matching heads) into a brand-new blended character, with a per-source weight slider for each.
-- **Live Preview** — dragging a weight slider updates the character on screen in real time.
-- **Replace toggle** — overwrite your last Body Blend character in place instead of adding a new slot every time.
-- **Compact archetype libraries** — pack many body/head archetypes into a single small `.json` file.
-- **Individual DNA loading restored** — **Load Head DNA...** / **Load Body DNA...** buttons are back in the main panel.
-
-**v1.3.0 — Body Correctives & auto-reconnect**
-- **Body Correctives**: realistic secondary deformation (shoulder/hip muscle bulge, limb twist correction) powered by the character's own DNA file.
-- **Manual fine-tuning (RBF Controllers)**: hand-adjust specific spots with helper bones and blend sliders.
-- **The body rig reconnects itself automatically** when you reopen a saved file.
-
 ---
 
 ## What is this addon?
@@ -580,3 +510,75 @@ If you pick the wrong file, nothing is broken — it's refused and the character
 - You can combine **live ARKit tracking** with **manual Preset Sliders** — nudge sliders by hand if the tracking doesn't quite nail an expression.
 - If something that used to work suddenly doesn't move, check that **Face Rig** or the character's **Rig ON/OFF** isn't accidentally switched off.
 - For the most realistic shoulder deformation when raising the arm, key both the arm control and the `shoulder.L/R` bone together.
+
+## Release Update Notes
+
+**v1.7.1 — Rigify leg/foot polish**
+
+*Rigify body rig*
+
+- Legs and arms no longer stretch when moving the IK foot/hand controls.
+- The toe control no longer drifts or bends the foot oddly when moving or rotating the foot control.
+- **NEW**: rotating the foot spin control backward now lifts the toe naturally, pivoting from the heel.
+- **NEW: IK Stretch ON/OFF button**, next to Generate Rigify Rig — switch limb stretching back on any time you want it, or leave it off (the new default) for rigid, non-stretchy limbs.
+- Fixed the knee not straightening fully when the foot had heel-roll applied and the foot control was pulled out.
+- Fixed the fingertip and toe bones (and their controllers) being generated bent 90° when building the meta-rig.
+- **NEW**: once a leg is fully extended, pulling the foot control further automatically rolls the heel up (foot goes on tiptoe), and pulling further still un-curls the toes onto their tips — both add on top of manual foot-roll/toe control.
+
+**v1.7.0 — Live Corrective Sculpting**
+
+*Live Corrective Sculpting (NEW)*
+
+- **NEW: Live Corrective Sculpting panel** — pose the character, then sculpt directly on top of that pose to add or fix a shape correction (a muscle bulge on a bent arm, a wrinkle at a joint...). It plays back automatically from then on, every time the pose repeats. Works on both the face and the body. See [section 8](#8-live-corrective-sculpting-beta).
+- A correction sculpted on the skin automatically carries over to any clothing worn on the character, so a sleeve bulges along with the arm underneath it.
+- Any correction can be switched to **Manual** and adjusted by hand with a slider instead of following the pose.
+- **Export / Import** saves a sculpted correction to a file so it can be shared with another character or another user with the same body/head.
+
+**v1.6.0 — Wearables, Body Blend improvements, Rigify body rig polish**
+
+*Wearables (NEW)*
+
+- **NEW: Wearables panel** — dress a character in clothing (FBX) and hair (Alembic `.abc`). See [section 7](#7-wearables-experimental).
+- Clothing now fits properly at the collar, doesn't tear or balloon, and adapts to the character's real body shape instead of just its skeleton.
+- A **Clothing Offset** slider lets you float clothing slightly off the skin if it's clipping.
+- **NEW: rig any mesh in your scene as clothing** (Make + Bind) — no MetaHuman-compatible FBX needed. Includes shoes, gloves, and head accessories.
+- Hair now keeps its imported shape and follows the head correctly, including through Body Blend changes.
+
+*Body Blend*
+
+- **The bundled character library now has 39 bodies**: the 29 standard MetaHuman types plus **10 child bodies**.
+- Posing the face on a blended character no longer resets it to the original build.
+- **Replace** and the weight sliders now survive saving/reloading the file and reloading the addon.
+- Fixed a blend sometimes failing to build with a confusing error.
+- Blended characters now shade smoothly and have correct UVs, matching a normal Assemble.
+
+*Archetype Library*
+
+- **Export** now saves exactly the sources listed in the Body Blend panel, instead of scanning whatever folder happened to be open.
+- Loading a library replaces the previous one instead of piling up duplicate rows.
+- You can build entirely from a library — the original `.dna` files don't need to still exist.
+
+*Rigify body rig*
+
+- **NEW: Import FBX Animation (Beta)** — apply a MetaHuman animation exported from Unreal onto the body and head at once, automatically. See [section 5](#5-rigify-body-control-rig).
+- Fixed the upper body twisting incorrectly with hip movement, a floor gap at the foot, and feet dragging when the torso moves.
+- Muscle/twist correctives no longer lag a frame behind.
+- **Show RBF Controls** now always appears in the right place, even after adjusting Body Blend.
+
+*General*
+
+- Loading DNA with **Load Head DNA** / **Load Body DNA** now works with export and Wearables too.
+- **Material defaults**: drop a `material_defaults.json` next to the addon to auto-apply your preferred material look to every new character.
+- Panels are less cluttered — tips now live in this guide and in each button's tooltip.
+
+**v1.5.0 — Body Blend (experimental) + individual DNA loading**
+- **NEW: Body Blend panel** — combine two or more MetaHuman body types (and their matching heads) into a brand-new blended character, with a per-source weight slider for each.
+- **Live Preview** — dragging a weight slider updates the character on screen in real time.
+- **Replace toggle** — overwrite your last Body Blend character in place instead of adding a new slot every time.
+- **Compact archetype libraries** — pack many body/head archetypes into a single small `.json` file.
+- **Individual DNA loading restored** — **Load Head DNA...** / **Load Body DNA...** buttons are back in the main panel.
+
+**v1.3.0 — Body Correctives & auto-reconnect**
+- **Body Correctives**: realistic secondary deformation (shoulder/hip muscle bulge, limb twist correction) powered by the character's own DNA file.
+- **Manual fine-tuning (RBF Controllers)**: hand-adjust specific spots with helper bones and blend sliders.
+- **The body rig reconnects itself automatically** when you reopen a saved file.
