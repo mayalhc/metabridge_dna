@@ -7,7 +7,17 @@
 
 ## What's New
 
-**v1.9.0 — Send corrections to Unreal, spine rebuild, face correction fixes**
+**v1.9.0 — Marvelous Designer round trip, send corrections to Unreal, spine rebuild, face correction fixes**
+
+*MD Live (NEW)*
+
+- **NEW: MD Live** — its own panel, next to MetaBridge DNA. Make clothes on this exact character in Marvelous Designer and bring them back already wearing. See [section 11](#11-md-live-marvelous-designer).
+- **Send Body to MD** hands the character over as the avatar. Reshape the body, press it again, and the avatar is replaced — never doubled up.
+- No import window on the Marvelous Designer side, and nothing to type in: the character simply appears.
+- **Import Garment from MD** brings the finished clothes back at the right size, fitted to the character and following the rig immediately — the same as any other clothing.
+- **Skip Stitches & Trims** leaves out the topstitch, button and zipper meshes, which carry most of a garment file's weight and none of what it needs to be worn.
+- The panel shows the garment waiting to be imported and warns you when it is large enough to take a while.
+- Sizes and the shared folder are remembered, so the setup is done once and never again.
 
 *Write to DNA (NEW)*
 
@@ -31,6 +41,7 @@
 
 *Rigify body rig*
 
+- **NEW: Blender Rigify as a retarget source** — bring an animation from a rig made with Blender's own Rigify onto this character. This addon's rig has a six-segment spine where stock Rigify has four, so the two can't simply be copied across; picking **Blender Rigify** in **Source Type** maps them properly. Works whether that animation used IK or FK. See [section 5](#5-rigify-body-control-rig).
 - **NEW: Finger IK** — pose a finger by dragging a target at its fingertip instead of rotating each joint one at a time. All ten fingers, on a rig that normally has no finger IK at all. Each finger has its own slider, so a hand can hold a prop with some fingers planted on it and the rest posed by hand, and a finger can ease into a contact instead of popping onto it. Off by default, in **Additional Options**.
 - The spine now matches the MetaHuman skeleton, so the chest and spine controls turn the body from the right place instead of pushing it off to the side.
 - Fixed the wrist bending when the torso is rotated.
@@ -274,6 +285,33 @@ Apply a MetaHuman animation exported from Unreal (FBX) straight onto this charac
 
 The button is greyed out while the control rig is connected to this character, because the rig would overwrite the imported animation every frame. Click **Remove Retarget** (and **Unlink Head Rig**) above, then import. Hover the greyed-out button to see this reminder.
 
+**Retarget Rigify Animation (Beta)**
+
+Copy an animation from another already-animated character onto this character's control rig. Use this when the animation lives on a rig rather than in an FBX file.
+
+1. Open the **Retarget Rigify Animation (Beta)** panel.
+2. **Source Rig** — the animated armature to copy from.
+3. **Source Type** — which kind of rig that is:
+
+   | Source Type | Use it for |
+   |---|---|
+   | **UE5 Mannequin** | Unreal's own mannequin |
+   | **Fortnite** | Fortnite characters (same bone names as UE5) |
+   | **MetaHuman** | another MetaHuman (same bone names as UE5) |
+   | **Mixamo** | anything downloaded from Mixamo |
+   | **Blender Rigify** | a rig made with Blender's own Rigify |
+
+4. **Target Rig** — this character's Rigify control rig.
+5. Click **Retarget**.
+
+The animation is baked onto the target's controls, corrected for the two characters having different proportions and different rest poses.
+
+**About Blender Rigify as a source:**
+
+This addon's rig is *not* identical to a stock Rigify rig — its spine has six segments where Blender's has four — so an animation cannot simply be copied across. Picking **Blender Rigify** maps the two properly.
+
+It works whether that animation was made with **IK or FK** arms and legs. You do not need to convert or bake the source rig first.
+
 **Good to know:**
 
 - Once Apply Retarget and Link Head Rig are set up, the connection is saved with your file — reopening it works without re-clicking Apply Retarget.
@@ -496,7 +534,47 @@ If you pick the wrong file, nothing is broken — it's refused and the character
 
 ---
 
-## 11. Other Useful Tools
+## 11. MD Live (Marvelous Designer)
+
+Make clothes on *this* character in Marvelous Designer, and bring them back already wearing.
+
+MD Live is its own panel in the sidebar, next to **MetaBridge DNA**.
+
+**Set up once**
+
+1. Pick a **Shared Folder** — any empty folder both programs can reach.
+2. Click **Open MD Plug-in Folder**.
+3. In Marvelous Designer: **Plug-in ▸ Plug-in Manager ▸ Add**, and choose that folder. Two new entries appear in the Plug-in menu.
+
+The folder and every setting are remembered, so this is a one-time step.
+
+**Sending the character**
+
+1. Click **Send Body to MD**.
+2. In Marvelous Designer, click the MetaBridge avatar entry in the **Plug-in** menu.
+
+The character appears as the avatar. No import window, no settings to fill in. Change the body in Blender, press **Send Body to MD** again, click the same menu entry again — the avatar is replaced, and you never end up with two.
+
+Turn on **Include Head** if you're making hats or collars.
+
+**Bringing the clothes back**
+
+1. In Marvelous Designer, click the MetaBridge garment entry in the **Plug-in** menu.
+2. In Blender, click **Import Garment from MD**.
+
+The garment arrives at the right size, is fitted to the character, and follows the rig straight away — the same as any other clothing in [section 7](#7-wearables-experimental). Pick the **Category** so it replaces what it should.
+
+**Skip Stitches & Trims** (on by default) leaves out the topstitch, button and zipper meshes. They carry most of the file's weight and none of it is needed to wear the garment.
+
+**Good to know**
+
+- The panel shows the garment waiting to be imported and how big it is. Above 100 MB it warns you — hide the trims in Marvelous Designer before exporting and the file shrinks a lot.
+- **Send Scale** and **Import Scale** are already correct. Only touch them if what arrives is obviously the wrong size; Blender tells you the size it imported in the status bar.
+- Marvelous Designer's own **Auto Fit** expects avatars from its library. **Prepare for Auto-Fit** (on by default) asks it to treat this character the same way.
+
+---
+
+## 12. Other Useful Tools
 
 - **DNA RC Inspector**: shows how the control bones are connected to the character's DNA data. Mainly for troubleshooting a specific control.
 - **DNA Validation**: checks whether a `.dna` file is valid before you use it.
