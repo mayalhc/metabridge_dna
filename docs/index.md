@@ -549,7 +549,7 @@ MD Live is its own panel in the sidebar, next to **MetaBridge DNA**.
 The folder and every setting are remembered, so this is a one-time step.
 
 **Sending the character**
-
+![MD_live.gif](assets/MD_live.gif)
 1. Click **Send Body to MD**.
 2. In Marvelous Designer, click the MetaBridge avatar entry in the **Plug-in** menu.
 
@@ -561,7 +561,7 @@ Turn on **Include Head** if you're making hats or collars.
 
 1. In Marvelous Designer, click the MetaBridge garment entry in the **Plug-in** menu.
 2. In Blender, click **Import Garment from MD**.
-
+![export_Garment.gif](export_Garment.gif)
 The garment arrives at the right size, is fitted to the character, and follows the rig straight away — the same as any other clothing in [section 7](#7-wearables-experimental). Pick the **Category** so it replaces what it should.
 
 **Skip Stitches & Trims** (on by default) leaves out the topstitch, button and zipper meshes. They carry most of the file's weight and none of it is needed to wear the garment.
