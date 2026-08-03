@@ -7,7 +7,14 @@
 
 ## What's New
 
-**v1.9.0 — Marvelous Designer round trip, send corrections to Unreal, spine rebuild, face correction fixes**
+**v2.0.0 — Now a Blender Extension, Marvelous Designer round trip, send corrections to Unreal, spine rebuild, face correction fixes**
+
+*Now a Blender Extension*
+
+- **MetaBridge DNA is now a Blender Extension.** Install it the way Blender expects: drag the `.zip` into Blender, or **Edit ▸ Preferences ▸ Add-ons ▸ Install from Disk**. Updating and removing work from that same place, like every other extension.
+- **Passes Blender's extension checks cleanly** — no warnings of any kind.
+- The addon no longer claims names for itself across the whole of Blender, so it cannot clash with another MetaHuman addon that carries its own copy of the same libraries. Both can now be installed at once.
+- Nothing about how you use the addon has changed. Everything sits in the same panels.
 
 *MD Live (NEW)*
 
@@ -15,7 +22,8 @@
 - **Send Body to MD** hands the character over as the avatar. Reshape the body, press it again, and the avatar is replaced — never doubled up.
 - No import window on the Marvelous Designer side, and nothing to type in: the character simply appears.
 - **Import Garment from MD** brings the finished clothes back at the right size, fitted to the character and following the rig immediately — the same as any other clothing.
-- **Skip Stitches & Trims** leaves out the topstitch, button and zipper meshes, which carry most of a garment file's weight and none of what it needs to be worn.
+- **Skip Stitches & Trims** leaves out the topstitch, button and zipper meshes when Marvelous Designer exports them as separate pieces. When it exports the whole garment as one piece instead, hide them in Marvelous Designer before exporting.
+- Dressing a character is now roughly twice as fast — a step that reshaped the garment and left every vertex exactly where it was has been removed. This applies to all clothing, not just Marvelous Designer garments.
 - The panel shows the garment waiting to be imported and warns you when it is large enough to take a while.
 - Sizes and the shared folder are remembered, so the setup is done once and never again.
 
@@ -33,6 +41,24 @@
 - Face corrections now play back on their own. They previously worked only in Manual mode.
 - Fixed a correction sculpted on a posed face being applied twice, making the expression too strong when sent to the `.dna`.
 - Corrections no longer take a long pause on a full-resolution head.
+
+*Face rig*
+
+- Fixed the tongue roll control being draggable downward with nothing happening — this character's DNA only rolls the tongue one way, so the control now stops where it runs out.
+
+*Hair and beards*
+
+- **NEW: Bind Hair To Head** — hair or a beard that came from anywhere other than this addon's own Import Hair can now be attached to the character in one click. There was previously no way to do it; **Retarget Hair** only refreshed an attachment that already existed.
+- **Hair now follows Body Blend.** Changing the character's shape while a face control was selected used to leave the beard behind — it only kept up when nothing on the face was selected.
+- **Retarget Hair now creates what's missing.** It used to re-bind an existing Surface Deform and do nothing at all if there wasn't one.
+- Grooms imported from Alembic get their place on the head worked out automatically, instead of Blender refusing them with "invalid surface UVs".
+- When hair does not follow, the reason is now written to the console instead of the hair just sitting still.
+
+*Materials*
+
+- **`material_defaults.json` now actually applies.** The file was being read into nothing, so every value in it was ignored — subsurface, alpha, roughness. Saving defaults silently failed for the same reason.
+- Transparent parts (eye shell, eyelashes, cartilage, saliva) now render see-through instead of solid.
+- Values are applied every time a character is assembled, not only the first time its materials are created.
 
 *Sharing files with other people*
 
@@ -67,6 +93,19 @@ With it you can:
 - Export everything back to DNA, FBX, or glTF
 
 Everything is in one place: open the **N panel** on the right side of the 3D Viewport, and look for the **MetaBridge DNA** tab.
+
+## Installing
+
+MetaBridge DNA is a Blender Extension. Either:
+
+- drag `metabridge_dna-2.0.0.zip` into the Blender window, or
+- **Edit ▸ Preferences ▸ Add-ons ▸ Install from Disk**, and pick the `.zip`.
+
+Blender needs **4.5 or newer**, and Windows 64-bit.
+
+Updating and removing are done from **Edit ▸ Preferences ▸ Add-ons**, the same as any other extension.
+
+If you were using an earlier version installed the old way, remove it first — Blender will otherwise load both and the panels appear twice.
 
 ![metabridge_dna01.png](assets/metabridge_dna01.png)
 
@@ -422,6 +461,8 @@ If deformation looks off in an extreme pose at a tight spot (armpits, between th
 
 - **Import Hair...** — imports a `.abc` groom and parents it to the head. Defaults are tuned for MetaHuman groom exports (**Scale 0.01**, **Rotation X -90°, Z -180°**) — adjust in the operator panel (bottom-left after import) if your source is different.
 - **Bind To Head Surface** (on by default) — hair follows the head as it deforms, including through Body Blend changes, without collapsing onto the scalp.
+- **Bind Hair To Head** — for hair that came from somewhere else: a groom already in your scene, a beard that came with the character, or anything imported outside this addon. Select it and click. It then follows the head exactly like hair imported here, Body Blend included. Hair already attached is simply re-attached to where the head is now.
+- If hair sits still while the character's shape changes, the reason is written to the console — usually that it was never bound. Select it and use **Bind Hair To Head**.
 
 **Good to know:**
 
@@ -549,26 +590,34 @@ MD Live is its own panel in the sidebar, next to **MetaBridge DNA**.
 The folder and every setting are remembered, so this is a one-time step.
 
 **Sending the character**
-![MD_live.gif](assets/MD_live.gif)
+
 1. Click **Send Body to MD**.
 2. In Marvelous Designer, click the MetaBridge avatar entry in the **Plug-in** menu.
 
 The character appears as the avatar. No import window, no settings to fill in. Change the body in Blender, press **Send Body to MD** again, click the same menu entry again — the avatar is replaced, and you never end up with two.
 
-Turn on **Include Head** if you're making hats or collars.
+**Include Head** is on by default — Marvelous Designer refuses an avatar without a head, and hats and collars need it too.
 
 **Bringing the clothes back**
 
 1. In Marvelous Designer, click the MetaBridge garment entry in the **Plug-in** menu.
 2. In Blender, click **Import Garment from MD**.
-![export_Garment.gif](export_Garment.gif)
+
 The garment arrives at the right size, is fitted to the character, and follows the rig straight away — the same as any other clothing in [section 7](#7-wearables-experimental). Pick the **Category** so it replaces what it should.
 
 **Skip Stitches & Trims** (on by default) leaves out the topstitch, button and zipper meshes. They carry most of the file's weight and none of it is needed to wear the garment.
 
+**If the import takes a while**
+
+Reading the file is quick even at 600 MB. The wait is the fitting: every vertex of the garment has to be matched to the body so it moves with the character. A garment carrying its topstitches can reach three million vertices, and almost all of them are stitching.
+
+**Hide the topstitches, buttons and zippers in Marvelous Designer before you export.** Hidden objects are left out of the file, and the import goes from about a minute to a few seconds. Nothing is lost — they aren't needed to wear the garment, and they're still in your Marvelous Designer project.
+
+You can also lower **Particle Distance** in Marvelous Designer if the garment is denser than it needs to be.
+
 **Good to know**
 
-- The panel shows the garment waiting to be imported and how big it is. Above 100 MB it warns you — hide the trims in Marvelous Designer before exporting and the file shrinks a lot.
+- The panel shows the garment waiting to be imported and how big it is. Above 100 MB it warns you.
 - **Send Scale** and **Import Scale** are already correct. Only touch them if what arrives is obviously the wrong size; Blender tells you the size it imported in the status bar.
 - Marvelous Designer's own **Auto Fit** expects avatars from its library. **Prepare for Auto-Fit** (on by default) asks it to treat this character the same way.
 
