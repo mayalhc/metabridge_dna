@@ -7,7 +7,7 @@
 
 ## What's New
 
-**v2.0.0 — Now a Blender Extension, Marvelous Designer round trip, send corrections to Unreal, spine rebuild, face correction fixes**
+**v2.0.1 — Now a Blender Extension, Marvelous Designer round trip, send corrections to Unreal, spine rebuild, face correction fixes**
 
 *Now a Blender Extension*
 
@@ -73,6 +73,7 @@
 - Fixed the wrist bending when the torso is rotated.
 - **NEW: Heel Pivot ON/OFF button** — rotating the foot control upward no longer pulls the foot away from the controller. Heel pivot is off by default and can be switched on when you want it.
 - **IK Stretch** and **Heel Pivot** moved into a collapsible **Additional Options** section below **Remove Rigify Rig**, out of the way of the main build steps.
+- Fixed the toe staying on the ground when the leg is on FK and the torso is raised. The automatic toe roll now belongs to IK only, so on FK the toe follows its own control.
 
 ---
 
