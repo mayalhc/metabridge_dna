@@ -1,24 +1,53 @@
-# 🔗 GroomForge PRO x Wiggle 2 RTX
+# 🔗 The Ultimate MetaHuman Pipeline by chamiseul
 
-**"The Ultimate MetaHuman Hair Pipeline"**
-
-**GroomForge PRO** is not just an add-on; it is the industry's most advanced **Groom Exporter** designed specifically for **Unreal Engine 5 (UE5)**. While other features support the workflow, the core power of GroomForge lies in its ability to bridge Blender and MetaHuman with unmatched precision.
-
-### 👑 The Core: World-Class Groom Exporter
-Everything in GroomForge PRO is engineered to serve one ultimate goal: **Flawless Unreal Engine Integration.**
-
-*   **Premium Groom Exporter**: It goes far beyond standard Blender tools, injecting specialized technical attributes required by MetaHuman with **Zero Data Loss**. 
-*   **The Ultimate Bridge for UE5**: It translates complex hair data into Unreal’s native groom properties, ensuring the highest level of visual fidelity available in the Blender ecosystem.
-*   **Supportive Powerhouse**: While the Hair Card Engine and UV Packing are powerful, they are auxiliary tools designed to ensure the Exporter delivers a perfect, production-ready result.
+Unlock the full potential of **Unreal Engine 5 (UE5)** and **MetaHuman** with the industry's most advanced Blender add-on suite. Engineered by creator **chamiseul**, this triple-threat pipeline bridges the gap between Blender and Unreal Engine with unmatched precision and zero data loss.
 
 ---
 
-> **Master's Advice:**  
-> "The heart of GroomForge PRO is its **Exporter**. It provides the high-end foundation that only a world-class dedicated tool can deliver. Build with precision, move with **Wiggle 2 RTX**, and export with total confidence."
+### 1. 🧬 MetaBridge DNA
+**"The Ultimate DNA Data Link for MetaHumans"**
+
+The essential bridge for structural character fidelity and performance-ready setups.
+
+* **Flawless DNA Export**: Perfectly restores and transfers specialized MetaHuman DNA data between Blender and UE5.
+* **Production-Ready**: Injects structural attributes required for real-time rigging, ensuring facial and body skeletons align flawlessly.
+* **Advanced Pipeline Support**: Designed to match industry-standard specifications for high-end character production.
+
+* [🛒 Get MetaBridge DNA on SuperHive Market](https://superhivemarket.com/products/metabridge_dna)
 
 ---
 
-### 🚀 Experience the Industry-Leading Exporter
-Ready to experience the most precise Unreal Engine export pipeline? Explore the technical capabilities of GroomForge PRO.
+### 2. 👑 GroomForge PRO
+**"World-Class Groom Exporter & Physics Engine"**
 
-[👉 Visit GroomForge PRO Wiki (External)](https://mayalhc.github.io/GroomForge-Wiki/)
+The core powerhouse designed specifically for seamless MetaHuman hair integration.
+
+* **Premium Groom Exporter**: Injects specialized technical attributes required by MetaHuman into Unreal’s native groom properties with **Zero Data Loss**.
+* **Flawless Integration**: Translates complex hair data directly from Blender, ensuring the highest level of visual fidelity.
+* **Wiggle 2 RTX Dynamic**: Build with absolute precision and move with realistic hair physics.
+
+* [🛒 Get GroomForge PRO on SuperHive Market](https://superhivemarket.com/products/groomforge)
+
+---
+
+### 3. 🌊 GroomFlow PRO
+**"Next-Gen Non-Destructive Hair & Fur Grooming"**
+
+The creative engine for procedural and high-density grooming workflows.
+
+* **Non-Destructive Workflows**: Edit, sculpt, and modify complex hair structures freely without losing underlying data.
+* **Guide-Based Grooming**: Advanced curve and guide systems that streamline the creation of high-density fur, hair cards, and stylized grooms.
+* **Auxiliary Powerhouse**: Seamlessly feeds optimized hair data directly into the GroomForge exporter for flawless delivery.
+
+* [🛒 Get GroomFlow PRO on SuperHive Market](https://superhivemarket.com/products/groomflow_pro)
+
+---
+
+> **Creator chamiseul's Advice:**  
+> "A world-class character requires a world-class pipeline. Design freely with **GroomFlow PRO**, lock in structural fidelity with **MetaBridge DNA**, and export with total confidence using **GroomForge PRO**. This is the ultimate high-end foundation."
+
+---
+
+### 🚀 Experience the Industry-Leading Pipeline
+
+* [🛒 Visit chamiseul's Creator Page on SuperHive Market](https://superhivemarket.com/creators/chamiseul)
