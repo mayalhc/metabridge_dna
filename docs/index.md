@@ -1,5 +1,7 @@
 # MetaBridge DNA — User Guide
 
+🇺🇸 English | [🇰🇷 한국어](./KO_index.md)
+
 <div align="center">
   <iframe width="640" height="360" src="https://www.youtube.com/embed/4FGSyQCPH8Q" title="Blender metabridge_dna addon" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
