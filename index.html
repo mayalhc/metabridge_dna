@@ -1,0 +1,1453 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="chamiseul" /><link rel="canonical" href="http://127.0.0/" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Welcome to MetaBridge DNA - MetaBridge DNA — User Guide</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="custom.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Welcome to MetaBridge DNA";
+        var mkdocs_page_input_path = "index.md";
+        var mkdocs_page_url = "/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="." class="icon icon-home"> MetaBridge DNA — User Guide
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">MetaBridge DNA Guide</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Welcome to MetaBridge DNA</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#whats-new">What's New</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#what-is-this-addon">What is this addon?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#installing">Installing</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#plug-ins-for-the-other-programs">Plug-ins for the other programs</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#1-loading-a-character">1. Loading a Character</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-making-facial-expressions-face-rig">2. Making Facial Expressions (Face Rig)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-expression-presets-save-reuse-expressions">3. Expression Presets (save &amp; reuse expressions)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4-arkit-live-real-time-face-tracking-from-your-iphone">4. ARKit Live (real-time face tracking from your iPhone)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#5-rigify-body-control-rig">5. Rigify Body Control Rig</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#6-body-blend-experimental">6. Body Blend (experimental)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#7-wearables-experimental">7. Wearables (experimental)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#8-live-corrective-sculpting-beta">8. Live Corrective Sculpting (Beta)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#fixing-an-expression-that-breaks-export-edited-shape-keys">Fixing an expression that breaks — Export Edited Shape Keys</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#sending-your-own-corrections">Sending your own corrections</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#9-exporting">9. Exporting</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#10-opening-a-file-someone-else-saved">10. Opening a File Someone Else Saved</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#11-md-live-marvelous-designer">11. MD Live (Marvelous Designer)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#12-send-to-cascadeur">12. Send to Cascadeur</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#13-unreal-engine">13. Unreal Engine</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#installing-the-unreal-plugin">Installing the Unreal plugin</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#unreal-live-the-face-performs-in-unreal-as-you-work">Unreal Live — the face performs in Unreal as you work</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#follow-unreal-the-character-here-copies-the-one-in-unreal">Follow Unreal — the character here copies the one in Unreal</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#14-other-useful-tools">14. Other Useful Tools</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#bake-to-dna">Bake to DNA</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#undo">Undo</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#quick-tips">Quick Tips</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#panel-reference">Panel Reference</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#metabridge-dna">MetaBridge DNA</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#expression-presets">Expression Presets</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#arkit-live">ARKit Live</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#retarget-rigify-animation-beta">Retarget Rigify Animation (Beta)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#body-blend-experimental">Body Blend (experimental)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#wearables-experimental">Wearables (experimental)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#live-corrective-sculpting-beta">Live Corrective Sculpting (Beta)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#export-dna-fbx-gltf">Export (DNA / FBX / glTF)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#md-live">MD Live</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#send-to-cascadeur">Send to Cascadeur</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#unreal-live">Unreal Live</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#follow-unreal">Follow Unreal</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#animation-baker">Animation Baker</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pose-reset">Pose Reset</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#dna-validation">DNA Validation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#batch-tools">Batch Tools</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#external-preset-converter">External Preset Converter</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="groomforge/">Strategy & Pipeline</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="groomforge/#1-metabridge-dna">1. 🧬 MetaBridge DNA</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="groomforge/#2-groomforge-pro">2. 👑 GroomForge PRO</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="groomforge/#3-groomflow-pro">3. 🌊 GroomFlow PRO</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="groomforge/#experience-the-industry-leading-pipeline">🚀 Experience the Industry-Leading Pipeline</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href=".">MetaBridge DNA — User Guide</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">MetaBridge DNA Guide</li>
+      <li class="breadcrumb-item active">Welcome to MetaBridge DNA</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="metabridge-dna-user-guide">MetaBridge DNA — User Guide</h1>
+<p>🇺🇸 English | <a href="KO_index/">🇰🇷 한국어</a></p>
+<div align="center">
+  <iframe width="640" height="360" src="https://www.youtube.com/embed/4FGSyQCPH8Q" title="Blender metabridge_dna addon" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
+<h2 id="whats-new">What's New</h2>
+<p><strong>v2.1.0 — Cascadeur both ways, Unreal both ways, Undo</strong></p>
+<p><em>Unreal (NEW)</em></p>
+<ul>
+<li><strong>NEW: Unreal Live</strong> — a MetaHuman face animated in Blender performs on the
+  MetaHuman in Unreal as you work on it, with nothing exported. See
+  <a href="#13-unreal-engine">section 13</a>.</li>
+<li><strong>NEW: Follow Unreal</strong> — the other direction. Whatever is moving the
+  character in Unreal, a Control Rig in a sequence or a baked animation, drives
+  this character here. Body, face, or both.</li>
+<li><strong>One plugin on the Unreal side, told apart by port.</strong> 9560 for MotionForge
+  body motion, 9561 for Unreal Live, 9562 for Follow Unreal. A face stream and
+  a body stream can run at the same time as long as the ports differ.</li>
+</ul>
+<p><em>Send to Cascadeur (NEW)</em></p>
+<ul>
+<li><strong>NEW: Send to Cascadeur</strong> — its own panel in the sidebar. Put this character into Cascadeur and animate it there, with no FBX to export by hand. See <a href="#12-send-to-cascadeur">section 12</a>.</li>
+<li><strong>Send Character</strong> hands over the rig, the meshes and whatever animation is on them. Head and body arrive as one character, so the face stays on the body when you move it.</li>
+<li><strong>Keyframes Only</strong> sends a new pose or animation onto the character already there. Nothing is created in Cascadeur; it simply takes the motion.</li>
+<li><strong>Face Bones</strong> is off by default. The face rides the head joint and only the body skeleton goes over — a quarter of the character, and all Cascadeur needs to animate a body.</li>
+<li><strong>Current Frame</strong> sends just the pose you are looking at. <strong>Append</strong> adds after what Cascadeur already has.</li>
+<li>The panel says which tab the motion will land on before you press anything, and <strong>Open sample character</strong> brings up a rigged character when the scene is empty.</li>
+<li><strong>NEW: Receive from Cascadeur</strong> — the bridge works both ways. Animate over
+  there and bring it back onto the same character in the same scene.
+  <strong>Animation Only</strong> keys onto the rig you already have; <strong>Mesh + Animation</strong>
+  brings the character back as new objects. <strong>Onto Rigify Controls</strong> puts it on
+  the control rig so it can be adjusted and layered.</li>
+<li>Reading a full MetaHuman take takes under a second, and root motion comes
+  with it.</li>
+</ul>
+<p><em>Correctives (NEW)</em></p>
+<ul>
+<li><strong>NEW: Bake to DNA</strong> — a correction you sculpted can be written into the
+  character's <code>.dna</code>, so it belongs to the character everywhere instead of only
+  in this scene. <strong>Bake Corrective to DNA</strong> for one, <strong>Bake All to DNA</strong> for
+  every one on the character.</li>
+<li><strong>NEW: Export Face CSV</strong> — write the face's shape values over the frame range
+  to a spreadsheet file, for taking a performance to another program.</li>
+</ul>
+<p><em>Undo (NEW)</em></p>
+<ul>
+<li><strong>Ctrl+Z now works on the big steps.</strong> Assemble, New, Delete Slot, Load Head/Body DNA, Build Meta-Rig, Generate Rigify Rig, Apply Retarget, Link/Unlink Head Rig, Remove Rigify Rig and Reload Materials can all be undone and redone like anything else in Blender.</li>
+<li>The face rig follows the undo. Undo past an Assemble and it switches off with the character; redo and it comes back on.</li>
+<li>Things that cannot be undone are deliberately left out: saving a <code>.dna</code>, saving material defaults, connecting ARKit Live. Undo cannot unwrite a file or close a connection, so those stay one-way.</li>
+</ul>
+<p><em>Body Blend — both libraries at the same time</em></p>
+<ul>
+<li><strong>The standard bodies and the child bodies can now be loaded together.</strong> Load <code>MH_All_Body.json</code>, then load <code>MH_Boy.json</code>, and both sets stay in the list — 39 rows to blend from instead of whichever you loaded last.</li>
+<li>Loading the same library again still just refreshes its own rows, so nothing doubles up.</li>
+<li>If you load a library built from a different skeleton, it now says so straight away instead of failing later at Build.</li>
+</ul>
+<p><em>ARKit Live — the Smoothing slider was backwards</em></p>
+<ul>
+<li><strong>Smoothing now does what it says.</strong> It was inverted: turning it down to 0 — the setting described as the raw, immediate one — froze the face completely instead. Turn it down for a raw, snappy feed and up for a smoother, slightly laggier one, as the label always claimed.</li>
+<li>If you had settled on a Smoothing value that felt right, try it again — the same number now behaves the opposite way. <strong>0.5 is unchanged</strong>, so anyone on the default sees no difference.</li>
+</ul>
+<p><em>Loading and saving a <code>.dna</code> tells you the truth</em></p>
+<ul>
+<li><strong>Picking the wrong file now says so.</strong> A PNG, a JSON or anything else that is not a DNA used to load "successfully" and leave you with a character that had no bones and no meshes. It is now refused with a message naming what is actually wrong with the file.</li>
+<li><strong>A failed save no longer reports success.</strong> Saving to a folder that does not exist used to say "Saved" with no file written anywhere.</li>
+<li><strong>A failed load leaves the character you already had alone.</strong> It used to switch the face rig off and leave it off.</li>
+</ul>
+<p><em>Smoother viewport</em></p>
+<ul>
+<li>Characters with <strong>Apply Retarget</strong> done are lighter to work around. The body correctives were being recalculated on every viewport change — turning the camera, picking something, moving a face control — even when the body had not moved. Now that work only happens when a body bone actually moves.</li>
+</ul>
+<p><em>Load Live Link Face CSV — a recording now loads all the way through</em></p>
+<ul>
+<li><strong>A CSV no longer stops partway with <code>could not make path to "value"</code>.</strong> Bringing a recording in creates a slider for every shape at once, and each one it added left the ones before it unusable — so a file failed on its second shape and nothing was keyed. Live capture never hit this: it makes its sliders in the first tick and adds none afterwards. Recorded files now load whole.</li>
+<li><strong>The playhead goes back where it was.</strong> A CSV whose columns did not match left the scene parked at the end of the recording, on top of reporting nothing matched.</li>
+</ul>
+<p><em>Plug-ins for the other programs now come with the addon</em></p>
+<ul>
+<li><strong>The Cascadeur and Unreal plug-ins ship inside the addon</strong>, in a <code>third_party</code> folder, alongside the Marvelous Designer one. Nothing to download and no separate product to install — <a href="#installing">Installing</a> says where they are, and each section sets up its own.</li>
+</ul>
+<p><em>Smaller fixes</em></p>
+<ul>
+<li>The <strong>LOD</strong> row now says when the level you picked carries no facial expressions. MetaHuman heads keep their expressions at LOD 0 only; above that the face moves on its joints alone, which used to look like the face rig having stopped working.</li>
+<li><strong>Import FBX Animation</strong> now warns when the control rig is still driving the bones it just keyed. The warning existed but never appeared in the one case it was written for.</li>
+<li>In the DNA inspector's <strong>Bone View</strong>, the <strong>Next</strong> button stopped responding a few presses before the end of the list.</li>
+<li>Switching the add-on off now stops everything it started. Two background evaluations kept running with it disabled.</li>
+</ul>
+<p><em>For anyone who edits meshes and writes them back to <code>.dna</code></em></p>
+<ul>
+<li>Editing an <strong>eye</strong> mesh and exporting with <strong>Include Mesh Edits</strong> could quietly write those vertices into a different LOD of the same eye, leaving the one you edited unchanged. Jaw, teeth, tongue and the head itself were never affected. Fixed.</li>
+</ul>
+<h2 id="what-is-this-addon">What is this addon?</h2>
+<p>MetaBridge DNA lets you bring Epic Games <strong>MetaHuman</strong> characters into Blender, pose their faces in real time, and export them back out.</p>
+<div align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/rnNuLmuO7JE" title="Load MetaHuman DNA to Instant ARKit Controllers (No Shape Keys!)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+
+<p>With it you can:</p>
+<ul>
+<li>Load a MetaHuman character (head + body) into Blender</li>
+<li>Move sliders or bones to make facial expressions — no shape key editing needed</li>
+<li>Save your favorite expressions as reusable presets, and blend several at once</li>
+<li>Drive the face <strong>live from an iPhone</strong> using Apple's Live Link Face app</li>
+<li>Build an animatable body rig (Rigify) for the character</li>
+<li>Blend multiple bodies together, and dress the result in clothing and hair</li>
+<li>Export everything back to DNA, FBX, or glTF</li>
+</ul>
+<p>Everything is in one place: open the <strong>N panel</strong> on the right side of the 3D Viewport, and look for the <strong>MetaBridge DNA</strong> tab.</p>
+<h2 id="installing">Installing</h2>
+<p>MetaBridge DNA is a Blender Extension. Either:</p>
+<ul>
+<li>drag the <code>metabridge_dna-*.zip</code> into the Blender window, or</li>
+<li><strong>Edit ▸ Preferences ▸ Add-ons ▸ Install from Disk</strong>, and pick the <code>.zip</code>.</li>
+</ul>
+<p>Blender needs <strong>4.5 or newer</strong>, and Windows 64-bit.</p>
+<p>Updating and removing are done from <strong>Edit ▸ Preferences ▸ Add-ons</strong>, the same as any other extension.</p>
+<p>If you were using an earlier version installed the old way, remove it first — Blender will otherwise load both and the panels appear twice.</p>
+<p><img alt="metabridge_dna01.png" src="assets/metabridge_dna01.png" /></p>
+<h3 id="plug-ins-for-the-other-programs">Plug-ins for the other programs</h3>
+<p>Three features reach into a program outside Blender, and each needs a small plug-in on that side. <strong>They all come with this addon</strong> — nothing to download.</p>
+<table>
+<thead>
+<tr>
+<th>Program</th>
+<th>Where it is</th>
+<th>Needed for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Marvelous Designer</td>
+<td>the <code>md_plugin</code> folder</td>
+<td><strong>MD Live</strong> (§11)</td>
+</tr>
+<tr>
+<td>Cascadeur</td>
+<td><code>third_party/KimodoCascadeurPlugin_free.zip</code></td>
+<td><strong>Send to Cascadeur</strong> (§12)</td>
+</tr>
+<tr>
+<td>Unreal Engine</td>
+<td><code>third_party/MotionForgeLiveLink_UE5.8.zip</code></td>
+<td><strong>Unreal Live</strong>, <strong>Follow Unreal</strong> (§13)</td>
+</tr>
+</tbody>
+</table>
+<p>Install none of them to start with. Each section below sets up its own when you get there, and a feature you never use costs you nothing.</p>
+<p>The <code>third_party</code> folder sits inside the installed addon:</p>
+<div class="highlight"><pre><span></span><code>%APPDATA%\Blender Foundation\Blender\&lt;version&gt;\extensions\user_default\metabridge_dna\third_party
+</code></pre></div>
+<p>Replace <code>&lt;version&gt;</code> with the Blender you installed it into — <code>4.5</code>, <code>5.0</code> and so on. Paste the result into the address bar of a File Explorer window.</p>
+<p>If you would rather not guess the version, Blender will tell you: <strong>Edit ▸ Preferences ▸ Add-ons</strong>, find <strong>MetaBridge DNA</strong>, and click the arrow to expand it. The <strong>File</strong> row shows the full path — <code>third_party</code> is beside the file it names.</p>
+<p>Turning on <strong>Preferences ▸ Interface ▸ Developer Extras</strong> adds a small folder button to that same row, which opens the addon's folder for you.</p>
+<p>The folder's own <code>README.md</code> repeats the steps below. Marvelous Designer is the exception — its <strong>Open MD Plug-in Folder</strong> button takes you straight there.</p>
+<hr />
+<h2 id="1-loading-a-character">1. Loading a Character</h2>
+<p><strong>Steps:</strong></p>
+<ol>
+<li>Click the folder icon and pick the folder that contains your MetaHuman characters.</li>
+<li>Click a character's thumbnail to select it.</li>
+<li>Turn Head / Body / Textures on or off, depending on what you want to load.</li>
+<li>Pick a <strong>LOD</strong> level (0 = highest quality, higher numbers = lighter/faster).</li>
+<li>Click <strong>Assemble</strong>.</li>
+</ol>
+<p><img alt="metabridge_img01.gif" src="assets/metabridge_img01.gif" /></p>
+<p><strong>Good to know:</strong></p>
+<ul>
+<li>You can load more than one character — click <strong>New</strong> to add another one as a separate slot.</li>
+<li>The list at the bottom shows every character currently in your scene. Click the radio button next to one to make it "active".</li>
+<li>The trash icon removes a character from the scene.</li>
+<li>If you want to load a different LOD later, change the LOD number and click <strong>Re-Assemble</strong>.</li>
+<li><strong>LOD and facial expressions</strong>: a MetaHuman head carries its expressions at <strong>LOD 0 only</strong>. Above that the face still moves — the jaw opens, the eyes turn, anything driven by a bone works — but the shape-based detail is not there, because the character does not contain it at that level. The panel says <code>LOD n: joints only</code> when that is the case. Use LOD 0 for face work; the higher levels are for a lighter scene when you are animating the body.</li>
+<li>Need to load one specific <code>.dna</code> file? Use the <strong>Load Head DNA...</strong> / <strong>Load Body DNA...</strong> buttons next to Assemble.</li>
+<li><strong>Material defaults</strong>: if a <code>material_defaults.json</code> file is present in the addon folder, its BSDF values are applied automatically to newly created materials on every Assemble. Existing (already-created) materials are never overwritten, so your edits are preserved across Re-Assembles.</li>
+<li>All meshes are automatically set to <strong>Smooth Shading</strong> on Assemble.</li>
+</ul>
+<hr />
+<h2 id="2-making-facial-expressions-face-rig">2. Making Facial Expressions (Face Rig)</h2>
+<p><strong>Steps:</strong></p>
+<ol>
+<li>Click <strong>Append GUIArmature</strong> — this adds the control rig you'll use to make expressions.</li>
+<li>Turn <strong>Face Rig: ON</strong>.</li>
+<li>Select the GUIArmature in the viewport, go into <strong>Pose Mode</strong>, and move its bones. The face updates live as you move them.</li>
+</ol>
+<p><img alt="metabridge_img02.gif" src="assets/metabridge_img02.gif" /></p>
+<p><strong>Good to know:</strong></p>
+<ul>
+<li>You're never editing shape keys directly — you're only moving control bones.</li>
+<li>If you don't see any reaction when moving a bone, double check Face Rig is switched ON.</li>
+</ul>
+<hr />
+<h2 id="3-expression-presets-save-reuse-expressions">3. Expression Presets (save &amp; reuse expressions)</h2>
+<p>Instead of posing a face from scratch every time, save an expression once and reuse it — and mix several expressions together.</p>
+<p><strong>Saving a preset:</strong></p>
+<ol>
+<li>Pose the face the way you want it.</li>
+<li>Click <strong>Save As Current Expression...</strong> and give it a name.</li>
+<li>To update a preset you already saved, select it in the list and click <strong>Save Current Expression</strong>.</li>
+</ol>
+<p><strong>Using a preset:</strong></p>
+<ol>
+<li>Pick a preset from the dropdown.</li>
+<li>Click <strong>Apply Preset</strong> — it appears in the <strong>Active Sliders</strong> list just below, already turned on.</li>
+<li>Drag its slider between 0 (no expression) and 1 (full expression).</li>
+</ol>
+<p><strong>Blending multiple expressions:</strong></p>
+<ul>
+<li>You can have many sliders active at once — they combine automatically.</li>
+<li><strong>Add All From Active Folder</strong> loads every preset in your current folder as a slider, all starting at 0.</li>
+<li>The <strong>X</strong> button removes one slider; <strong>Clear All Sliders</strong> resets everything back to neutral.</li>
+<li>Sliders are normal Blender properties, so you can keyframe and animate them.</li>
+</ul>
+<p><img alt="metabridge_img04.gif" src="assets/metabridge_img04.gif" /></p>
+<p><strong>Good to know:</strong></p>
+<ul>
+<li><strong>Set Folder...</strong> lets you choose where presets are saved/loaded from.</li>
+<li><strong>Import...</strong> lets you bring in a preset file from anywhere on your computer.</li>
+</ul>
+<p><strong>Converting presets from other programs:</strong></p>
+<ul>
+<li><strong>Convert &amp; Import (Maya/Houdini)...</strong>: brings in a saved pose from Maya or Houdini and matches its bone names automatically.</li>
+<li><strong>Convert ARKit Payload...</strong>: a one-time setup step that generates the 52 <code>ARKit_...</code> presets used by ARKit Live.</li>
+</ul>
+<hr />
+<h2 id="4-arkit-live-real-time-face-tracking-from-your-iphone">4. ARKit Live (real-time face tracking from your iPhone)</h2>
+<p>Stream your real facial expressions live from an iPhone straight onto the MetaHuman character, using Apple's free <strong>Live Link Face</strong> app.</p>
+<p><strong>Setup:</strong></p>
+<ol>
+<li>Make sure your iPhone and your computer are on the same Wi-Fi network.</li>
+<li>In the Live Link Face app, use normal streaming mode (<strong>not</strong> "MetaHuman Animator" mode).</li>
+<li>In the app, set the target IP address to your computer's address, and the port to <strong>11111</strong>.</li>
+<li>In Blender's ARKit Live panel, leave <strong>Host</strong> as <code>0.0.0.0</code> and <strong>Port</strong> as <code>11111</code>, then click <strong>Connect</strong>.</li>
+</ol>
+<p><img alt="metabridge_img05.gif" src="assets/metabridge_img05.gif" /></p>
+<p><strong>Tuning the feel of the tracking:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Smoothing</strong></td>
+<td>Makes movement smoother and less jittery. Higher = smoother but slightly slower to react.</td>
+</tr>
+<tr>
+<td><strong>Deadzone</strong></td>
+<td>Ignores small, noisy values so the face doesn't drift or twitch at rest.</td>
+</tr>
+<tr>
+<td><strong>Gain</strong></td>
+<td>Boosts expressions that don't reach full strength.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Recording:</strong></p>
+<ul>
+<li>Click <strong>Record</strong> to save the live performance as keyframes on the timeline. Click <strong>Stop Recording</strong> when done.</li>
+<li>Or use <strong>Load Live Link Face CSV...</strong> to bake in a pre-recorded CSV file.</li>
+</ul>
+<p><strong>Head Rotation (Experimental):</strong></p>
+<ul>
+<li>Requires the body's <strong>Rigify</strong> rig to be set up first, with <strong>Apply Retarget</strong> and <strong>Link Head Rig</strong> both done.</li>
+<li>If the head turns the wrong way on some axis, use the <strong>Invert Pitch / Yaw / Roll</strong> buttons.</li>
+</ul>
+<p><strong>Troubleshooting:</strong></p>
+<ul>
+<li><strong>Nothing moves at all</strong>: check for a red <strong>Apply error</strong> message and make sure the correct character is Activated.</li>
+<li><strong>Face looks slightly off at rest</strong>: use the <strong>Calibrate</strong> feature in the Live Link Face app first, then fine-tune with Deadzone/Gain.</li>
+</ul>
+<hr />
+<h2 id="5-rigify-body-control-rig">5. Rigify Body Control Rig</h2>
+<p>Turns the MetaHuman body into a fully animatable rig using Rigify.</p>
+<p>Requires the <strong>Rigify</strong> addon to be enabled first (<code>Edit &gt; Preferences &gt; Add-ons</code>, search for "Rigify").</p>
+<p><strong>Steps, in order:</strong></p>
+<ol>
+<li><strong>Build Meta-Rig</strong> — creates a draft skeleton matching the body.</li>
+<li><strong>Generate Rigify Rig</strong> — turns the draft into a real, posable control rig.</li>
+<li><strong>Apply Retarget</strong> — connects the control rig so it drives the MetaHuman body. Body correctives are registered at this step.<blockquote>
+<p>⚠️ If the draft skeleton from step 1 wasn't positioned correctly, this can distort the mesh. Check that everything looks right after step 2, before applying.</p>
+</blockquote>
+</li>
+<li><strong>Link Head Rig</strong> — connects the head so it moves with the body.</li>
+<li><strong>Remove Rigify Rig</strong> removes everything from steps 1–4 if you need to start over.</li>
+</ol>
+<p><strong>Additional Options</strong>
+<img alt="Rigify_IK.gif" src="assets/Rigify_IK.gif" /></p>
+<p>A collapsed section below <strong>Remove Rigify Rig</strong>, holding two switches you rarely need to touch:</p>
+<ul>
+<li><strong>IK Stretch ON/OFF</strong> — off by default, so limbs stay rigid. Turn it on if you want the arms and legs to stretch when you pull the IK controls past full reach.</li>
+<li><strong>Heel Pivot ON/OFF</strong> — off by default. On, rotating the foot spin control pivots the foot around the heel; this also makes the foot drift away from its controller as you rotate it upward, so leave it off unless you specifically want heel pivoting.</li>
+<li><strong>Finger IK ON/OFF</strong> — off by default. See below.</li>
+</ul>
+<p><strong>Finger IK</strong></p>
+<p>Normally each finger joint has to be rotated one at a time. With Finger IK on, each finger gets a target at its fingertip — drag the target and the whole finger follows. Much faster for gripping a prop, planting a hand on a surface, or shaping a pose.</p>
+<p>Rigify has no finger IK of its own, so this is added by this addon. All ten fingers are covered, thumbs included.</p>
+<ol>
+<li>Turn on <strong>Finger IK</strong> in <strong>Additional Options</strong>. Ten small box controls appear at the fingertips.</li>
+<li>In <strong>Pose Mode</strong>, drag a fingertip control. That finger bends to reach it, and no other finger moves.</li>
+<li>Turn it off to go back to rotating the joints by hand.</li>
+</ol>
+<p><strong>Per-finger sliders</strong></p>
+<p>Under the button there is a slider for each of the ten fingers: <strong>0</strong> poses that finger by rotating its joints, <strong>1</strong> makes it follow its fingertip target. The ON/OFF button just sets all ten at once.</p>
+<p>This is what makes the feature useful for real hand animation:</p>
+<ul>
+<li><strong>Holding a prop</strong> — put the fingers touching the object on 1 so they stay planted while the wrist moves, and leave the fingers in the air on 0 where hand-posed arcs look better. The thumb usually wants its own setting.</li>
+<li><strong>Easing into a contact</strong> — a value in between blends the two. Keyframe a finger from 0 to 1 over a few frames as the hand lands on a surface and it settles into place instead of popping.</li>
+<li><strong>Backing off one bad finger</strong> — if one finger bends oddly, drop just that slider instead of turning the whole hand back to FK.</li>
+</ul>
+<p><strong>Switching without losing the pose — IK to FK / FK to IK</strong></p>
+<p>The two sliders hold two separate poses, so moving a slider swaps between them rather than carrying one across. These two buttons carry it across:</p>
+<ul>
+<li><strong>IK to FK</strong> — keeps the pose you built with the fingertip targets, hands it to the joint controls, and switches all ten fingers to 0. The fingers do not move. Use this once you're happy with an IK pose and want to keep refining it joint by joint, or before keyframing in FK.</li>
+<li><strong>FK to IK</strong> — keeps the pose you built by hand, moves the fingertip targets onto it, and switches all ten fingers to 1. Again nothing moves. Use this when a hand you posed by hand now needs to hold onto something.</li>
+</ul>
+<p>Both work on all ten fingers at once, and both are safe to press repeatedly.</p>
+<p><strong>Good to know:</strong></p>
+<ul>
+<li>Switching it on keeps the fingers exactly where they already were — nothing jumps.</li>
+<li>Switching it off leaves the pose exactly as it was too, so you can move back and forth freely.</li>
+<li>The fingertip targets follow the hand, so posing the arm keeps the finger pose intact.</li>
+<li><strong>Snap Fingertip Targets to Pose</strong> moves all ten targets onto wherever the fingers are right now, without changing the pose. You need it when a slider sits between 0 and 1 — the finger is then somewhere between its two results and no longer touching its target — or after loading an animation.</li>
+<li>Lowering a slider by hand does <strong>not</strong> keep the IK pose. The joint controls still hold whatever they held before, so the finger springs back to that. Use <strong>IK to FK</strong> instead — see below.</li>
+<li>There is no elbow-style direction control for fingers, so the solver picks which way a finger bends. It follows the joints sensibly for normal poses, but pulling a target far sideways can twist the finger oddly. Lower that finger's slider if it does.</li>
+<li>With Finger IK off, the rig behaves exactly like stock Rigify — the finger master curl and the individual joint controls work as usual.</li>
+</ul>
+<p><img alt="metabridge_img03.gif" src="assets/metabridge_img03.gif" /></p>
+<p><strong>Body Correctives — automatic muscle &amp; twist detail</strong></p>
+<p>Once Apply Retarget is done, the body rig automatically adds secondary deformation (shoulder blade, muscle bulge, limb twist) using data built into the character's DNA. No setup needed.</p>
+<ul>
+<li><strong>Body Correctives RBF: ON/OFF</strong> — toggles the RBF solver layer. Leave it <strong>ON</strong> for the most realistic result. Basic twist/muscle correction stays active either way.</li>
+<li>If a character's DNA doesn't include this data, the button shows <strong>"none in this DNA"</strong> and is grayed out.</li>
+</ul>
+<p><strong>Fine-tuning by hand (RBF Controllers)</strong></p>
+<p>For spots that need a manual touch-up beyond the automatic result:</p>
+<ol>
+<li>Pick the joint you want from the <strong>Driver Bone</strong> list, or leave it on <strong>Auto</strong> and select a control in <strong>Pose Mode</strong> (e.g. <code>shoulder.L</code>).</li>
+<li>Click <strong>Show RBF Controls</strong> — small diamond-shaped helper bones appear for that area.</li>
+</ol>
+<blockquote>
+<p>Use the <strong>Driver Bone</strong> list for the knee. Its correctives belong to <code>calf_l</code> / <code>calf_r</code>, and while a leg is on IK there is no control you can select that points at those, so <strong>Auto</strong> finds nothing there.
+3. Adjust the <strong>influence slider</strong> (0–1) per bone in the <strong>Active RBF Controllers</strong> list:
+   - <code>0</code> = automatic corrective <strong>off</strong> (bone stays at rest/neutral)
+   - <code>1</code> = automatic corrective <strong>fully applied</strong> (default)
+4. <strong>Rotate</strong> a helper bone by hand to add an extra manual correction on top of the automatic result.
+5. Click <strong>Hide</strong> when done to tidy the viewport.</p>
+<p>Rotating a helper bone at <code>influence = 1</code> stacks your manual rotation on top of the full automatic result. At <code>influence = 0</code> only your manual rotation is used.</p>
+</blockquote>
+<p><strong>Import FBX Animation (Beta)</strong></p>
+<p>Apply a MetaHuman animation exported from Unreal (FBX) straight onto this character — body and head animate together, automatically, even if the character's proportions don't exactly match the source animation.</p>
+<ol>
+<li>Click <strong>Import FBX Animation...</strong> and pick the <code>.fbx</code> file.</li>
+<li>Both the body and head are keyframed with the retargeted animation.</li>
+</ol>
+<p>The button is greyed out while the control rig is connected to this character, because the rig would overwrite the imported animation every frame. Click <strong>Remove Retarget</strong> (and <strong>Unlink Head Rig</strong>) above, then import. Hover the greyed-out button to see this reminder.</p>
+<p><strong>Retarget Rigify Animation (Beta)</strong></p>
+<p>Copy an animation from another already-animated character onto this character's control rig. Use this when the animation lives on a rig rather than in an FBX file.</p>
+<ol>
+<li>Open the <strong>Retarget Rigify Animation (Beta)</strong> panel.</li>
+<li><strong>Source Rig</strong> — the animated armature to copy from.</li>
+<li><strong>Source Type</strong> — which kind of rig that is:</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Source Type</th>
+<th>Use it for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>UE5 Mannequin</strong></td>
+<td>Unreal's own mannequin</td>
+</tr>
+<tr>
+<td><strong>Fortnite</strong></td>
+<td>Fortnite characters (same bone names as UE5)</td>
+</tr>
+<tr>
+<td><strong>MetaHuman</strong></td>
+<td>another MetaHuman (same bone names as UE5)</td>
+</tr>
+<tr>
+<td><strong>Mixamo</strong></td>
+<td>anything downloaded from Mixamo</td>
+</tr>
+<tr>
+<td><strong>Blender Rigify</strong></td>
+<td>a rig made with Blender's own Rigify</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li><strong>Target Rig</strong> — this character's Rigify control rig.</li>
+<li>Click <strong>Retarget</strong>.</li>
+</ol>
+<p>The animation is baked onto the target's controls, corrected for the two characters having different proportions and different rest poses.</p>
+<p><strong>About Blender Rigify as a source:</strong></p>
+<p>This addon's rig is <em>not</em> identical to a stock Rigify rig — its spine has six segments where Blender's has four — so an animation cannot simply be copied across. Picking <strong>Blender Rigify</strong> maps the two properly.</p>
+<p>It works whether that animation was made with <strong>IK or FK</strong> arms and legs. You do not need to convert or bake the source rig first.</p>
+<p><strong>Good to know:</strong></p>
+<ul>
+<li>Once Apply Retarget and Link Head Rig are set up, the connection is saved with your file — reopening it works without re-clicking Apply Retarget.</li>
+<li>The Rigify shoulder bone (<code>shoulder.L/R</code>) must be manually elevated when raising the arm. Key the shoulder bone alongside the arm for the most natural shoulder deformation.</li>
+</ul>
+<hr />
+<h2 id="6-body-blend-experimental">6. Body Blend (experimental)</h2>
+<p><img alt="Body_blend.gif" src="assets/Body_blend.gif" /></p>
+<p>Combine two or more MetaHuman body types — and their matching heads — into a brand-new blended character. Found in its own <strong>Body Blend (experimental)</strong> panel, collapsed by default.</p>
+<p><strong>Adding sources:</strong>
+- <strong>Use Base DNA</strong> — adds the addon's own reference character from the <code>base_dna/</code> folder.
+- <strong>Add Folder...</strong> — adds every character in a folder at once. <strong>This is how you build a library.</strong> See below.
+- <strong>Add Body DNA</strong> — add one specific <code>.dna</code> file by hand.
+- <strong>Load Library...</strong> — load a compact archetype library and add every archetype in it as a source.</p>
+<p><strong>Add Folder... — building a library</strong>
+<img alt="Body_blend02.gif" src="assets/Body_blend02.gif" />
+Point this at a folder holding <strong>the original <code>.dna</code> files of several characters</strong>, with each character's head and body sitting side by side:</p>
+<div class="highlight"><pre><span></span><code>MyBodies\
+   Boy01_body.dna    Boy01_head.dna
+   Boy02_body.dna    Boy02_head.dna
+   Boy03_body.dna    Boy03_head.dna
+   ...
+</code></pre></div>
+<p>Every character in that folder is added in one click, and each body is paired with its own head automatically. That folder is now your library — collect the characters you blend with into one place and you can load them all whenever you start a new blend.</p>
+<p><strong>Important:</strong></p>
+<ul>
+<li>Both files must be in the <strong>same folder</strong>, named so they match (<code>Name_body.dna</code> and <code>Name_head.dna</code>). A body with no matching head is still added, but it can only contribute a body shape.</li>
+<li>Only the folder you pick is read — characters in <strong>sub-folders are not</strong> included. Point it at the folder that directly holds the <code>.dna</code> files.</li>
+<li>The addon's own <code>base_dna/</code> folder holds a single reference character, so picking it adds only that one. That is expected — use <strong>Use Base DNA</strong> for it instead.</li>
+</ul>
+<p>Weights don't need to add up to anything in particular — they're normalized automatically. <strong>Use Base DNA</strong> starts at <code>1.0</code>; all other sources start at <code>0.0</code>.</p>
+<p><strong>The primary row:</strong></p>
+<p>The <strong>highlighted row</strong> is the primary source — it supplies the topology, skin weights and face rig. Every other row just contributes its shape. If you only add library entries (no real <code>.dna</code> row), the addon quietly uses its own reference character as the primary behind the scenes, so you can build purely from a library.</p>
+<p><strong>Building:</strong></p>
+<ol>
+<li>Add and weight your sources.</li>
+<li>Click a row to make it the primary.</li>
+<li>Pick a <strong>LOD</strong> level.</li>
+<li>Give it a <strong>Name</strong>.</li>
+<li>Click <strong>Build Blended Body</strong>.</li>
+</ol>
+<p><strong>Replace:</strong></p>
+<p>Turn on <strong>Replace</strong> to overwrite your last Body Blend character in place instead of adding a new slot every time.</p>
+<p><strong>Live Preview:</strong></p>
+<p>After a Build, dragging any weight slider re-blends and updates the character already on screen. Turn Live Preview off if it slows things down.</p>
+<p><strong>Good to know:</strong></p>
+<ul>
+<li>The head only blends if every weighted row has head data. If one is missing, the body still blends but the head is skipped and a note explains why.</li>
+<li><strong>Textures</strong>: after building, the addon looks for a <code>Maps</code> folder next to the primary DNA, then falls back to <code>base_dna/Maps</code>.</li>
+<li>Shape keys on the blended head are copied from the primary head source only.</li>
+<li>Posing/expressions work normally on a blended character, and stay correct even after you go back and adjust the weight sliders.</li>
+</ul>
+<p><strong>The <code>base_dna/</code> folder:</strong></p>
+<p>Put your own reference <code>Body.dna</code> and matching <code>Head.dna</code> here (<code>metabridge_dna/base_dna/</code>). This is what <strong>Use Base DNA</strong> adds, and what Build falls back to when nothing else is weighted.</p>
+<p><strong>Compact archetype libraries:</strong></p>
+<p>Two libraries ship with the addon, both in the <code>base_dna/</code> folder:</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>What is in it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>MH_All_Body.json</code></td>
+<td>The <strong>28 standard</strong> MetaHuman body types, each with matching head data</td>
+</tr>
+<tr>
+<td><code>MH_Boy.json</code></td>
+<td><strong>10 custom child bodies</strong>, for smaller/younger proportions</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Load Library...</strong> — loads a library, one row per archetype. The file browser opens on <code>MH_All_Body.json</code>; pick <code>MH_Boy.json</code> from the same folder for the child bodies.</li>
+<li><strong>Both can be loaded at once.</strong> Load one, then load the other, and all 38 stay in the list — so an adult body type and a child body type can go into the same blend. Loading the same library a second time just refreshes its own rows; nothing doubles up.</li>
+<li>Your own <code>.dna</code> rows are never touched by either.</li>
+<li><strong>Export...</strong> — packs exactly the sources currently listed in the panel into one compact <code>.json</code> library. If the list is empty, it instead scans a folder you pick (including subfolders). You don't need to keep the original <code>.dna</code> files around once you have a library.</li>
+<li>A library built from a different skeleton cannot be mixed with one already loaded — the addon says so when you try, rather than letting it fail at Build.</li>
+</ul>
+<hr />
+<h2 id="7-wearables-experimental">7. Wearables (experimental)</h2>
+<p><strong>Beta</strong> — weights can still look off during animation/posing in some cases. Being actively improved; touch up in Weight Paint mode if needed.</p>
+<p>Attach clothing (FBX) and hair/grooms (Alembic <code>.abc</code>) to the <em>active</em> character — found in its own <strong>Wearables (experimental)</strong> panel, collapsed by default. Works on any assembled or Body-Blend-built character.</p>
+<p>There are two ways to dress a character: import a <strong>clothing FBX</strong> built for a MetaHuman skeleton, or <strong>rig any mesh already in your scene</strong> yourself. Both end up following the character the same way afterward.</p>
+<p><strong>Clothing (FBX):</strong>
+<img alt="cloth_FBX.gif" src="assets/cloth_FBX.gif" />
+- <strong>Top... / Bottom... / Full...</strong> — import a MetaHuman-compatible clothing <code>.fbx</code> and attach it to the body, tagged with that category.
+- <strong>Head Accessory...</strong> — same idea, for things that attach to the head instead (glasses, earrings, ...).
+- <strong>Retarget To Body Proportions</strong> (on by default): fits the garment to this character's own proportions instead of the body it was originally made for — without going skin-tight, so a loose shirt stays loose.
+- Clothing automatically avoids clipping into the character's skin.
+- <strong>Clothing Offset</strong> slider — floats all worn clothing slightly off the skin, if you want extra breathing room. Updates live.
+- <strong>Categories replace what they conflict with</strong>: a new Top clears any worn Top/Full; a new Bottom clears Bottom/Full; a new Full clears both. Head accessories never auto-remove anything.
+- <strong>LOD0 only</strong>: if the FBX bundles multiple LODs, only LOD0 is kept.</p>
+<p><strong>Scene Mesh Garment (Make + Bind):</strong>
+<img alt="scene_garment.gif" src="assets/scene_garment.gif" />
+For a mesh already in your scene that doesn't have a MetaHuman skeleton of its own.</p>
+<ol>
+<li>Select the garment mesh and click <strong>Make Top / Bottom / Full / Shoes / Gloves / Head Acc</strong> — this fits it to the character and rigs it to move with the character's skeleton. Works best on a garment already modeled to roughly fit the character.</li>
+<li>Click <strong>Bind Garment To Character</strong> — attaches it to the active character, exactly like an imported clothing FBX from here on (category replacement, Body Blend live follow, Refit, Clothing Offset all apply).</li>
+</ol>
+<p>If deformation looks off in an extreme pose at a tight spot (armpits, between the thighs), touch it up in Weight Paint mode — everything else is unaffected.</p>
+<p><strong>Hair (Alembic):</strong></p>
+<ul>
+<li><strong>Import Hair...</strong> — imports a <code>.abc</code> groom and parents it to the head. Defaults are tuned for MetaHuman groom exports (<strong>Scale 0.01</strong>, <strong>Rotation X -90°, Z -180°</strong>) — adjust in the operator panel (bottom-left after import) if your source is different.</li>
+<li><strong>Bind To Head Surface</strong> (on by default) — hair follows the head as it deforms, including through Body Blend changes, without collapsing onto the scalp.</li>
+<li><strong>Bind Hair To Head</strong> — for hair that came from somewhere else: a groom already in your scene, a beard that came with the character, or anything imported outside this addon. Select it and click. It then follows the head exactly like hair imported here, Body Blend included. Hair already attached is simply re-attached to where the head is now.</li>
+<li>If hair sits still while the character's shape changes, the reason is written to the console — usually that it was never bound. Select it and use <strong>Bind Hair To Head</strong>.</li>
+</ul>
+<p><strong>Good to know:</strong></p>
+<ul>
+<li>Clothing FBX placement depends on the file sharing bone names with a MetaHuman skeleton.</li>
+<li>Imported/rigged wearables aren't tracked as part of the character slot the way body/head meshes are — rename, move, or export them like any other Blender object.</li>
+</ul>
+<hr />
+<h2 id="8-live-corrective-sculpting-beta">8. Live Corrective Sculpting (Beta)</h2>
+<p><img alt="Live_corrective.gif" src="assets/Live_corrective.gif" />
+<strong>Beta</strong> — a correction sculpted with only one pose holds steady if you pose further than that; sculpt more than one pose for the same correction if you want it to keep changing shape further into the pose. Head corrections can be written back into the character's <code>.dna</code> and used in Unreal — see <strong>Sending a correction to Unreal</strong> below. Body corrections stay inside Blender.</p>
+<p>Pose the character, then sculpt directly on top of that pose — the sculpt becomes a correction that fades in and out automatically from then on, every time the character moves toward and away from that pose. No keyframing needed. Works on both the face and the body, and automatically carries over to any clothing worn on the character.</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li>Open the <strong>Live Corrective Sculpting (Beta)</strong> panel.</li>
+<li>Pose the character the way you want to fix or add detail to (a bent elbow, a stretched shoulder, an expression...).</li>
+<li>Type a name for the correction in the <strong>Corrective</strong> field.</li>
+<li>For a body correction, also pick which bone should trigger it from the <strong>Body Driver Bone</strong> list.</li>
+<li>For a face correction, you can also pick a <strong>Head Driver Bone</strong>. Do this when the character has a custom head that breaks as the controls move — the correction then follows that bone as well as the expression.</li>
+<li>Click <strong>Begin (Face)</strong> or <strong>Begin (Body)</strong> — this enters Sculpt Mode on a fresh shape key, already at full strength.</li>
+<li>Sculpt the correction.</li>
+<li>Click <strong>Finish Sculpt</strong>.</li>
+</ol>
+<p><strong>If a correction doesn't fade all the way out:</strong></p>
+<p>Return the character to its rest position and click <strong>Set Neutral</strong> on that correction. It then reads 0 at rest. A custom head often needs this.</p>
+<p><strong>Editing an existing correction:</strong></p>
+<p>Click the sculpt icon next to a correction's slider to re-enter Sculpt Mode on it directly and refine it further. Pose the character close to where it was originally sculpted first, for the most accurate result — this doesn't return the character to that pose for you automatically.</p>
+<p><strong>Manual mode:</strong></p>
+<p>Click the tool icon next to a correction to switch it to <strong>Manual</strong> — its slider can then be dragged by hand instead of following the pose. Useful for previewing a correction at any strength, or hand-animating it. Click it again to go back to automatic.</p>
+<p><strong>Clothing:</strong></p>
+<p>A correction sculpted on the skin automatically carries over to any clothing worn on that character. This happens on its own whenever you finish a sculpt or import one — click <strong>Sync to Wearables</strong> if you add new clothing afterward and want it to catch up. Each garment gets its own copy of the correction, with the same Manual/slider/edit controls as the skin's, listed right underneath it.</p>
+<p><strong>Sharing corrections:</strong></p>
+<ul>
+<li><strong>Export...</strong> saves every correction on a character to a <code>.json</code> file.</li>
+<li><strong>Import...</strong> brings corrections from a file onto another character. It only works if that character has the same body/head as the one the file was exported from (built by this addon at the same LOD) — importing onto a mismatched character is rejected rather than corrupting the mesh.</li>
+</ul>
+<p><strong>Sending a correction to Unreal (head only):</strong></p>
+<p>Use the <strong>Write to DNA (head only)</strong> box. It writes a new <code>.dna</code> file and leaves the original untouched. There is no equivalent for the body — a MetaHuman body has no expression shapes to write into, so body corrections stay in Blender.</p>
+<p>There are two ways to do it.</p>
+<h3 id="fixing-an-expression-that-breaks-export-edited-shape-keys">Fixing an expression that breaks — Export Edited Shape Keys</h3>
+<p><img alt="export_shapekey.gif" src="assets/export_shapekey.gif" />
+This is the one to use when a face folds, spikes or collapses on a particular expression. You fix the character's own expression by hand and send that fix back into the <code>.dna</code>.</p>
+<ol>
+<li>
+<p><strong>Make the expression with the face controls.</strong> Move the controls until the problem is on screen — for example open the jaw until the mesh breaks.</p>
+</li>
+<li>
+<p><strong>Find the shape key that expression is using.</strong> With the head mesh selected, look at its shape key list: the ones the controls are driving are the ones whose <strong>value is above 0</strong>. Opening the jaw, for instance, puts a jaw shape key at <strong>1.0</strong>. That is the one to fix.</p>
+</li>
+</ol>
+<blockquote>
+<p>Leave the face controls where they are. The shape key you are about to sculpt is only showing its shape because the controls are holding it there.</p>
+</blockquote>
+<ol>
+<li>
+<p><strong>Sculpt it.</strong> With that shape key active, enter <strong>Sculpt Mode</strong> and shape the face the way it should look. You are editing the character's own expression, not adding a new one.</p>
+</li>
+<li>
+<p><strong>Check it with the controls.</strong> Leave Sculpt Mode and move the face controls through the expression again. The fix should follow the controls in and out. Keep sculpting until it does.</p>
+</li>
+<li>
+<p><strong>Click Export Edited Shape Keys</strong> and save. Every expression you changed goes into the new <code>.dna</code>; the ones you didn't touch are left exactly as they were.</p>
+</li>
+</ol>
+<p><strong>Good to know:</strong></p>
+<ul>
+<li>You can fix several expressions in one session — pose, sculpt, pose the next, sculpt — and one click sends them all.</li>
+<li>The button refuses to export if you haven't actually changed any of the character's expressions, so it never writes an empty file.</li>
+<li>With more than one character loaded, the <strong>active character</strong> is the one exported — the one with the filled dot next to it in <strong>Assembled Characters</strong>.</li>
+</ul>
+<h3 id="sending-your-own-corrections">Sending your own corrections</h3>
+<p>Click the ⇱ button on a correction and choose which expression it should ride along with. <strong>Bake All Correctives</strong> then writes every assigned correction at once. Always use this rather than sending them one at a time.</p>
+<p><strong>In Unreal:</strong> bring the new <code>.dna</code> in with <strong>MetaHuman Creator ▸ From DNA</strong>, and choose <strong>Replace</strong> with <strong>Import Whole Rig</strong> turned on. <strong>Mesh Fit</strong> rebuilds the expressions from scratch and will discard your edits.</p>
+<hr />
+<h2 id="9-exporting">9. Exporting</h2>
+<ul>
+<li><strong>DNA</strong>: separate <strong>Head</strong> and <strong>Body</strong> buttons (head and body are always two separate <code>.dna</code> files). To send a sculpted correction into the head <code>.dna</code> instead, use <strong>Write to DNA</strong> in <a href="#8-live-corrective-sculpting-beta">section 8</a>.</li>
+<li><strong>FBX / glTF</strong>: <strong>Full / Head / Body</strong> buttons. Choose whether to include the control rig and animation in the export dialog.</li>
+</ul>
+<p><strong>Batch Tools:</strong></p>
+<ul>
+<li><strong>Assemble All Characters</strong> — loads every character found in your folder in one go.</li>
+<li><strong>Export All Slots</strong> — exports every loaded character at once.</li>
+</ul>
+<hr />
+<h2 id="10-opening-a-file-someone-else-saved">10. Opening a File Someone Else Saved</h2>
+<p>A <code>.blend</code> remembers where each character's <code>.dna</code> files were on the computer that saved it. On your machine those files are somewhere else, so the character appears but nothing about it responds.</p>
+<p>You'll see this in <strong>MetaHuman Assembler ▸ Assembled Characters</strong> — the character is marked with a warning instead of a checkmark, and shows the file it's looking for:</p>
+<blockquote>
+<p>⚠ Head DNA not found:
+<code>D:\SomeoneElse\MetaHumans\Bob\head.dna</code>
+<strong>Relink Head DNA...</strong></p>
+</blockquote>
+<p>Click <strong>Relink Head DNA...</strong> (or <strong>Relink Body DNA...</strong>) and pick the same file on your own machine. The character comes back to life immediately, and the warning disappears. Save the file afterwards so you only do this once.</p>
+<p>If you pick the wrong file, nothing is broken — it's refused and the character stays as it was.</p>
+<p><strong>To avoid this when sending a file to someone</strong>, send the <code>.dna</code> files along with the <code>.blend</code>. They still need to relink once, but they'll have the files to point at.</p>
+<hr />
+<h2 id="11-md-live-marvelous-designer">11. MD Live (Marvelous Designer)</h2>
+<p>Make clothes on <em>this</em> character in Marvelous Designer, and bring them back already wearing.</p>
+<p>MD Live is its own panel in the sidebar, next to <strong>MetaBridge DNA</strong>.</p>
+<p><strong>Set up once</strong></p>
+<ol>
+<li>Pick a <strong>Shared Folder</strong> — any empty folder both programs can reach.</li>
+<li>Click <strong>Open MD Plug-in Folder</strong>.</li>
+<li>In Marvelous Designer: <strong>Plug-in ▸ Plug-in Manager ▸ Add</strong>, and choose that folder. Two new entries appear in the Plug-in menu.</li>
+</ol>
+<p>The folder and every setting are remembered, so this is a one-time step.</p>
+<p><strong>Sending the character</strong></p>
+<ol>
+<li>Click <strong>Send Body to MD</strong>.</li>
+<li>In Marvelous Designer, click the MetaBridge avatar entry in the <strong>Plug-in</strong> menu.</li>
+</ol>
+<p>The character appears as the avatar. No import window, no settings to fill in. Change the body in Blender, press <strong>Send Body to MD</strong> again, click the same menu entry again — the avatar is replaced, and you never end up with two.</p>
+<p><strong>Include Head</strong> is on by default — Marvelous Designer refuses an avatar without a head, and hats and collars need it too.</p>
+<p><strong>Bringing the clothes back</strong></p>
+<ol>
+<li>In Marvelous Designer, click the MetaBridge garment entry in the <strong>Plug-in</strong> menu.</li>
+<li>In Blender, click <strong>Import Garment from MD</strong>.</li>
+</ol>
+<p>The garment arrives at the right size, is fitted to the character, and follows the rig straight away — the same as any other clothing in <a href="#7-wearables-experimental">section 7</a>. Pick the <strong>Category</strong> so it replaces what it should.</p>
+<p><strong>Skip Stitches &amp; Trims</strong> (on by default) leaves out the topstitch, button and zipper meshes. They carry most of the file's weight and none of it is needed to wear the garment.</p>
+<p><strong>If the import takes a while</strong></p>
+<p>Reading the file is quick even at 600 MB. The wait is the fitting: every vertex of the garment has to be matched to the body so it moves with the character. A garment carrying its topstitches can reach three million vertices, and almost all of them are stitching.</p>
+<p><strong>Hide the topstitches, buttons and zippers in Marvelous Designer before you export.</strong> Hidden objects are left out of the file, and the import goes from about a minute to a few seconds. Nothing is lost — they aren't needed to wear the garment, and they're still in your Marvelous Designer project.</p>
+<p>You can also lower <strong>Particle Distance</strong> in Marvelous Designer if the garment is denser than it needs to be.</p>
+<p><strong>Good to know</strong></p>
+<ul>
+<li>The panel shows the garment waiting to be imported and how big it is. Above 100 MB it warns you.</li>
+<li><strong>Send Scale</strong> and <strong>Import Scale</strong> are already correct. Only touch them if what arrives is obviously the wrong size; Blender tells you the size it imported in the status bar.</li>
+<li>Marvelous Designer's own <strong>Auto Fit</strong> expects avatars from its library. <strong>Prepare for Auto-Fit</strong> (on by default) asks it to treat this character the same way.</li>
+</ul>
+<hr />
+<h2 id="12-send-to-cascadeur">12. Send to Cascadeur</h2>
+<p>Put this character into Cascadeur, ready to animate.</p>
+<p><strong>Before the first time</strong></p>
+<p>The Cascadeur plug-in comes with this addon, in the <code>third_party</code> folder described under <a href="#installing">Installing</a>.</p>
+<ol>
+<li>Unzip <strong><code>KimodoCascadeurPlugin_free.zip</code></strong> anywhere.</li>
+<li>Right-click <strong><code>install_plugin.bat</code></strong> ▸ <strong>Run as administrator</strong>. Cascadeur normally lives under <code>C:\Program Files</code>, and without that the installer stops with an access error.</li>
+<li>It offers <code>C:\Program Files\Cascadeur</code>. Press Enter to accept, or type the path if Cascadeur is elsewhere.</li>
+<li>It then asks for a <strong>KimodoEngine folder</strong> — leave it empty and press Enter. That is for a separate product, and nothing here uses it.</li>
+<li>Restart Cascadeur.</li>
+</ol>
+<p><strong>Animation Scripts ▸ Receive Poses (Blender)</strong> now appears in the menu. The plug-in brings a few extra tools of its own along with it; ignore them.</p>
+<p>There are two things you can send, chosen at the top of the panel.</p>
+<p><strong>The first time — Character and Bones</strong></p>
+<ol>
+<li>In Cascadeur: <strong>Animation Scripts ▸ Receive Poses (Blender)</strong>.</li>
+<li>In Blender: open <strong>Send to Cascadeur</strong> in the sidebar and click <strong>Send Character</strong>.</li>
+</ol>
+<p>The character opens in a new Cascadeur tab with its rig, its meshes and whatever animation is on it. Head and body arrive as one character, so the face stays on the body when you move it.</p>
+<p><strong>Include Head</strong> is on by default. Turn it off to send the body alone.</p>
+<p><strong>Face Bones</strong> is off by default, and should stay off. On, the face's 843 joints go too. Off, the face rides the head joint and only the body skeleton is sent — a quarter of the character, and all Cascadeur needs to animate a body. Turn it on only if you want to pose the face there.</p>
+<p><strong>Include Animation</strong> is on by default. Turn it off to send the character standing in its rest pose.</p>
+<p><strong>After that — Keyframes Only</strong></p>
+<p>Once the character is in Cascadeur, switch to <strong>Keyframes Only</strong> and click <strong>Send Frame Range</strong> to send a new pose or animation onto it. Nothing is created in Cascadeur; the character already there simply takes the motion.</p>
+<p><strong>Current Frame</strong> sends just the pose you are looking at.</p>
+<p><strong>Append</strong> adds after what Cascadeur already received. Off starts again from frame 0.</p>
+<p><strong>Send the character again after restarting Cascadeur</strong></p>
+<p>Keyframes only land correctly on a character Cascadeur received in that session. If you restart Cascadeur, press <strong>Send Character</strong> once more before sending keyframes. Skip it and the limbs come out turned the wrong way, with nothing reporting an error.</p>
+<p><strong>Good to know</strong></p>
+<ul>
+<li>The character on screen is the one that goes — whichever slot is active.</li>
+<li><strong>Cascadeur Status</strong> tells you whether Cascadeur is listening.</li>
+<li>Only change <strong>Port</strong> if Receive Poses was started on a different one.</li>
+</ul>
+<p><strong>Bringing the work back</strong></p>
+<p>Animate in Cascadeur, then press <strong>Receive from Cascadeur</strong>. It comes back onto
+the same character, in the same scene, with nothing to import by hand.</p>
+<p><strong>Animation Only</strong> keys onto the character already here. Nothing new is
+created.</p>
+<p><strong>Mesh + Animation</strong> brings the character back as new objects instead, for when
+the mesh changed over there too.</p>
+<p><strong>Onto Rigify Controls</strong> puts the animation on the control rig rather than the
+deform bones, so it can be adjusted, offset and layered like anything you keyed
+by hand. The body rig goes back to being driven by the controls, so nothing
+fights for the same bone.</p>
+<p><strong>Whole Take</strong> reads every frame Cascadeur holds. Turn it off to read only the
+scene's frame range.</p>
+<p>Reading a full MetaHuman take takes under a second, and root motion comes with
+it — the character travels instead of walking on the spot.</p>
+<hr />
+<h2 id="13-unreal-engine">13. Unreal Engine</h2>
+<p><img alt="unreal_plugin_panel.jpg" src="assets/unreal_plugin_panel.jpg" /></p>
+<p>There is <strong>one plugin</strong> on the Unreal side. Which of Blender's features it is
+talking to is decided by the <strong>port</strong>, so the port is the setting to get right.</p>
+<table>
+<thead>
+<tr>
+<th>Port</th>
+<th>Direction</th>
+<th>What is using it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>9560</strong></td>
+<td>Blender → Unreal</td>
+<td><strong>MotionForge</strong> body motion, as a Live Link source</td>
+</tr>
+<tr>
+<td><strong>9561</strong></td>
+<td>Blender → Unreal</td>
+<td><strong>Unreal Live</strong> — this character's face and body</td>
+</tr>
+<tr>
+<td><strong>9562</strong></td>
+<td>Unreal → Blender</td>
+<td><strong>Follow Unreal</strong> — Unreal's character drives this one</td>
+</tr>
+<tr>
+<td><strong>11111</strong></td>
+<td>iPhone → Blender</td>
+<td><strong>ARKit Live</strong>, from the Live Link Face app</td>
+</tr>
+</tbody>
+</table>
+<p>Two of these can run at once — sending the face on 9561 while a body stream
+uses 9560 — as long as they are on different ports.</p>
+<p><strong>ARKit Live on 11111 is the exception</strong> — it listens for the iPhone directly and needs no plugin in Unreal at all.</p>
+<hr />
+<h3 id="installing-the-unreal-plugin">Installing the Unreal plugin</h3>
+<p>It comes with this addon, in the <code>third_party</code> folder described under <a href="#installing">Installing</a>.</p>
+<ol>
+<li>Unzip <strong><code>MotionForgeLiveLink_UE5.8.zip</code></strong> into your Unreal project's <code>Plugins</code> folder, so you end up with:</li>
+</ol>
+<div class="highlight"><pre><span></span><code>&lt;YourProject&gt;\Plugins\MotionForgeLiveLink\MotionForgeLiveLink.uplugin
+</code></pre></div>
+<p>Create the <code>Plugins</code> folder yourself if the project has none.</p>
+<ol>
+<li>Restart the editor. Unreal builds the plugin as it opens, so the first launch takes longer than usual and needs a C++ project or the build tools installed.</li>
+<li>Enable <strong>Live Link</strong> in <strong>Edit ▸ Plugins</strong> — this plugin extends it rather than replacing it.</li>
+</ol>
+<p>One plugin covers all three ports. Install it once, whichever direction you are working in.</p>
+<p>Its own <code>guide.md</code>, inside the zip, goes through the Unreal side in more detail.</p>
+<hr />
+<h3 id="unreal-live-the-face-performs-in-unreal-as-you-work">Unreal Live — the face performs in Unreal as you work</h3>
+<p><img alt="unreal_live_panel.jpg" src="assets/unreal_live_panel.jpg" /></p>
+<p>A MetaHuman face animated in Blender performs on the MetaHuman in Unreal, live,
+with nothing exported.</p>
+<ol>
+<li><strong>Port</strong> — leave it at <strong>9561</strong> unless something else has it.</li>
+<li><strong>Rate</strong> — frames a second to send. It is sent at a steady rate whether the
+   face is moving or not, because Live Link treats a source that goes quiet as
+   a source that died.</li>
+<li>Press <strong>Start Unreal Live</strong>. The panel then says how many controls are ready
+   and how many listeners are attached.</li>
+<li>In Unreal, add a <strong>MotionForge source</strong> in the Live Link window, pointed at
+   that port.</li>
+</ol>
+<p><strong>Mirror</strong> settles the handedness difference between Blender and Unreal. Y is
+the default and is right for a normal MetaHuman; change it only for a rig built
+the other way round.</p>
+<p>Press <strong>Stop Unreal Live</strong> to end it. This one cannot be undone with Ctrl+Z —
+use the panel's own Stop.</p>
+<hr />
+<h3 id="follow-unreal-the-character-here-copies-the-one-in-unreal">Follow Unreal — the character here copies the one in Unreal</h3>
+<p><img alt="follow_unreal_panel.jpg" src="assets/follow_unreal_panel.jpg" /></p>
+<p>The mirror of Unreal Live. Whatever is moving the character in Unreal — a
+Control Rig in a sequence, a baked animation — arrives here and drives this
+character.</p>
+<ol>
+<li><strong>Host</strong> and <strong>Port</strong> — <code>127.0.0.1</code> and <strong>9562</strong> for Unreal on the same
+   machine.</li>
+<li><strong>Apply Rate</strong> — how many times a second the pose is applied here.</li>
+<li><strong>Body</strong> and <strong>Face</strong> — follow one, the other, or both.</li>
+<li>Press <strong>Follow Unreal</strong>, then run <strong>MotionForge.Send.Start</strong> in Unreal.</li>
+</ol>
+<p>While following, the panel shows the skeleton's name, its bone and curve counts
+and how many frames have arrived.</p>
+<p><strong>Rigify is stood down while following.</strong> Its constraints exist to drive this
+character, and the pose is now arriving from somewhere else. They come back
+exactly as they were when you press <strong>Stop Following</strong>.</p>
+<hr />
+<h2 id="14-other-useful-tools">14. Other Useful Tools</h2>
+<p><img alt="other_tools_panels.jpg" src="assets/other_tools_panels.jpg" /></p>
+<ul>
+<li><strong>DNA RC Inspector</strong>: shows how the control bones are connected to the character's DNA data. Mainly for troubleshooting a specific control.</li>
+<li><strong>DNA Validation</strong>: <strong>Validate DNA File</strong> checks a <code>.dna</code> on disk before you
+  use it; <strong>Validate Active Slot</strong> checks the character already loaded.</li>
+<li><strong>Pose Reset</strong>: <strong>Reset Face Pose</strong> puts the whole face back to neutral.
+  <strong>Reset Selected Controls</strong> does only the controls you have selected.</li>
+<li><strong>Animation Baker</strong>: <strong>Bake Face Animation</strong> turns a live or keyframed facial
+  performance into permanent, exportable keys. <strong>Clear Baked Animation</strong>
+  removes them again.</li>
+<li><strong>Export Face CSV</strong>: writes the face's shape values over the frame range to a
+  spreadsheet file, one file per mesh. Useful for taking a performance to
+  another program.</li>
+</ul>
+<p><strong>Batch Tools</strong> — for a folder of characters rather than one.</p>
+<ul>
+<li><strong>Assemble All Characters</strong> builds every character in the scanned folder,
+  each into its own slot. On a large folder this takes a long time.</li>
+<li><strong>Export All Slots</strong> writes every assembled slot out to a folder, as FBX or
+  glTF.</li>
+</ul>
+<p><strong>External Preset Converter</strong> — for expression presets that came from
+somewhere else.</p>
+<ul>
+<li><strong>Convert &amp; Import (Maya/Houdini)...</strong> takes a preset JSON from Maya or
+  Houdini and renames its bones to the ones this add-on uses. Anything it
+  cannot match is reported rather than dropped silently.</li>
+<li><strong>Convert ARKit Payload...</strong> turns an ARKit remap payload into a board-pose
+  preset.</li>
+<li><strong>Edit Name Mapping</strong> is where you fix a name it could not match by hand.</li>
+</ul>
+<hr />
+<h2 id="bake-to-dna">Bake to DNA</h2>
+<p>A correction you sculpted lives in the scene. <strong>Bake to DNA</strong> writes it into the
+character's <code>.dna</code> file instead, so it belongs to the character from then on —
+in a new scene, on another machine, or in Unreal.</p>
+<p><strong>Bake Corrective to DNA</strong> does one correction. <strong>Bake All to DNA</strong> does every
+correction on the character at once.</p>
+<p>The original <code>.dna</code> is not overwritten; a new file is written and you choose
+where.</p>
+<hr />
+<h2 id="undo">Undo</h2>
+<p><strong>Ctrl+Z</strong> works on the steps that build or remove things:</p>
+<p>Assemble · New · Delete Slot · Load Head DNA · Load Body DNA · Build Meta-Rig · Generate Rigify Rig · Apply Retarget · Link Head Rig · Unlink Head Rig · Remove Rigify Rig · Reload Materials</p>
+<p>Undo a step and the face rig follows it — undo past an Assemble and it switches off with the character, redo and it comes back on. <strong>Ctrl+Shift+Z</strong> redoes.</p>
+<p>Some things are one-way, because Undo cannot put them back:</p>
+<ul>
+<li><strong>Saving</strong> a <code>.dna</code>, an FBX, a glTF or a CSV — the file is already written. Delete it yourself if you did not mean to.</li>
+<li><strong>Save / Reset Material Defaults</strong> — same reason.</li>
+<li><strong>Connecting ARKit Live</strong>, <strong>Start Unreal Live</strong>, <strong>Follow Unreal</strong>, <strong>Send to Cascadeur</strong> — these talk to something outside Blender. Use the panel's own Stop or Disconnect.</li>
+<li><strong>Face Rig ON/OFF</strong> and the <strong>Rig ON/OFF</strong> on each character — just press the button again.</li>
+</ul>
+<h2 id="quick-tips">Quick Tips</h2>
+<ul>
+<li><strong>LOD 0</strong> is always the highest quality — use it unless you need better performance. It is also the only level that carries facial expressions; see <a href="#1-loading-a-character">section 1</a>.</li>
+<li>You can combine <strong>live ARKit tracking</strong> with <strong>manual Preset Sliders</strong> — nudge sliders by hand if the tracking doesn't quite nail an expression.</li>
+<li>If something that used to work suddenly doesn't move, check that <strong>Face Rig</strong> or the character's <strong>Rig ON/OFF</strong> isn't accidentally switched off.</li>
+<li>For the most realistic shoulder deformation when raising the arm, key both the arm control and the <code>shoulder.L/R</code> bone together.</li>
+<li><strong>ARKit Smoothing</strong>: low is raw and immediate, high is smooth and slightly behind. If you are coming from an older version, note that this slider used to behave the opposite way round — see <a href="#whats-new">What's New</a>.</li>
+</ul>
+<h2 id="panel-reference">Panel Reference</h2>
+<p>Every button and option, panel by panel, under the name it carries
+on screen.</p>
+<h3 id="metabridge-dna">MetaBridge DNA</h3>
+<p>The main panel. The DNA inspector rows near the bottom are for troubleshooting one control's wiring and are not part of normal use.</p>
+<ul>
+<li><strong>Append GUIArmature</strong> — From gui_mapping.blend (resets existing GUIArmature)</li>
+<li><strong>Toggle Face Rig</strong> — Enable or disable RigLogic face evaluation for this
+  character slot</li>
+<li><strong>Refresh Character List</strong> — Re-scan the MetaHumans directory to refresh the
+  character list</li>
+<li><strong>Head</strong></li>
+<li><strong>Body</strong></li>
+<li><strong>Textures</strong></li>
+<li><strong>LOD</strong> — RigLogic evaluation LOD (0 = full detail). Applied when DNA is
+  loaded or re-assembled, and immediately to the active slot</li>
+<li><strong>Re-Assemble</strong> — Load selected MetaHuman into the active slot (replaces
+  existing)</li>
+<li><strong>Assemble</strong> — Load selected MetaHuman into the active slot (replaces
+  existing)</li>
+<li><strong>New</strong> — Add the selected character as a new slot (keeps existing slots)</li>
+<li><strong>Load Head DNA...</strong> — Import head .dna (face mesh + face rig controls)</li>
+<li><strong>Load Body DNA...</strong> — Import body .dna (body mesh only, no face controls)</li>
+<li><strong>Activate Slot</strong> — Set this character slot as the active one for editing</li>
+<li><strong>Rig: ON</strong> — Enable or disable RigLogic face evaluation for this character
+  slot</li>
+<li><strong>Delete Slot</strong> — Remove this character slot and all its objects</li>
+<li><strong>Relink DNA</strong> — Point this character at a .dna file that has moved. Use this
+  after opening a .blend saved on another computer</li>
+<li><strong>Rebuild Meta-Rig</strong> — Create the Rigify meta-rig with bones aligned to the
+  MetaHuman skeleton. Inspect and tweak bone positions, then click '2.
+  Generate Rigify Rig'.</li>
+<li><strong>Regenerate Rigify Rig</strong> — Generate the Rigify control rig from the meta-rig.
+  Run AFTER '1. Build Meta-Rig' and any manual bone adjustments. MetaHuman
+  meshes are protected during generation.</li>
+<li><strong>Remove Retarget</strong> — Reverse Apply Retarget: restore original MetaHuman
+  Armature modifier</li>
+<li><strong>3. Apply Retarget</strong> — Copy vertex weights from MetaHuman bone names to
+  Rigify DEF- bone names and redirect the Armature modifier to Rigify_Ctrl.
+  Animate with Rigify FK/IK controls — the body mesh follows directly.</li>
+<li><strong>Unlink Head Rig</strong> — Remove retarget constraints from the Head Rig shared
+  bones</li>
+<li><strong>Link Head Rig</strong> — Apply Rigify retarget to the MetaHuman Head Rig shared
+  bones (spine_04, spine_05, clavicle_l/r, neck_01, etc.) so head mesh stays
+  attached to the body animation.</li>
+<li><strong>Toggle RBF</strong> — Enable/disable the RBF solver pass within Body Correctives
+  (Twist/Swing always stay active)</li>
+<li><strong>Body Correctives: none in this DNA</strong> — Enable/disable the RBF solver pass
+  within Body Correctives (Twist/Swing always stay active)</li>
+<li><strong>Driver Bone</strong></li>
+<li><strong>Show RBF Controls</strong> — Reveal and select the manual RBF controller bones
+  linked to the currently selected Rigify control (e.g. shoulder.L), so their
+  corrective bulge/twist can be hand-tuned.</li>
+<li><strong>Hide</strong> — All manual RBF controller bones again</li>
+<li><strong>Import FBX Animation...</strong></li>
+<li><strong>Remove Rigify Rig</strong> — Delete Rigify objects and clean up
+  constraints/modifiers for this slot</li>
+<li><strong>Toggle IK Stretch</strong> — Allow or prevent the leg/arm IK controls from
+  stretching the limb</li>
+<li><strong>Toggle Heel Pivot</strong> — Pivot the toe around the heel when foot_spin_ik is
+  rotated backwards. Keep this OFF while rotating the foot_ik controller -
+  when ON, the foot leaves the controller on one rotation direction</li>
+<li><strong>Toggle Finger IK</strong> — Pose the fingers by dragging a target at each fingertip
+  instead of rotating each joint. Stock Rigify has no finger IK. Switching it
+  on keeps the fingers exactly where they are</li>
+<li><strong>IK to FK</strong> — Hand the fingers' current pose over to the other set of
+  controls without changing how they look</li>
+<li><strong>FK to IK</strong> — Hand the fingers' current pose over to the other set of
+  controls without changing how they look</li>
+<li><strong>Snap Fingertip Targets to Pose</strong> — Move every fingertip target onto where
+  that finger is right now, without changing the pose</li>
+<li><strong>Show</strong> — Filter which DNA channels are listed</li>
+<li><strong>Parent</strong></li>
+<li><strong>Re-Auto Link</strong> — Reload gui_mapping.json and rebuild all bone to RC
+  connections</li>
+<li><strong>Clear All</strong> — Reset runtime connections: clears manual_map and bone ml_rc
+  tags. gui_mapping.json is NEVER modified. Use Re-Auto Link to restore.</li>
+<li><strong>Print Full Map (console)</strong> — Print the complete bone to RC mapping to the
+  system console</li>
+<li><strong>&lt; Prev</strong> — Navigate pages in the DNA RC channel list</li>
+<li><strong>Next &gt;</strong> — Navigate pages in the DNA RC channel list</li>
+<li><strong>Change Bone</strong> — Open a dialog to assign a GUIArmature bone to a DNA raw-
+  control channel</li>
+<li><strong>Edit Bone Mapping</strong> — Edit the RC channel, axis, and directional mapping for
+  this bone</li>
+<li><strong>Connect</strong> — Open a dialog to assign a GUIArmature bone to a DNA raw-control
+  channel</li>
+<li><strong>Add Bone to JSON</strong> — Add a new bone-to-RC-channel entry to
+  custom_mapping.json</li>
+<li><strong>Assign Bone to RC Channel</strong> — Open a dialog to assign a GUIArmature bone to
+  a DNA raw-control channel</li>
+<li><strong>Disconnect Bone</strong> — Remove manual RC override for this bone</li>
+</ul>
+<h3 id="expression-presets">Expression Presets</h3>
+<ul>
+<li><strong>Save Current Expression</strong> — Overwrite the preset selected in the dropdown
+  with the current face board pose</li>
+<li><strong>Save As Current Expression...</strong> — Save the current face board pose as a NEW
+  preset file. Opens a file dialog so you can pick the location and type a
+  file name</li>
+<li><strong>Delete Expression Preset</strong> — Delete the selected preset file</li>
+<li><strong>Apply Preset</strong> — Add this preset as a 0-1 slider (see 'Preset Sliders'
+  below) instead of snapping instantly. It starts at 1.0 so the pose shows
+  right away, and can be dialed back or blended with other active presets
+  afterward</li>
+<li><strong>Import...</strong> — Copy a preset .json file from anywhere into the addon presets
+  folder so it appears in the preset list</li>
+<li><strong>Set Folder...</strong> — Choose the folder where presets are stored and listed.
+  Select the addon's own presets folder to return to the default</li>
+<li><strong>Open Presets Folder</strong> — Open the current presets folder in the system file
+  browser</li>
+</ul>
+<h3 id="arkit-live">ARKit Live</h3>
+<ul>
+<li><strong>Disconnect</strong> — Start or stop listening for Apple Live Link Face UDP data</li>
+<li><strong>Stop Recording</strong> — Record the live stream as keyframes starting at the
+  current frame - one frame per received tick (~30fps) - instead of only being
+  able to load a CSV exported after the fact. Keyframes the Preset Sliders,
+  and head rotation too if that's enabled</li>
+<li><strong>Track Head Rotation</strong></li>
+<li><strong>Invert Pitch</strong></li>
+<li><strong>Invert Yaw</strong></li>
+<li><strong>Invert Roll</strong></li>
+<li><strong>Load Live Link Face CSV...</strong> — Load a Live Link Face CSV recording and bake
+  it as keyframes onto the Preset Sliders (the same controllers you can drag
+  by hand), starting at the current frame</li>
+<li><strong>Export Face CSV...</strong> — Write the evaluated shape key values over the frame
+  range as CSV - one file per mesh, ready for Cascadeur's MetaArKit importer</li>
+<li><strong>Rebuild Name Mapping</strong> — Rebuild the ARKit-name lookup tables and reload
+  preset bone data from disk. Use after regenerating ARKit presets (Convert
+  ARKit Payload), hand-editing a preset JSON file, or editing gui_mapping.json</li>
+</ul>
+<h3 id="retarget-rigify-animation-beta">Retarget Rigify Animation (Beta)</h3>
+<ul>
+<li><strong>Retarget Rigify Animation</strong> — Bake the source armature's animation onto the
+  target Rigify control rig</li>
+</ul>
+<h3 id="body-blend-experimental">Body Blend (experimental)</h3>
+<ul>
+<li><strong>Use Base DNA</strong> — Add the Body.dna (+ matching Head.dna) from the addon's
+  base_dna/ folder as a source - this is meant to always be your PRIMARY row,
+  since library entries can never supply RigLogic/correctives data on their
+  own</li>
+<li><strong>Add Folder...</strong> — Scan a folder for <em>_Body.dna files (Epic's own body-
+  archetype naming) and add every one found as a blend source, auto-matching
+  each with its </em>_Head.dna. Remembers the folder for next time</li>
+<li><strong>Add Body DNA</strong> — Add a body.dna file as a blend source</li>
+<li><strong>Load Library...</strong> — Load a compact .json archetype library (see Export
+  Archetype Library) and add every archetype in it as a blend source. These
+  can only be used as NON-primary sources - keep at least one real .dna file
+  (e.g. your own character) as the primary/highlighted row</li>
+<li><strong>Export...</strong> — Export the CURRENT Body Blend source list (added .dna rows and
+  loaded library entries - exactly what you see, nothing else) as ONE compact
+  .json library. With an empty list, falls back to scanning the chosen folder
+  (including subfolders) for body .dna files instead</li>
+<li><strong>Name</strong></li>
+<li><strong>LOD</strong></li>
+<li><strong>Build Blended Body</strong> — Blend the listed body DNA files (weighted) into a
+  character. WARNING: adjusting blend weight sliders AFTER building may cause
+  face rig errors - if the face misbehaves after changing weights, click Build
+  again (with Replace on) to rebuild it cleanly</li>
+<li><strong>Replace</strong> — Build overwrites the last Body Blend character slot in place
+  instead of adding a new one (falls back to adding if there's nothing to
+  replace yet, e.g. the first Build this session)</li>
+<li><strong>Live Preview</strong> — After a Build, dragging a weight slider re-blends and
+  updates the built character live instead of requiring another Build click</li>
+</ul>
+<h3 id="wearables-experimental">Wearables (experimental)</h3>
+<ul>
+<li><strong>Import Clothing (FBX)...</strong> — Import a MetaHuman-compatible clothing FBX
+  (same skeleton bone names) and attach it to the active character - reuses
+  the character's OWN skeleton, and retargets the garment's rest shape to this
+  character's actual bone proportions (not a Shrinkwrap - loose clothing stays
+  loose)</li>
+<li><strong>Head Accessory...</strong> — Import a MetaHuman-compatible clothing FBX (same
+  skeleton bone names) and attach it to the active character - reuses the
+  character's OWN skeleton, and retargets the garment's rest shape to this
+  character's actual bone proportions (not a Shrinkwrap - loose clothing stays
+  loose)</li>
+<li><strong>Refit Clothing To Body</strong> — Re-run the bone-position retarget for every worn
+  clothing item on the active character. For a Body Blend character, this also
+  forces the body/head armature itself fully up to date first (bypassing Live
+  Preview's mode-safety pause), so this is the reliable manual fallback when
+  live tracking didn't already catch a shape change</li>
+<li><strong>Clothing Offset</strong> — Pushes ALL currently worn clothing outward along its own
+  surface normal by this distance, uniformly everywhere - not a scale, so it
+  floats just slightly off the body instead of clipping into skin. Adjustable
+  anytime, not just at import time - applies live to everything already worn
+  on this character</li>
+<li><strong>Make Garment Rig</strong> — Rig the SELECTED mesh as a garment for the active
+  character: transfers skin weights from the character's own body mesh
+  (nearest-face projection - the same technique MetaHuman clothing uses in
+  Unreal), limits/normalizes them, and adds an Armature modifier driving it
+  with the character's own skeleton - the mesh then deforms exactly as if the
+  character were wearing it. Follow with Bind Garment To Character</li>
+<li><strong>Bind Garment To Character</strong> — Attach the selected Made garment (see Make
+  Garment Rig) to the active character, exactly like an imported clothing FBX:
+  replaces whatever worn category it conflicts with, records the character's
+  CURRENT shape as the garment's reference fit, and from then on it follows
+  Body Blend weight changes live and the Refit button - the same pipeline as
+  FBX clothing</li>
+<li><strong>Import Hair...</strong> — Import a MetaHuman-compatible hair/groom Alembic (.abc)
+  and parent it to the active character's head. Defaults are tuned for
+  MetaHuman groom exports (Scale 0.01, since Blender's Alembic importer
+  doesn't do the cm-to-meter conversion this addon's own DNA pipeline does
+  elsewhere) - use the Scale/Rotation options (bottom-left after importing) to
+  adjust for a different source</li>
+<li><strong>Bind Hair To Head</strong> — Make the selected hair/beard follow the active
+  character's head when Body Blend changes its shape. Needed for grooms that
+  came in without Bind To Head Surface, or from outside this addon - hair
+  already bound is simply re-bound to where the head is now</li>
+<li><strong>Align Active Mesh to DNA Head</strong> — Move the selected mesh's points onto the
+  character's own head shape, so a head made elsewhere matches this character</li>
+<li><strong>Retarget Hair to Selected Mesh</strong> — Re-attach the selected hair to the mesh
+  you pick, so it follows this character's head instead of the one it came
+  with</li>
+</ul>
+<h3 id="live-corrective-sculpting-beta">Live Corrective Sculpting (Beta)</h3>
+<ul>
+<li><strong>Corrective</strong> — Name of the corrective to sculpt - reuse an existing name to
+  add another anchor pose to it, or type a new name to start a new one</li>
+<li><strong>Begin (Face)</strong> — Enter Sculpt Mode on a new correction for the pose the
+  character is in right now. Sculpt the fix, then click Finish Sculpt</li>
+<li><strong>Body Driver Bone</strong> — Body armature bone whose rotation this corrective
+  should react to - only bones that actually drive a Twist/Swing/RBF
+  corrective are listed</li>
+<li><strong>Begin (Body)</strong> — Enter Sculpt Mode on a new correction for the pose the
+  character is in right now. Sculpt the fix, then click Finish Sculpt</li>
+<li><strong>Finish Sculpt</strong> — Leave Sculpt Mode and start playing this correction back
+  automatically whenever the character returns to that pose</li>
+<li><strong>Export Edited Shape Keys</strong> — Write every DNA blend shape key you sculpted
+  back into the .dna, replacing that channel</li>
+<li><strong>Bake All to DNA</strong> — Write every corrective that has a blend shape target
+  assigned, in one pass</li>
+<li><strong>Export...</strong> — Save every correction on this character to a .json file to
+  reuse or share</li>
+<li><strong>Import...</strong> — Load corrections from a .json file. Only works on a character
+  with the same body and head as the one they were saved from</li>
+<li><strong>Sync to Wearables</strong> — Copy the skin's corrections onto the clothing worn on
+  this character, so a sleeve bulges with the arm underneath it. Use after
+  adding new clothing</li>
+<li><strong>Set Neutral</strong> — Record the CURRENT pose as this corrective's neutral (weight
+  0). Put the character back to rest first. Use this when the corrective does
+  not fall all the way to 0 at rest - on a custom head the driver bone does
+  not sit exactly on its rest pose at neutral, and the assumed neutral leaves
+  a constant offset</li>
+<li><strong>Toggle Manual Override</strong> — Switch between following the pose automatically
+  and being dragged by hand with the slider</li>
+<li><strong>Remove Corrective</strong> — Delete this correction and its shape key. The
+  character keeps its shape; only the correction is removed</li>
+<li><strong>value</strong></li>
+<li><strong>Edit Sculpt</strong> — Go back into Sculpt Mode on this correction to refine it.
+  Pose the character close to where it was first sculpted for the best result</li>
+<li><strong>Bake Corrective to DNA</strong> — Write this corrective into the .dna as blend
+  shape deltas</li>
+</ul>
+<h3 id="export-dna-fbx-gltf">Export (DNA / FBX / glTF)</h3>
+<ul>
+<li><strong>Head</strong> — Save the active slot's head.dna, including any Blender mesh edits</li>
+<li><strong>Body</strong> — Save the active slot's body.dna, including any Blender mesh edits</li>
+</ul>
+<h3 id="md-live">MD Live</h3>
+<ul>
+<li><strong>Shared Folder</strong> — The folder Blender writes avatars to and Marvelous
+  Designer exports garments into. Remembered for the next file</li>
+<li><strong>Open Shared Folder</strong> — Open the shared folder in the system file browser</li>
+<li><strong>Send Scale</strong> — Marvelous Designer units per Blender metre when SENDING.
+  Blender works in metres, so 1000 sends millimetres and 100 sends centimetres</li>
+<li>it has to match the unit picked in Marvelous Designer's own import dialog.
+  Remembered for the next file</li>
+<li><strong>Include Head</strong> — Send the head mesh along with the body. Marvelous Designer
+  refuses an avatar with no head, so this is on by default; it is also what
+  hats and collars need. Remembered for the next file</li>
+<li><strong>Prepare for Auto-Fit</strong> — Ask Marvelous Designer to build arrangement points
+  and a fitting suit while it loads the avatar. A plain OBJ has neither, and
+  the tools that expect a prepared avatar turn it away. Turn off if the import
+  misbehaves</li>
+<li><strong>Send Body to MD</strong> — Write the active character's body out to the shared
+  folder as an OBJ avatar for Marvelous Designer at the Send Scale. Always the
+  same filename, so reshaping the character and pressing this again is the
+  whole round trip - then run the MetaBridge plug-in in Marvelous Designer</li>
+<li><strong>Import Scale</strong> — Marvelous Designer units per Blender metre when RECEIVING a
+  garment. This is a separate number from the send scale because Marvelous
+  Designer's export settings need not match its import dialog. The size of
+  what arrives is reported so this can be checked</li>
+<li><strong>Import Garment from MD...</strong> — Bring a garment Marvelous Designer exported
+  back in, scaled from centimetres to metres. With Rig To Character on it goes
+  straight through the normal clothing pipeline - skin weights from the
+  character's own body, then worn as a garment that follows the rig</li>
+<li><strong>Open MD Plug-in Folder</strong> — Open the folder holding the Marvelous Designer
+  plug-in script. Register this folder once in Marvelous Designer under Plug-
+  in &gt; Plug-in Manager &gt; Add, and a menu entry there will load whatever Send
+  Body to MD last wrote</li>
+</ul>
+<h3 id="send-to-cascadeur">Send to Cascadeur</h3>
+<ul>
+<li><strong>Send</strong></li>
+<li><strong>Include Head</strong> — Merge the head rig and its meshes into the body skeleton on
+  the way out. Off sends the body alone</li>
+<li><strong>Face Bones</strong> — Send the 843 facial joints too. Off keeps the face on the
+  head joint and sends the body skeleton alone, which is a quarter of the
+  character and all Cascadeur needs to animate a body. Turn on only to pose
+  the face there</li>
+<li><strong>Include Animation</strong> — Bake whatever animation is on the rig into the FBX.
+  Off sends the character in its rest pose</li>
+<li><strong>Append</strong> — Add after whatever Cascadeur already received. Off starts again
+  from frame 0</li>
+<li><strong>Send Frame Range</strong></li>
+<li><strong>Current Frame</strong></li>
+<li><strong>Port</strong> — The port Cascadeur's Receive Poses command listens on. Change it
+  only if that command was started on another one. Remembered for the next
+  file</li>
+<li><strong>Cascadeur Status</strong></li>
+<li><strong>Receive</strong> — <strong>Animation Only</strong> keys onto the rig already here.
+  <strong>Mesh + Animation</strong> brings Cascadeur's scene back as new objects.</li>
+<li><strong>Onto Rigify Controls</strong> — Put what comes back on the control rig instead of
+  the deform bones, so it can be adjusted there.</li>
+<li><strong>Whole Take</strong> — Read every frame Cascadeur holds. Off reads the scene frame
+  range instead.</li>
+<li><strong>Receive from Cascadeur</strong> — Bring the work back.</li>
+</ul>
+<h3 id="unreal-live">Unreal Live</h3>
+<ul>
+<li><strong>Port</strong> — Loopback port Unreal's Live Link source connects to. Keep it off
+  the port a body stream is using, so the two can be attached at once</li>
+<li><strong>Rate</strong> — Frames a second to send. Live Link reads a source that goes quiet
+  as a source that died, so this is sent at a steady rate whether the face is
+  moving or not</li>
+<li><strong>Start Unreal Live</strong></li>
+<li><strong>Stop Unreal Live</strong></li>
+<li><strong>Mirror</strong> — Blender and Unreal disagree on handedness, and Y is the
+  reflection that settles it - derived from Unreal's own bone transforms and
+  confirmed on the character. Left as a switch for a rig built the other way
+  round</li>
+</ul>
+<h3 id="follow-unreal">Follow Unreal</h3>
+<ul>
+<li><strong>Host</strong> — Where Unreal is. <code>127.0.0.1</code> when it is on this machine.</li>
+<li><strong>Port</strong> — 9562. This is what tells the Unreal plug-in it is sending here
+  rather than to one of the other features.</li>
+<li><strong>Apply Rate</strong> — How many times a second the arriving pose is applied.</li>
+<li><strong>Body</strong> — Follow the body bones.</li>
+<li><strong>Face</strong> — Follow the face.</li>
+<li><strong>Follow Unreal</strong> — Start. Then run <strong>MotionForge.Send.Start</strong> in Unreal.</li>
+<li><strong>Stop Following</strong> — Stop, and give Rigify back its constraints.</li>
+</ul>
+<h3 id="animation-baker">Animation Baker</h3>
+<ul>
+<li><strong>Bake Face Animation</strong> — Evaluate the face board over the frame range and
+  bake the result into keyframes on the head rig bones and shape keys</li>
+<li><strong>Clear Baked Animation</strong> — Remove baked actions from the head rig and shape
+  keys of the active slot</li>
+</ul>
+<h3 id="pose-reset">Pose Reset</h3>
+<ul>
+<li><strong>Reset All Controls</strong> — Reset all face board controls of the active slot to
+  the neutral pose</li>
+<li><strong>Reset Selected (Pose Mode)</strong> — Reset only the selected face board bones to
+  neutral (Pose Mode)</li>
+</ul>
+<h3 id="dna-validation">DNA Validation</h3>
+<ul>
+<li><strong>Validate DNA File...</strong> — Check a .dna file for corruption and print a
+  content report to the console</li>
+<li><strong>Validate Active Slot</strong> — Validate the head and body DNA files of the active
+  slot</li>
+</ul>
+<h3 id="batch-tools">Batch Tools</h3>
+<ul>
+<li><strong>Assemble All Characters</strong> — Assemble every character found in the scanned
+  directory into its own slot. This can take a long time for many characters</li>
+<li><strong>Export All Slots</strong> — Export every assembled slot to a directory as FBX or
+  glTF</li>
+</ul>
+<h3 id="external-preset-converter">External Preset Converter</h3>
+<ul>
+<li><strong>Convert &amp; Import (Maya/Houdini)...</strong> — Import a Maya/Houdini preset JSON,
+  converting its bone names to the GUI board names. Unmatched names are
+  written to name_mapping.json for manual editing</li>
+<li><strong>Convert ARKit Payload...</strong> — Convert an ARKit remap payload JSON (arkit52
+  target/contributor weights) into one board-pose preset per ARKit target</li>
+<li><strong>Edit Name Mapping</strong></li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="groomforge/" class="btn btn-neutral float-right" title="Strategy & Pipeline">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+      <span><a href="groomforge/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="chamiseul" />
+      <link rel="shortcut icon" href="/img/favicon.ico" />
+    <title>MetaBridge DNA — User Guide</title>
+    <link rel="stylesheet" href="/css/theme.css" />
+    <link rel="stylesheet" href="/css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="/custom.css" rel="stylesheet" />
+    
+    <!--[if lt IE 9]>
+      <script src="/js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="/." class="icon icon-home"> MetaBridge DNA — User Guide
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="//search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">MetaBridge DNA Guide</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="/.">Welcome to MetaBridge DNA</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="/.#whats-new">What's New</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/.#what-is-this-addon">What is this addon?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/.#installing">Installing</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="/.#plug-ins-for-the-other-programs">Plug-ins for the other programs</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/.#1-loading-a-character">1. Loading a Character</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/.#2-making-facial-expressions-face-rig">2. Making Facial Expressions (Face Rig)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/.#3-expression-presets-save-reuse-expressions">3. Expression Presets (save &amp; reuse expressions)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/.#4-arkit-live-real-time-face-tracking-from-your-iphone">4. ARKit Live (real-time face tracking from your iPhone)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/.#5-rigify-body-control-rig">5. Rigify Body Control Rig</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/.#6-body-blend-experimental">6. Body Blend (experimental)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/.#7-wearables-experimental">7. Wearables (experimental)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/.#8-live-corrective-sculpting-beta">8. Live Corrective Sculpting (Beta)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="/.#fixing-an-expression-that-breaks-export-edited-shape-keys">Fixing an expression that breaks — Export Edited Shape Keys</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/.#sending-your-own-corrections">Sending your own corrections</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/.#9-exporting">9. Exporting</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/.#10-opening-a-file-someone-else-saved">10. Opening a File Someone Else Saved</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/.#11-md-live-marvelous-designer">11. MD Live (Marvelous Designer)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/.#12-send-to-cascadeur">12. Send to Cascadeur</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/.#13-unreal-engine">13. Unreal Engine</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="/.#installing-the-unreal-plugin">Installing the Unreal plugin</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/.#unreal-live-the-face-performs-in-unreal-as-you-work">Unreal Live — the face performs in Unreal as you work</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/.#follow-unreal-the-character-here-copies-the-one-in-unreal">Follow Unreal — the character here copies the one in Unreal</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/.#14-other-useful-tools">14. Other Useful Tools</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/.#bake-to-dna">Bake to DNA</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/.#undo">Undo</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/.#quick-tips">Quick Tips</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/.#panel-reference">Panel Reference</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="/.#metabridge-dna">MetaBridge DNA</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/.#expression-presets">Expression Presets</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/.#arkit-live">ARKit Live</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/.#retarget-rigify-animation-beta">Retarget Rigify Animation (Beta)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/.#body-blend-experimental">Body Blend (experimental)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/.#wearables-experimental">Wearables (experimental)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/.#live-corrective-sculpting-beta">Live Corrective Sculpting (Beta)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/.#export-dna-fbx-gltf">Export (DNA / FBX / glTF)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/.#md-live">MD Live</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/.#send-to-cascadeur">Send to Cascadeur</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/.#unreal-live">Unreal Live</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/.#follow-unreal">Follow Unreal</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/.#animation-baker">Animation Baker</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/.#pose-reset">Pose Reset</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/.#dna-validation">DNA Validation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/.#batch-tools">Batch Tools</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="/.#external-preset-converter">External Preset Converter</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="/groomforge/">Strategy & Pipeline</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="/groomforge/#1-metabridge-dna">1. 🧬 MetaBridge DNA</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/groomforge/#2-groomforge-pro">2. 👑 GroomForge PRO</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/groomforge/#3-groomflow-pro">3. 🌊 GroomFlow PRO</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="/groomforge/#experience-the-industry-leading-pipeline">🚀 Experience the Industry-Leading Pipeline</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="/.">MetaBridge DNA — User Guide</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="/." class="icon icon-home" aria-label="Docs"></a></li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+
+  <h1 id="404-page-not-found">404</h1>
+
+  <p><strong>Page not found</strong></p>
+
+
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="/js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "/";</script>
+    <script src="/js/theme_extra.js"></script>
+    <script src="/js/theme.js"></script>
+      <script src="/search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
