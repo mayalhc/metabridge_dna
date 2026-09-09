@@ -60,8 +60,8 @@ Blender는 **4.5 이상**, Windows 64비트가 필요합니다.
 | 프로그램 | 위치 | 용도 |
 | --- | --- | --- |
 | Marvelous Designer | `md_plugin` 폴더 | **MD Live** (§11) |
-| Cascadeur | `third_party/KimodoCascadeurPlugin_free.zip` | **Send to Cascadeur** (§12) |
-| Unreal Engine | `third_party/MotionForgeLiveLink_UE5.8.zip` | **Unreal Live**, **Follow Unreal** (§13) |
+| Cascadeur | `third_party/KimodoCascadeurPlugin` | **Send to Cascadeur** (§12) |
+| Unreal Engine | `third_party/MotionForgeLiveLink` | **Unreal Live**, **Follow Unreal** (§13) |
 
 처음에는 아무것도 설치하지 마세요. 아래의 각 절에서 해당 기능에 도달할 때 자체 설정을 다룹니다. 사용하지 않는 기능은 아무 비용도 들지 않습니다.
 
@@ -77,7 +77,7 @@ Blender는 **4.5 이상**, Windows 64비트가 필요합니다.
 
 **Preferences ▸ Interface ▸ Developer Extras**를 켜면 같은 행에 작은 폴더 버튼이 추가되어 애드온 폴더를 열어줍니다.
 
-폴더 안의 `README.md`가 아래 단계를 반복합니다. Marvelous Designer는 예외입니다 — **Open MD Plug-in Folder** 버튼이 바로 그곳으로 안내합니다.
+폴더 안의 `README.md`가 아래 단계를 반복합니다. 같은 **MetaBridge DNA** 펼침 행에 **Install Cascadeur Plugin**, **Open Unreal Plugin Folder** 버튼과 Marvelous Designer의 **Open MD Plug-in Folder** 버튼이 함께 있어서, 셋 다 파일 탐색기를 열 필요가 없습니다.
 
 ---
 
@@ -609,13 +609,10 @@ MD Live는 **MetaBridge DNA** 옆의 사이드바에 있는 자체 패널입니�
 
 **처음 사용 전**
 
-Cascadeur 플러그인은 [설치](#설치)에서 설명한 `third_party` 폴더에 이 애드온과 함께 제공됩니다.
-
-1. **`KimodoCascadeurPlugin_free.zip`**을 아무 곳에나 압축 해제하세요.
-2. **`install_plugin.bat`**을 마우스 오른쪽 버튼으로 클릭 ▸ **관리자 권한으로 실행**하세요. Cascadeur는 보통 `C:\Program Files` 아래에 있으며, 그렇게 하지 않으면 설치 프로그램이 액세스 오류로 중단됩니다.
-3. `C:\Program Files\Cascadeur`를 제안합니다. Enter를 눌러 수락하거나 Cascadeur가 다른 곳에 있으면 경로를 입력하세요.
-4. 그런 다음 **KimodoEngine 폴더**를 묻습니다 — 비워 두고 Enter를 누르세요. 그것은 별도 제품용이며 여기서는 아무것도 사용하지 않습니다.
-5. Cascadeur를 다시 시작하세요.
+1. **Edit ▸ Preferences ▸ Add-ons**에서 **MetaBridge DNA**를 찾아 펼치세요.
+2. **Install Cascadeur Plugin**을 클릭하세요. `C:\Program Files\Cascadeur`를 제안하며, Cascadeur가 다른 곳에 있으면 경로를 바꾸세요. **KimodoEngine Folder**는 비워 두세요 — 별도 제품용이며 여기서는 아무것도 사용하지 않습니다.
+3. Windows에서 관리자 권한 요청 창이 뜨면 수락하세요 — Cascadeur 폴더는 보통 이게 필요합니다.
+4. Cascadeur를 다시 시작하세요.
 
 이제 메뉴에 **Animation Scripts ▸ Receive Poses (Blender)**가 나타납니다. 플러그인은 자체 추가 도구 몇 개를 함께 가져옵니다. 무시하세요.
 
@@ -705,7 +702,7 @@ Unreal 쪽에는 **플러그인 하나**가 있습니다. Blender의 어떤 기�
 
 [설치](#설치)에서 설명한 `third_party` 폴더에 이 애드온과 함께 제공됩니다.
 
-1. **`MotionForgeLiveLink_UE5.8.zip`**을 Unreal 프로젝트의 `Plugins` 폴더에 압축 해제하여 다음 구조가 되게 하세요:
+1. **`MotionForgeLiveLink`** 폴더를 Unreal 프로젝트의 `Plugins` 폴더에 복사하여 다음 구조가 되게 하세요:
 
 ```
 <YourProject>\Plugins\MotionForgeLiveLink\MotionForgeLiveLink.uplugin

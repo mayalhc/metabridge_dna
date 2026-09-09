@@ -60,8 +60,8 @@ Three features reach into a program outside Blender, and each needs a small plug
 | Program | Where it is | Needed for |
 | --- | --- | --- |
 | Marvelous Designer | the `md_plugin` folder | **MD Live** (§11) |
-| Cascadeur | `third_party/KimodoCascadeurPlugin_free.zip` | **Send to Cascadeur** (§12) |
-| Unreal Engine | `third_party/MotionForgeLiveLink_UE5.8.zip` | **Unreal Live**, **Follow Unreal** (§13) |
+| Cascadeur | `third_party/KimodoCascadeurPlugin` | **Send to Cascadeur** (§12) |
+| Unreal Engine | `third_party/MotionForgeLiveLink` | **Unreal Live**, **Follow Unreal** (§13) |
 
 Install none of them to start with. Each section below sets up its own when you get there, and a feature you never use costs you nothing.
 
@@ -77,7 +77,7 @@ If you would rather not guess the version, Blender will tell you: **Edit ▸ Pre
 
 Turning on **Preferences ▸ Interface ▸ Developer Extras** adds a small folder button to that same row, which opens the addon's folder for you.
 
-The folder's own `README.md` repeats the steps below. Marvelous Designer is the exception — its **Open MD Plug-in Folder** button takes you straight there.
+The folder's own `README.md` repeats the steps below. That same expanded **MetaBridge DNA** row also carries **Install Cascadeur Plugin** and **Open Unreal Plugin Folder** buttons, and Marvelous Designer's own **Open MD Plug-in Folder** — so none of the three needs a File Explorer trip at all.
 
 ---
 
@@ -609,13 +609,10 @@ Put this character into Cascadeur, ready to animate.
 
 **Before the first time**
 
-The Cascadeur plug-in comes with this addon, in the `third_party` folder described under [Installing](#installing).
-
-1. Unzip **`KimodoCascadeurPlugin_free.zip`** anywhere.
-2. Right-click **`install_plugin.bat`** ▸ **Run as administrator**. Cascadeur normally lives under `C:\Program Files`, and without that the installer stops with an access error.
-3. It offers `C:\Program Files\Cascadeur`. Press Enter to accept, or type the path if Cascadeur is elsewhere.
-4. It then asks for a **KimodoEngine folder** — leave it empty and press Enter. That is for a separate product, and nothing here uses it.
-5. Restart Cascadeur.
+1. **Edit ▸ Preferences ▸ Add-ons**, find **MetaBridge DNA**, and expand it.
+2. Click **Install Cascadeur Plugin**. It offers `C:\Program Files\Cascadeur`; type a different path if Cascadeur is somewhere else. Leave **KimodoEngine Folder** blank — that is for a separate product, and nothing here uses it.
+3. If a Windows prompt for Administrator rights appears, accept it — Cascadeur's folder normally needs it.
+4. Restart Cascadeur.
 
 **Animation Scripts ▸ Receive Poses (Blender)** now appears in the menu. The plug-in brings a few extra tools of its own along with it; ignore them.
 
@@ -715,7 +712,7 @@ uses 9560 — as long as they are on different ports.
 
 It comes with this addon, in the `third_party` folder described under [Installing](#installing).
 
-1. Unzip **`MotionForgeLiveLink_UE5.8.zip`** into your Unreal project's `Plugins` folder, so you end up with:
+1. Copy the **`MotionForgeLiveLink`** folder into your Unreal project's `Plugins` folder, so you end up with:
 
 ```
 <YourProject>\Plugins\MotionForgeLiveLink\MotionForgeLiveLink.uplugin
