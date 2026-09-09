@@ -9,91 +9,16 @@
 
 ## What's New
 
-**v2.1.0 — Cascadeur both ways, Unreal both ways, Undo**
+**v2.1.1 — Cascadeur Live**
 
-*Unreal (NEW)*
+*Send to Cascadeur*
 
-- **NEW: Unreal Live** — a MetaHuman face animated in Blender performs on the
-  MetaHuman in Unreal as you work on it, with nothing exported. See
-  [section 13](#13-unreal-engine).
-- **NEW: Follow Unreal** — the other direction. Whatever is moving the
-  character in Unreal, a Control Rig in a sequence or a baked animation, drives
-  this character here. Body, face, or both.
-- **One plugin on the Unreal side, told apart by port.** 9560 for MotionForge
-  body motion, 9561 for Unreal Live, 9562 for Follow Unreal. A face stream and
-  a body stream can run at the same time as long as the ports differ.
+- **NEW: Live mirroring.** Pose the character in Blender or in Cascadeur and the other one follows as you move, with nothing to send or receive by hand. Click **Live: Mirror This Rig** in the Send to Cascadeur panel to start it, and **Stop Mirroring** to end it.
+- Choose which way poses travel: **Blender to Cascadeur**, **Cascadeur to Blender**, or **Both Ways**, where whichever program you are posing in is the one driving the other.
+- **Mapped Bones** mirrors the set Send and Receive already agree about, and is on by default. **Whole Skeleton** mirrors every bone the two characters share by name — only correct when the Cascadeur character came from this same rig.
+- **Onto Rigify Controls** is on by default. Poses arriving from Cascadeur land on the control rig, so the character stays fully posable and nothing fights the constraints that drive its body.
+- Send the character over once before turning Live on, and again after restarting Cascadeur — the same rule Send and Receive already follow.
 
-*Send to Cascadeur (NEW)*
-
-- **NEW: Send to Cascadeur** — its own panel in the sidebar. Put this character into Cascadeur and animate it there, with no FBX to export by hand. See [section 12](#12-send-to-cascadeur).
-- **Send Character** hands over the rig, the meshes and whatever animation is on them. Head and body arrive as one character, so the face stays on the body when you move it.
-- **Keyframes Only** sends a new pose or animation onto the character already there. Nothing is created in Cascadeur; it simply takes the motion.
-- **Face Bones** is off by default. The face rides the head joint and only the body skeleton goes over — a quarter of the character, and all Cascadeur needs to animate a body.
-- **Current Frame** sends just the pose you are looking at. **Append** adds after what Cascadeur already has.
-- The panel says which tab the motion will land on before you press anything, and **Open sample character** brings up a rigged character when the scene is empty.
-- **NEW: Receive from Cascadeur** — the bridge works both ways. Animate over
-  there and bring it back onto the same character in the same scene.
-  **Animation Only** keys onto the rig you already have; **Mesh + Animation**
-  brings the character back as new objects. **Onto Rigify Controls** puts it on
-  the control rig so it can be adjusted and layered.
-- Reading a full MetaHuman take takes under a second, and root motion comes
-  with it.
-
-*Correctives (NEW)*
-
-- **NEW: Bake to DNA** — a correction you sculpted can be written into the
-  character's `.dna`, so it belongs to the character everywhere instead of only
-  in this scene. **Bake Corrective to DNA** for one, **Bake All to DNA** for
-  every one on the character.
-- **NEW: Export Face CSV** — write the face's shape values over the frame range
-  to a spreadsheet file, for taking a performance to another program.
-
-*Undo (NEW)*
-
-- **Ctrl+Z now works on the big steps.** Assemble, New, Delete Slot, Load Head/Body DNA, Build Meta-Rig, Generate Rigify Rig, Apply Retarget, Link/Unlink Head Rig, Remove Rigify Rig and Reload Materials can all be undone and redone like anything else in Blender.
-- The face rig follows the undo. Undo past an Assemble and it switches off with the character; redo and it comes back on.
-- Things that cannot be undone are deliberately left out: saving a `.dna`, saving material defaults, connecting ARKit Live. Undo cannot unwrite a file or close a connection, so those stay one-way.
-
-*Body Blend — both libraries at the same time*
-
-- **The standard bodies and the child bodies can now be loaded together.** Load `MH_All_Body.json`, then load `MH_Boy.json`, and both sets stay in the list — 39 rows to blend from instead of whichever you loaded last.
-- Loading the same library again still just refreshes its own rows, so nothing doubles up.
-- If you load a library built from a different skeleton, it now says so straight away instead of failing later at Build.
-
-*ARKit Live — the Smoothing slider was backwards*
-
-- **Smoothing now does what it says.** It was inverted: turning it down to 0 — the setting described as the raw, immediate one — froze the face completely instead. Turn it down for a raw, snappy feed and up for a smoother, slightly laggier one, as the label always claimed.
-- If you had settled on a Smoothing value that felt right, try it again — the same number now behaves the opposite way. **0.5 is unchanged**, so anyone on the default sees no difference.
-
-*Loading and saving a `.dna` tells you the truth*
-
-- **Picking the wrong file now says so.** A PNG, a JSON or anything else that is not a DNA used to load "successfully" and leave you with a character that had no bones and no meshes. It is now refused with a message naming what is actually wrong with the file.
-- **A failed save no longer reports success.** Saving to a folder that does not exist used to say "Saved" with no file written anywhere.
-- **A failed load leaves the character you already had alone.** It used to switch the face rig off and leave it off.
-
-*Smoother viewport*
-
-- Characters with **Apply Retarget** done are lighter to work around. The body correctives were being recalculated on every viewport change — turning the camera, picking something, moving a face control — even when the body had not moved. Now that work only happens when a body bone actually moves.
-
-*Load Live Link Face CSV — a recording now loads all the way through*
-
-- **A CSV no longer stops partway with `could not make path to "value"`.** Bringing a recording in creates a slider for every shape at once, and each one it added left the ones before it unusable — so a file failed on its second shape and nothing was keyed. Live capture never hit this: it makes its sliders in the first tick and adds none afterwards. Recorded files now load whole.
-- **The playhead goes back where it was.** A CSV whose columns did not match left the scene parked at the end of the recording, on top of reporting nothing matched.
-
-*Plug-ins for the other programs now come with the addon*
-
-- **The Cascadeur and Unreal plug-ins ship inside the addon**, in a `third_party` folder, alongside the Marvelous Designer one. Nothing to download and no separate product to install — [Installing](#installing) says where they are, and each section sets up its own.
-
-*Smaller fixes*
-
-- The **LOD** row now says when the level you picked carries no facial expressions. MetaHuman heads keep their expressions at LOD 0 only; above that the face moves on its joints alone, which used to look like the face rig having stopped working.
-- **Import FBX Animation** now warns when the control rig is still driving the bones it just keyed. The warning existed but never appeared in the one case it was written for.
-- In the DNA inspector's **Bone View**, the **Next** button stopped responding a few presses before the end of the list.
-- Switching the add-on off now stops everything it started. Two background evaluations kept running with it disabled.
-
-*For anyone who edits meshes and writes them back to `.dna`*
-
-- Editing an **eye** mesh and exporting with **Include Mesh Edits** could quietly write those vertices into a different LOD of the same eye, leaving the one you edited unchanged. Jaw, teeth, tongue and the head itself were never affected. Fixed.
 
 ## What is this addon?
 
@@ -166,7 +91,7 @@ The folder's own `README.md` repeats the steps below. Marvelous Designer is the 
 4. Pick a **LOD** level (0 = highest quality, higher numbers = lighter/faster).
 5. Click **Assemble**.
 
-<video src="assets/metabridge_img01.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="metabridge_img01.gif"></video>
+![metabridge_img01.gif](assets/metabridge_img01.gif)
 
 **Good to know:**
 
@@ -189,7 +114,7 @@ The folder's own `README.md` repeats the steps below. Marvelous Designer is the 
 2. Turn **Face Rig: ON**.
 3. Select the GUIArmature in the viewport, go into **Pose Mode**, and move its bones. The face updates live as you move them.
 
-<video src="assets/metabridge_img02.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="metabridge_img02.gif"></video>
+![metabridge_img02.gif](assets/metabridge_img02.gif)
 
 **Good to know:**
 
@@ -221,7 +146,7 @@ Instead of posing a face from scratch every time, save an expression once and re
 - The **X** button removes one slider; **Clear All Sliders** resets everything back to neutral.
 - Sliders are normal Blender properties, so you can keyframe and animate them.
 
-<video src="assets/metabridge_img04.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="metabridge_img04.gif"></video>
+![metabridge_img04.gif](assets/metabridge_img04.gif)
 
 **Good to know:**
 
@@ -246,7 +171,7 @@ Stream your real facial expressions live from an iPhone straight onto the MetaHu
 3. In the app, set the target IP address to your computer's address, and the port to **11111**.
 4. In Blender's ARKit Live panel, leave **Host** as `0.0.0.0` and **Port** as `11111`, then click **Connect**.
 
-<video src="assets/metabridge_img05.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="metabridge_img05.gif"></video>
+![metabridge_img05.gif](assets/metabridge_img05.gif)
 
 **Tuning the feel of the tracking:**
 
@@ -289,7 +214,7 @@ Requires the **Rigify** addon to be enabled first (`Edit > Preferences > Add-ons
 5. **Remove Rigify Rig** removes everything from steps 1–4 if you need to start over.
 
 **Additional Options**
-<video src="assets/Rigify_IK.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="Rigify_IK.gif"></video>
+![Rigify_IK.gif](assets/Rigify_IK.gif)
 
 A collapsed section below **Remove Rigify Rig**, holding two switches you rarely need to touch:
 
@@ -336,7 +261,7 @@ Both work on all ten fingers at once, and both are safe to press repeatedly.
 - There is no elbow-style direction control for fingers, so the solver picks which way a finger bends. It follows the joints sensibly for normal poses, but pulling a target far sideways can twist the finger oddly. Lower that finger's slider if it does.
 - With Finger IK off, the rig behaves exactly like stock Rigify — the finger master curl and the individual joint controls work as usual.
 
-<video src="assets/metabridge_img03.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="metabridge_img03.gif"></video>
+![metabridge_img03.gif](assets/metabridge_img03.gif)
 
 **Body Correctives — automatic muscle & twist detail**
 
@@ -405,7 +330,7 @@ It works whether that animation was made with **IK or FK** arms and legs. You do
 ---
 
 ## 6. Body Blend (experimental)
-<video src="assets/Body_blend.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="Body_blend.gif"></video>
+![Body_blend.gif](assets/Body_blend.gif)
 
 Combine two or more MetaHuman body types — and their matching heads — into a brand-new blended character. Found in its own **Body Blend (experimental)** panel, collapsed by default.
 
@@ -416,7 +341,7 @@ Combine two or more MetaHuman body types — and their matching heads — into a
 - **Load Library...** — load a compact archetype library and add every archetype in it as a source.
 
 **Add Folder... — building a library**
-<video src="assets/Body_blend02.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="Body_blend02.gif"></video>
+![Body_blend02.gif](assets/Body_blend02.gif)
 Point this at a folder holding **the original `.dna` files of several characters**, with each character's head and body sitting side by side:
 
 ```
@@ -494,7 +419,7 @@ Attach clothing (FBX) and hair/grooms (Alembic `.abc`) to the *active* character
 There are two ways to dress a character: import a **clothing FBX** built for a MetaHuman skeleton, or **rig any mesh already in your scene** yourself. Both end up following the character the same way afterward.
 
 **Clothing (FBX):**
-<video src="assets/cloth_FBX.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="cloth_FBX.gif"></video>
+![cloth_FBX.gif](assets/cloth_FBX.gif)
 - **Top... / Bottom... / Full...** — import a MetaHuman-compatible clothing `.fbx` and attach it to the body, tagged with that category.
 - **Head Accessory...** — same idea, for things that attach to the head instead (glasses, earrings, ...).
 - **Retarget To Body Proportions** (on by default): fits the garment to this character's own proportions instead of the body it was originally made for — without going skin-tight, so a loose shirt stays loose.
@@ -504,7 +429,7 @@ There are two ways to dress a character: import a **clothing FBX** built for a M
 - **LOD0 only**: if the FBX bundles multiple LODs, only LOD0 is kept.
 
 **Scene Mesh Garment (Make + Bind):**
-<video src="assets/scene_garment.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="scene_garment.gif"></video>
+![scene_garment.gif](assets/scene_garment.gif)
 For a mesh already in your scene that doesn't have a MetaHuman skeleton of its own.
 
 1. Select the garment mesh and click **Make Top / Bottom / Full / Shoes / Gloves / Head Acc** — this fits it to the character and rigs it to move with the character's skeleton. Works best on a garment already modeled to roughly fit the character.
@@ -527,7 +452,7 @@ If deformation looks off in an extreme pose at a tight spot (armpits, between th
 ---
 
 ## 8. Live Corrective Sculpting (Beta)
-<video src="assets/Live_corrective.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="Live_corrective.gif"></video>
+![Live_corrective.gif](assets/Live_corrective.gif)
 **Beta** — a correction sculpted with only one pose holds steady if you pose further than that; sculpt more than one pose for the same correction if you want it to keep changing shape further into the pose. Head corrections can be written back into the character's `.dna` and used in Unreal — see **Sending a correction to Unreal** below. Body corrections stay inside Blender.
 
 Pose the character, then sculpt directly on top of that pose — the sculpt becomes a correction that fades in and out automatically from then on, every time the character moves toward and away from that pose. No keyframing needed. Works on both the face and the body, and automatically carries over to any clothing worn on the character.
@@ -571,7 +496,7 @@ Use the **Write to DNA (head only)** box. It writes a new `.dna` file and leaves
 There are two ways to do it.
 
 ### Fixing an expression that breaks — Export Edited Shape Keys
-<video src="assets/export_shapekey.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="export_shapekey.gif"></video>
+![export_shapekey.gif](assets/export_shapekey.gif)
 This is the one to use when a face folds, spikes or collapses on a particular expression. You fix the character's own expression by hand and send that fix back into the `.dna`.
 
 1. **Make the expression with the face controls.** Move the controls until the problem is on screen — for example open the jaw until the mesh breaks.
@@ -748,6 +673,20 @@ scene's frame range.
 
 Reading a full MetaHuman take takes under a second, and root motion comes with
 it — the character travels instead of walking on the spot.
+
+**Live**
+
+Once the character has been sent over, click **Live: Mirror This Rig** to keep the two in sync as you work, with nothing to send or receive by hand. Click **Stop Mirroring** to end it.
+
+- **Blender to Cascadeur** — pose here, watch it there.
+- **Cascadeur to Blender** — pose there, watch it here.
+- **Both Ways** — whichever window you are posing in drives the other.
+
+**Mapped Bones** mirrors the set Send and Receive already agree about, and is the one with a track record. **Whole Skeleton** mirrors every bone the two characters share by name — only correct when the Cascadeur character came from this rig.
+
+If this body is built with a Rigify rig, **Onto Rigify Controls** appears and is on by default. Poses coming in from Cascadeur land on the control rig instead of the deform bones, so the character stays fully posable while mirroring runs.
+
+Send the character over once before turning Live on, and once more after restarting Cascadeur — the same rule as everywhere else on this panel.
 
 ---
 
@@ -1236,6 +1175,15 @@ The main panel. The DNA inspector rows near the bottom are for troubleshooting o
 - **Whole Take** — Read every frame Cascadeur holds. Off reads the scene frame
   range instead.
 - **Receive from Cascadeur** — Bring the work back.
+- **Live: Mirror This Rig / Stop Mirroring** — Keep Blender and Cascadeur in
+  sync while you work, in either or both directions.
+- **Live direction** — Blender to Cascadeur, Cascadeur to Blender, or Both
+  Ways, where whichever side you are posing drives the other.
+- **Bones** — Mapped Bones (the set Send and Receive already agree about) or
+  Whole Skeleton (every shared bone name, only for a character sent from this
+  rig).
+- **Onto Rigify Controls** (Live) — Poses coming in land on the control rig
+  instead of the deform bones, so the character stays posable while mirroring.
 
 ### Unreal Live
 

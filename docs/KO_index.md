@@ -9,76 +9,16 @@
 
 ## 새로운 기능
 
-**v2.1.0 — Cascadeur 양방향, Unreal 양방향, 실행 취소(Undo)**
+**v2.1.1 — Cascadeur 라이브**
 
-*Unreal (신규)*
+*Send to Cascadeur*
 
-- **신규: Unreal Live** — Blender에서 애니메이션한 MetaHuman 얼굴이 아무것도 내보내지 않고 작업하는 동안 Unreal의 MetaHuman에서 그대로 연기합니다. [13절](#13-unreal-엔진) 참조.
-- **신규: Follow Unreal** — 반대 방향입니다. Unreal에서 캐릭터를 움직이는 것이 무엇이든 — 시퀀스의 Control Rig 또는 베이크된 애니메이션 — 여기 있는 이 캐릭터를 구동합니다. 바디, 페이스 또는 둘 다.
-- **Unreal 쪽에는 플러그인 하나, 포트로 구분합니다.** MotionForge 바디 모션은 9560, Unreal Live는 9561, Follow Unreal은 9562. 포트만 다르면 페이스 스트림과 바디 스트림을 동시에 실행할 수 있습니다.
+- **신규: 라이브 미러링.** Blender나 Cascadeur 어느 쪽에서 캐릭터를 포즈해도 다른 쪽이 실시간으로 따라옵니다. 손으로 보내거나 받을 필요가 없습니다. Send to Cascadeur 패널의 **Live: Mirror This Rig**로 시작하고, **Stop Mirroring**으로 끝냅니다.
+- 포즈가 어느 방향으로 전달될지 선택합니다: **Blender to Cascadeur**, **Cascadeur to Blender**, 또는 **Both Ways** — 지금 포즈를 잡고 있는 쪽이 다른 쪽을 구동합니다.
+- **Mapped Bones**는 Send와 Receive가 이미 합의한 본 세트를 미러링하며 기본값입니다. **Whole Skeleton**은 두 캐릭터가 이름으로 공유하는 모든 본을 미러링합니다 — Cascadeur의 캐릭터가 이 리그에서 건너간 경우에만 정확합니다.
+- **Onto Rigify Controls**는 기본적으로 켜져 있습니다. Cascadeur에서 온 포즈는 컨트롤 리그에 적용되므로, 캐릭터는 계속 자유롭게 포즈할 수 있고 몸을 구동하는 제약과 충돌하지 않습니다.
+- 라이브를 켜기 전에 캐릭터를 한 번 보내야 하고, Cascadeur를 재시작한 뒤에도 다시 보내야 합니다 — Send와 Receive가 이미 따르는 것과 같은 규칙입니다.
 
-*Send to Cascadeur (신규)*
-
-- **신규: Send to Cascadeur** — 사이드바에 자체 패널이 있습니다. 이 캐릭터를 Cascadeur에 넣고 거기서 애니메이션하세요. FBX를 수동으로 내보낼 필요가 없습니다. [12절](#12-cascadeur로-보내기) 참조.
-- **Send Character** — 리그, 메시 및 그 위에 있는 애니메이션을 전달합니다. 머리와 몸이 하나의 캐릭터로 도착하므로, 이동할 때 얼굴이 몸에 붙어 있습니다.
-- **Keyframes Only** — 이미 있는 캐릭터에 새 포즈나 애니메이션을 보냅니다. Cascadeur에서 생성되는 것은 없으며, 그저 모션만 받아들입니다.
-- **Face Bones** — 기본적으로 꺼져 있습니다. 얼굴은 헤드 조인트를 따라가고 바디 골격만 전송됩니다 — 캐릭터의 4분의 1이며, Cascadeur가 바디를 애니메이션하는 데 필요한 전부입니다.
-- **Current Frame** — 보고 있는 포즈만 보냅니다. **Append**는 Cascadeur가 이미 가지고 있는 것 뒤에 추가합니다.
-- 패널은 아무것도 누르기 전에 모션이 어떤 탭에 도착할지 알려주며, **Open sample character**는 씬이 비어 있을 때 리깅된 캐릭터를 불러옵니다.
-- **신규: Receive from Cascadeur** — 브리지가 양방향으로 작동합니다. 저쪽에서 애니메이션하고 같은 씬의 같은 캐릭터로 가져옵니다. **Animation Only**는 이미 있는 리그에 키를 찍고, **Mesh + Animation**은 캐릭터를 새 오브젝트로 가져옵니다. **Onto Rigify Controls**는 컨트롤 리그에 적용하여 조정하고 레이어링할 수 있습니다.
-- 전체 MetaHuman 테이크를 읽는 데 1초 미만이 걸리며, 루트 모션도 함께 옵니다.
-
-*교정 — Correctives (신규)*
-
-- **신규: Bake to DNA** — 스컬프한 교정(corrective)을 캐릭터의 `.dna`에 기록할 수 있습니다. 이 씬에서만이 아니라 어디서나 캐릭터에 속하게 됩니다. 하나는 **Bake Corrective to DNA**, 캐릭터의 모든 교정은 **Bake All to DNA**.
-- **신규: Export Face CSV** — 프레임 범위에 걸쳐 얼굴의 셰이프 값을 스프레드시트 파일로 기록합니다. 퍼포먼스를 다른 프로그램으로 가져갈 때 사용합니다.
-
-*실행 취소 — Undo (신규)*
-
-- **이제 큰 단계에서도 Ctrl+Z가 작동합니다.** Assemble, New, Delete Slot, Load Head/Body DNA, Build Meta-Rig, Generate Rigify Rig, Apply Retarget, Link/Unlink Head Rig, Remove Rigify Rig, Reload Materials를 모두 Blender의 다른 작업처럼 실행 취소하고 다시 실행할 수 있습니다.
-- 페이스 리그도 실행 취소를 따릅니다. Assemble을 지나 실행 취소하면 캐릭터와 함께 꺼지고, 다시 실행하면 다시 켜집니다.
-- 실행 취소할 수 없는 것은 의도적으로 제외됩니다: `.dna` 저장, 머티리얼 기본값 저장, ARKit Live 연결. 실행 취소는 파일을 지우거나 연결을 끊을 수 없으므로 그대로 한 방향입니다.
-
-*Body Blend — 두 라이브러리를 동시에*
-
-- **이제 표준 바디와 차일드 바디를 함께 불러올 수 있습니다.** `MH_All_Body.json`을 불러온 다음 `MH_Boy.json`을 불러오면 두 세트 모두 목록에 유지됩니다 — 마지막에 불러온 것 대신 블렌드할 수 있는 39개 행.
-- 같은 라이브러리를 다시 불러와도 자체 행만 새로고침되므로 중복되지 않습니다.
-- 다른 골격으로 만든 라이브러리를 불러오면 Build에서 나중에 실패하는 대신 즉시 알려줍니다.
-
-*ARKit Live — Smoothing 슬라이더가 반대로 되어 있었습니다*
-
-- **이제 Smoothing이 표시된 대로 작동합니다.** 반전되어 있었습니다: 0으로 낮추면 — 원시적이고 즉각적인 설정으로 설명된 값 — 얼굴이 완전히 얼어버렸습니다. 이제 낮추면 원시적이고 날렵한 피드, 올리면 더 부드럽고 약간 지연되는 피드입니다. 라벨이 항상 주장했던 대로입니다.
-- 이전에 Smoothing 값이 괜찮다고 정착했다면 다시 시도해 보세요 — 같은 숫자가 이제 반대로 작동합니다. **0.5는 동일**하므로 기본값을 사용하는 사람은 차이를 느끼지 못합니다.
-
-*`.dna` 로드 및 저장 시 정확한 정보 표시*
-
-- **잘못된 파일을 선택하면 이제 알려줍니다.** PNG, JSON 또는 DNA가 아닌 다른 것은 예전에 "성공적으로" 로드되어 뼈도 메시도 없는 캐릭터를 남겼습니다. 이제 파일의 실제 문제를 명명하는 메시지와 함께 거부됩니다.
-- **실패한 저장이 더 이상 성공을 보고하지 않습니다.** 존재하지 않는 폴더에 저장하면 파일이 어디에도 기록되지 않았는데 "Saved"라고 표시되곤 했습니다.
-- **실패한 로드는 이미 있던 캐릭터를 그대로 둡니다.** 예전에는 페이스 리그를 꺼버리고 그대로 두었습니다.
-
-*더 부드러운 뷰포트*
-
-- **Apply Retarget을 완료한 캐릭터**는 주변 작업이 더 가볍습니다. 바디 코렉티브가 모든 뷰포트 변경 때마다 — 카메라 돌리기, 오브젝트 선택, 페이스 컨트롤 이동 — 바디가 움직이지 않았는데도 재계산되곤 했습니다. 이제 그 작업은 바디 본이 실제로 움직일 때만 발생합니다.
-
-*Load Live Link Face CSV — 녹음이 이제 끝까지 로드됩니다*
-
-- **CSV가 더 이상 `could not make path to "value"`로 중간에 멈추지 않습니다.** 녹음을 가져오면 모든 셰이프에 대한 슬라이더가 한 번에 생성되는데, 추가할 때마다 이전 슬라이더를 사용할 수 없게 만들었습니다 — 그래서 파일이 두 번째 셰이프에서 실패하고 아무것도 키가 찍히지 않았습니다. 라이브 캡처는 이 문제가 없었습니다: 첫 틱에서 슬라이더를 만들고 이후에는 추가하지 않기 때문입니다. 이제 녹음 파일이 전체가 로드됩니다.
-- **재생 헤드가 원래 위치로 돌아갑니다.** 열이 일치하지 않는 CSV는 아무것도 일치하지 않는다고 보고하면서 씬을 녹음 끝에 남겨두곤 했습니다.
-
-*다른 프로그램용 플러그인이 이제 애드온과 함께 제공됩니다*
-
-- **Cascadeur 및 Unreal 플러그인이 애드온 안에 포함되어 있습니다.** `third_party` 폴더에 Marvelous Designer 플러그인과 함께 있습니다. 다운로드할 것도, 별도 제품을 설치할 것도 없습니다 — [설치](#설치)에서 위치를 알려주며, 각 절에서 자체 설정을 다룹니다.
-
-*더 작은 수정*
-
-- **LOD** 행은 이제 선택한 레벨에 표정이 포함되지 않을 때 알려줍니다. MetaHuman 머리는 LOD 0에서만 표정을 유지합니다. 그 이상에서는 얼굴이 조인트로만 움직이며, 예전에는 페이스 리그가 멈춘 것처럼 보였습니다.
-- **Import FBX Animation**은 이제 컨트롤 리그가 방금 키를 찍은 뼈를 계속 구동하고 있을 때 경고합니다. 경고는 존재했지만 작성된 바로 그 경우에 나타나지 않았습니다.
-- DNA 인스펙터의 **Bone View**에서 **Next** 버튼이 목록 끝 몇 번 전에 반응을 멈췄습니다.
-- 애드온을 끄면 이제 시작된 모든 것이 중지됩니다. 비활성화된 상태에서도 백그라운드 평가 두 개가 계속 실행되었습니다.
-
-*메시를 편집하고 `.dna`로 다시 쓰는 사용자를 위해*
-
-- **눈** 메시를 편집하고 **Include Mesh Edits**로 내보내면 조용히 같은 눈의 다른 LOD에 해당 버텍스를 기록하여 편집한 LOD는 변경되지 않은 채 남을 수 있었습니다. 턱, 치아, 혀 및 머리 자체는 영향을 받지 않았습니다. 수정됨.
 
 ## 이 애드온은 무엇인가요?
 
@@ -151,7 +91,7 @@ Blender는 **4.5 이상**, Windows 64비트가 필요합니다.
 4. **LOD** 레벨을 선택하세요 (0 = 최고 품질, 숫자가 높을수록 더 가볍고 빠름).
 5. **Assemble**을 클릭하세요.
 
-<video src="assets/metabridge_img01.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="metabridge_img01.gif"></video>
+![metabridge_img01.gif](assets/metabridge_img01.gif)
 
 **알아두면 좋은 점:**
 
@@ -174,7 +114,7 @@ Blender는 **4.5 이상**, Windows 64비트가 필요합니다.
 2. **Face Rig: ON**으로 설정하세요.
 3. 뷰포트에서 GUIArmature를 선택하고 **Pose Mode**로 들어가 본을 움직이세요. 움직일 때마다 얼굴이 실시간으로 업데이트됩니다.
 
-<video src="assets/metabridge_img02.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="metabridge_img02.gif"></video>
+![metabridge_img02.gif](assets/metabridge_img02.gif)
 
 **알아두면 좋은 점:**
 
@@ -206,7 +146,7 @@ Blender는 **4.5 이상**, Windows 64비트가 필요합니다.
 - **X** 버튼은 슬라이더 하나를 제거하고, **Clear All Sliders**는 모든 것을 중립으로 재설정합니다.
 - 슬라이더는 일반 Blender 프로퍼티이므로 키프레임을 찍고 애니메이션할 수 있습니다.
 
-<video src="assets/metabridge_img04.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="metabridge_img04.gif"></video>
+![metabridge_img04.gif](assets/metabridge_img04.gif)
 
 **알아두면 좋은 점:**
 
@@ -231,7 +171,7 @@ Apple의 무료 **Live Link Face** 앱을 사용하여 iPhone에서 실시간 �
 3. 앱에서 대상 IP 주소를 컴퓨터 주소로, 포트를 **11111**로 설정하세요.
 4. Blender의 ARKit Live 패널에서 **Host**를 `0.0.0.0`, **Port**를 `11111`로 두고 **Connect**를 클릭하세요.
 
-<video src="assets/metabridge_img05.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="metabridge_img05.gif"></video>
+![metabridge_img05.gif](assets/metabridge_img05.gif)
 
 **트래킹 느낌 조정:**
 
@@ -274,7 +214,7 @@ Rigify를 사용하여 MetaHuman 바디를 완전히 애니메이션 가능한 �
 5. **Remove Rigify Rig** — 처음부터 다시 시작해야 한다면 1~4단계의 모든 것을 제거합니다.
 
 **추가 옵션**
-<video src="assets/Rigify_IK.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="Rigify_IK.gif"></video>
+![Rigify_IK.gif](assets/Rigify_IK.gif)
 
 **Remove Rigify Rig** 아래에 접힌 섹션으로, 거의 건드릴 필요가 없는 스위치들이 있습니다:
 
@@ -321,7 +261,7 @@ Rigify에는 자체 Finger IK가 없으므로 이 애드온이 추가합니다. 
 - 손가락에는 팔꿈치 스타일의 방향 제어가 없으므로 솔버가 손가락이 구부러지는 방향을 결정합니다. 일반적인 포즈에서는 관절을 따라 합리적으로 움직이지만, 타겟을 옆으로 멀리 당기면 손가락이 이상하게 비틀릴 수 있습니다. 그럴 때는 해당 손가락의 슬라이더를 낮추세요.
 - Finger IK가 꺼져 있으면 리그는 기본 Rigify와 정확히 동일하게 작동합니다 — 손가락 마스터 컬과 개별 관절 컨트롤이 평소처럼 작동합니다.
 
-<video src="assets/metabridge_img03.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="metabridge_img03.gif"></video>
+![metabridge_img03.gif](assets/metabridge_img03.gif)
 
 **바디 코렉티브 — 자동 근육 및 비틀림 디테일**
 
@@ -390,7 +330,7 @@ Unreal에서 내보낸 MetaHuman 애니메이션(FBX)을 이 캐릭터에 직접
 ---
 
 ## 6. 바디 블렌드 (실험적)
-<video src="assets/Body_blend.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="Body_blend.gif"></video>
+![Body_blend.gif](assets/Body_blend.gif)
 
 두 개 이상의 MetaHuman 바디 타입 — 그리고 그에 맞는 머리 — 를 완전히 새로운 블렌드 캐릭터로 결합하세요. 기본적으로 접혀 있는 자체 **Body Blend (experimental)** 패널에서 찾을 수 있습니다.
 
@@ -401,7 +341,7 @@ Unreal에서 내보낸 MetaHuman 애니메이션(FBX)을 이 캐릭터에 직접
 - **Load Library...** — 컴팩트한 원형(archetype) 라이브러리를 로드하고 그 안의 모든 원형을 소스로 추가합니다.
 
 **Add Folder... — 라이브러리 구축**
-<video src="assets/Body_blend02.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="Body_blend02.gif"></video>
+![Body_blend02.gif](assets/Body_blend02.gif)
 여러 캐릭터의 **원본 `.dna` 파일**이 들어 있는 폴더를 가리키세요. 각 캐릭터의 머리와 몸이 나란히 있어야 합니다:
 
 ```
@@ -479,7 +419,7 @@ Build 후 가중치 슬라이더를 드래그하면 화면에 이미 있는 캐�
 캐릭터를 입히는 두 가지 방법이 있습니다: MetaHuman 골격용으로 제작된 **의류 FBX를 가져오거나**, 씬에 이미 있는 메시를 직접 **리깅**하는 것입니다. 둘 다 이후에는 같은 방식으로 캐릭터를 따라갑니다.
 
 **의류 (FBX):**
-<video src="assets/cloth_FBX.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="cloth_FBX.gif"></video>
+![cloth_FBX.gif](assets/cloth_FBX.gif)
 - **Top... / Bottom... / Full...** — MetaHuman 호환 의류 `.fbx`를 가져와 바디에 부착하고 해당 카테고리로 태그합니다.
 - **Head Accessory...** — 같은 개념으로, 머리에 부착하는 것(안경, 귀걸이 등)용.
 - **Retarget To Body Proportions** (기본 켜짐): 원래 만들어진 바디가 아닌 이 캐릭터의 실제 비율에 맞게 의복을 피팅합니다 — 피부에 달라붙지 않으므로 헐렁한 셔츠는 헐렁하게 유지됩니다.
@@ -489,7 +429,7 @@ Build 후 가중치 슬라이더를 드래그하면 화면에 이미 있는 캐�
 - **LOD0만**: FBX에 여러 LOD가 포함된 경우 LOD0만 유지됩니다.
 
 **씬 메시 가먼트 (Make + Bind):**
-<video src="assets/scene_garment.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="scene_garment.gif"></video>
+![scene_garment.gif](assets/scene_garment.gif)
 자체 MetaHuman 골격이 없는 씬의 메시용.
 
 1. 가먼트 메시를 선택하고 **Make Top / Bottom / Full / Shoes / Gloves / Head Acc**를 클릭하세요 — 캐릭터에 맞게 피팅하고 캐릭터 골격과 함께 움직이도록 리깅합니다. 이미 캐릭터에 대략 맞게 모델링된 가먼트에서 가장 잘 작동합니다.
@@ -512,7 +452,7 @@ Build 후 가중치 슬라이더를 드래그하면 화면에 이미 있는 캐�
 ---
 
 ## 8. 라이브 교정 스컬프팅 (베타)
-<video src="assets/Live_corrective.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="Live_corrective.gif"></video>
+![Live_corrective.gif](assets/Live_corrective.gif)
 **베타** — 하나의 포즈로만 스컬프한 교정은 그 포즈보다 더 멀리 포즈하면 그대로 유지됩니다. 포즈 속으로 더 들어갈 때 계속 모양이 변하길 원하면 같은 교정을 여러 포즈로 스컬프하세요. 머리 교정은 캐릭터의 `.dna`에 기록하여 Unreal에서 사용할 수 있습니다 — 아래 **교정을 Unreal로 보내기** 참조. 바디 교정은 Blender 안에 남습니다.
 
 캐릭터를 포즈한 다음 그 포즈 위에 직접 스컬프하세요 — 스컬프가 교정이 되어 그때부터 캐릭터가 그 포즈에 가까워지거나 멀어질 때마다 자동으로 페이드 인/아웃됩니다. 키프레임이 필요 없습니다. 얼굴과 바디 모두에서 작동하며, 캐릭터가 착용한 모든 의류에도 자동으로 전달됩니다.
@@ -556,7 +496,7 @@ Build 후 가중치 슬라이더를 드래그하면 화면에 이미 있는 캐�
 두 가지 방법이 있습니다.
 
 ### 부서지는 표정 수정 — Export Edited Shape Keys
-<video src="assets/export_shapekey.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="export_shapekey.gif"></video>
+![export_shapekey.gif](assets/export_shapekey.gif)
 특정 표정에서 얼굴이 접히거나, 뾰족해지거나, 붕괴될 때 사용하는 방법입니다. 캐릭터의 고유 표정을 손으로 수정하고 그 수정을 `.dna`로 다시 보냅니다.
 
 1. **페이스 컨트롤로 표정을 만드세요.** 문제가 화면에 나타날 때까지 컨트롤을 움직이세요 — 예를 들어 메시가 부서질 때까지 턱을 여세요.
@@ -725,6 +665,20 @@ Cascadeur에서 애니메이션한 다음 **Receive from Cascadeur**를 누르�
 **Whole Take**는 Cascadeur가 보유한 모든 프레임을 읽습니다. 끄면 씬의 프레임 범위만 읽습니다.
 
 전체 MetaHuman 테이크를 읽는 데 1초 미만이 걸리며 루트 모션도 함께 옵니다 — 캐릭터가 제자리 걷기 대신 이동합니다.
+
+**라이브**
+
+캐릭터를 보낸 후에는 **Live: Mirror This Rig**를 눌러 작업하는 동안 둘을 계속 동기화할 수 있습니다. 손으로 보내거나 받을 필요가 없습니다. **Stop Mirroring**으로 끝냅니다.
+
+- **Blender to Cascadeur** — 여기서 포즈하면 저기서 보입니다.
+- **Cascadeur to Blender** — 저기서 포즈하면 여기서 보입니다.
+- **Both Ways** — 지금 포즈하고 있는 창이 다른 쪽을 구동합니다.
+
+**Mapped Bones**는 Send와 Receive가 이미 합의한 본 세트를 미러링하며, 검증된 세트입니다. **Whole Skeleton**은 두 캐릭터가 이름으로 공유하는 모든 본을 미러링합니다 — Cascadeur의 캐릭터가 이 리그에서 건너간 경우에만 정확합니다.
+
+이 바디가 Rigify 리그로 만들어졌다면 **Onto Rigify Controls**가 나타나며 기본적으로 켜져 있습니다. Cascadeur에서 들어오는 포즈는 디폼 본 대신 컨트롤 리그에 적용되므로, 미러링이 진행되는 동안에도 캐릭터를 계속 자유롭게 포즈할 수 있습니다.
+
+라이브를 켜기 전에 캐릭터를 한 번 보내야 하고, Cascadeur를 재시작한 뒤에도 다시 보내야 합니다 — 이 패널의 다른 모든 곳과 같은 규칙입니다.
 
 ---
 
@@ -1018,6 +972,10 @@ Assemble · New · Delete Slot · Load Head DNA · Load Body DNA · Build Meta-R
 - **Onto Rigify Controls** — 돌아온 것을 디폼 본 대신 컨트롤 리그에 적용하여 거기서 조정할 수 있게 함.
 - **Whole Take** — Cascadeur가 보유한 모든 프레임을 읽음. 끄면 씬 프레임 범위를 대신 읽음.
 - **Receive from Cascadeur** — 작업을 가져옴.
+- **Live: Mirror This Rig / Stop Mirroring** — 작업하는 동안 Blender와 Cascadeur를 한 방향 또는 양방향으로 동기화 상태로 유지.
+- **Live 방향** — Blender to Cascadeur, Cascadeur to Blender, 또는 Both Ways — 지금 포즈하고 있는 쪽이 다른 쪽을 구동.
+- **Bones** — Mapped Bones(Send와 Receive가 이미 합의한 세트) 또는 Whole Skeleton(공유하는 모든 본 이름, 이 리그에서 보낸 캐릭터에만 해당).
+- **Onto Rigify Controls (Live)** — 들어오는 포즈가 디폼 본 대신 컨트롤 리그에 적용되어, 미러링 중에도 캐릭터를 계속 포즈할 수 있음.
 
 ### Unreal Live
 
