@@ -725,7 +725,7 @@ Create the `Plugins` folder yourself if the project has none.
 
 One plugin covers all three ports. Install it once, whichever direction you are working in.
 
-Its own `guide.md`, inside the zip, goes through the Unreal side in more detail.
+Its own `guide.md`, inside the folder, goes through the Unreal side in more detail.
 
 ---
 
