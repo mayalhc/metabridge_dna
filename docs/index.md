@@ -55,13 +55,17 @@ If you were using an earlier version installed the old way, remove it first — 
 
 ### Plug-ins for the other programs
 
-Three features reach into a program outside Blender, and each needs a small plug-in on that side. **They all come with this addon** — nothing to download.
+Three features reach into a program outside Blender, and each needs a small plug-in on that side.
 
 | Program | Where it is | Needed for |
 | --- | --- | --- |
 | Marvelous Designer | the `md_plugin` folder | **MD Live** (§11) |
 | Cascadeur | `third_party/KimodoCascadeurPlugin` | **Send to Cascadeur** (§12) |
-| Unreal Engine | `third_party/MotionForgeLiveLink` | **Unreal Live**, **Follow Unreal** (§13) |
+| Unreal Engine | downloaded on first use | **Unreal Live**, **Follow Unreal** (§13) |
+
+Marvelous Designer's and Cascadeur's plug-ins **come with this addon** — nothing to download. The Unreal one does not fit inside this package, so **Open Unreal Plugin Folder** (in **Edit ▸ Preferences ▸ Add-ons ▸ MetaBridge DNA**) fetches it the first time you click it instead — needs an internet connection just that once.
+
+**Install Cascadeur Plugin** does the same automatic repair if its own local copy is ever missing or incomplete, before it installs anything.
 
 Install none of them to start with. Each section below sets up its own when you get there, and a feature you never use costs you nothing.
 
@@ -91,7 +95,7 @@ The folder's own `README.md` repeats the steps below. That same expanded **MetaB
 4. Pick a **LOD** level (0 = highest quality, higher numbers = lighter/faster).
 5. Click **Assemble**.
 
-![metabridge_img01.gif](assets/metabridge_img01.gif)
+<video src="assets/metabridge_img01.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="metabridge_img01.gif"></video>
 
 **Good to know:**
 
@@ -114,7 +118,7 @@ The folder's own `README.md` repeats the steps below. That same expanded **MetaB
 2. Turn **Face Rig: ON**.
 3. Select the GUIArmature in the viewport, go into **Pose Mode**, and move its bones. The face updates live as you move them.
 
-![metabridge_img02.gif](assets/metabridge_img02.gif)
+<video src="assets/metabridge_img02.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="metabridge_img02.gif"></video>
 
 **Good to know:**
 
@@ -146,7 +150,7 @@ Instead of posing a face from scratch every time, save an expression once and re
 - The **X** button removes one slider; **Clear All Sliders** resets everything back to neutral.
 - Sliders are normal Blender properties, so you can keyframe and animate them.
 
-![metabridge_img04.gif](assets/metabridge_img04.gif)
+<video src="assets/metabridge_img04.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="metabridge_img04.gif"></video>
 
 **Good to know:**
 
@@ -171,7 +175,7 @@ Stream your real facial expressions live from an iPhone straight onto the MetaHu
 3. In the app, set the target IP address to your computer's address, and the port to **11111**.
 4. In Blender's ARKit Live panel, leave **Host** as `0.0.0.0` and **Port** as `11111`, then click **Connect**.
 
-![metabridge_img05.gif](assets/metabridge_img05.gif)
+<video src="assets/metabridge_img05.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="metabridge_img05.gif"></video>
 
 **Tuning the feel of the tracking:**
 
@@ -214,7 +218,7 @@ Requires the **Rigify** addon to be enabled first (`Edit > Preferences > Add-ons
 5. **Remove Rigify Rig** removes everything from steps 1–4 if you need to start over.
 
 **Additional Options**
-![Rigify_IK.gif](assets/Rigify_IK.gif)
+<video src="assets/Rigify_IK.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="Rigify_IK.gif"></video>
 
 A collapsed section below **Remove Rigify Rig**, holding two switches you rarely need to touch:
 
@@ -261,7 +265,7 @@ Both work on all ten fingers at once, and both are safe to press repeatedly.
 - There is no elbow-style direction control for fingers, so the solver picks which way a finger bends. It follows the joints sensibly for normal poses, but pulling a target far sideways can twist the finger oddly. Lower that finger's slider if it does.
 - With Finger IK off, the rig behaves exactly like stock Rigify — the finger master curl and the individual joint controls work as usual.
 
-![metabridge_img03.gif](assets/metabridge_img03.gif)
+<video src="assets/metabridge_img03.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="metabridge_img03.gif"></video>
 
 **Body Correctives — automatic muscle & twist detail**
 
@@ -330,7 +334,7 @@ It works whether that animation was made with **IK or FK** arms and legs. You do
 ---
 
 ## 6. Body Blend (experimental)
-![Body_blend.gif](assets/Body_blend.gif)
+<video src="assets/Body_blend.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="Body_blend.gif"></video>
 
 Combine two or more MetaHuman body types — and their matching heads — into a brand-new blended character. Found in its own **Body Blend (experimental)** panel, collapsed by default.
 
@@ -341,7 +345,7 @@ Combine two or more MetaHuman body types — and their matching heads — into a
 - **Load Library...** — load a compact archetype library and add every archetype in it as a source.
 
 **Add Folder... — building a library**
-![Body_blend02.gif](assets/Body_blend02.gif)
+<video src="assets/Body_blend02.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="Body_blend02.gif"></video>
 Point this at a folder holding **the original `.dna` files of several characters**, with each character's head and body sitting side by side:
 
 ```
@@ -419,7 +423,7 @@ Attach clothing (FBX) and hair/grooms (Alembic `.abc`) to the *active* character
 There are two ways to dress a character: import a **clothing FBX** built for a MetaHuman skeleton, or **rig any mesh already in your scene** yourself. Both end up following the character the same way afterward.
 
 **Clothing (FBX):**
-![cloth_FBX.gif](assets/cloth_FBX.gif)
+<video src="assets/cloth_FBX.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="cloth_FBX.gif"></video>
 - **Top... / Bottom... / Full...** — import a MetaHuman-compatible clothing `.fbx` and attach it to the body, tagged with that category.
 - **Head Accessory...** — same idea, for things that attach to the head instead (glasses, earrings, ...).
 - **Retarget To Body Proportions** (on by default): fits the garment to this character's own proportions instead of the body it was originally made for — without going skin-tight, so a loose shirt stays loose.
@@ -429,7 +433,7 @@ There are two ways to dress a character: import a **clothing FBX** built for a M
 - **LOD0 only**: if the FBX bundles multiple LODs, only LOD0 is kept.
 
 **Scene Mesh Garment (Make + Bind):**
-![scene_garment.gif](assets/scene_garment.gif)
+<video src="assets/scene_garment.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="scene_garment.gif"></video>
 For a mesh already in your scene that doesn't have a MetaHuman skeleton of its own.
 
 1. Select the garment mesh and click **Make Top / Bottom / Full / Shoes / Gloves / Head Acc** — this fits it to the character and rigs it to move with the character's skeleton. Works best on a garment already modeled to roughly fit the character.
@@ -452,7 +456,7 @@ If deformation looks off in an extreme pose at a tight spot (armpits, between th
 ---
 
 ## 8. Live Corrective Sculpting (Beta)
-![Live_corrective.gif](assets/Live_corrective.gif)
+<video src="assets/Live_corrective.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="Live_corrective.gif"></video>
 **Beta** — a correction sculpted with only one pose holds steady if you pose further than that; sculpt more than one pose for the same correction if you want it to keep changing shape further into the pose. Head corrections can be written back into the character's `.dna` and used in Unreal — see **Sending a correction to Unreal** below. Body corrections stay inside Blender.
 
 Pose the character, then sculpt directly on top of that pose — the sculpt becomes a correction that fades in and out automatically from then on, every time the character moves toward and away from that pose. No keyframing needed. Works on both the face and the body, and automatically carries over to any clothing worn on the character.
@@ -496,7 +500,7 @@ Use the **Write to DNA (head only)** box. It writes a new `.dna` file and leaves
 There are two ways to do it.
 
 ### Fixing an expression that breaks — Export Edited Shape Keys
-![export_shapekey.gif](assets/export_shapekey.gif)
+<video src="assets/export_shapekey.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="export_shapekey.gif"></video>
 This is the one to use when a face folds, spikes or collapses on a particular expression. You fix the character's own expression by hand and send that fix back into the `.dna`.
 
 1. **Make the expression with the face controls.** Move the controls until the problem is on screen — for example open the jaw until the mesh breaks.
@@ -710,9 +714,10 @@ uses 9560 — as long as they are on different ports.
 
 ### Installing the Unreal plugin
 
-It comes with this addon, in the `third_party` folder described under [Installing](#installing).
+Unlike the other two, this one is not inside the addon — it is fetched from GitHub the first time it is needed.
 
-1. Copy the **`MotionForgeLiveLink`** folder into your Unreal project's `Plugins` folder, so you end up with:
+1. **Edit ▸ Preferences ▸ Add-ons**, find **MetaBridge DNA**, expand it, and click **Open Unreal Plugin Folder**. The first click downloads the plugin (needs an internet connection); every click after that just opens the folder it landed in.
+2. Copy the **`MotionForgeLiveLink`** folder into your Unreal project's `Plugins` folder, so you end up with:
 
 ```
 <YourProject>\Plugins\MotionForgeLiveLink\MotionForgeLiveLink.uplugin
@@ -720,8 +725,8 @@ It comes with this addon, in the `third_party` folder described under [Installin
 
 Create the `Plugins` folder yourself if the project has none.
 
-2. Restart the editor. Unreal builds the plugin as it opens, so the first launch takes longer than usual and needs a C++ project or the build tools installed.
-3. Enable **Live Link** in **Edit ▸ Plugins** — this plugin extends it rather than replacing it.
+3. Restart the editor. Unreal builds the plugin as it opens, so the first launch takes longer than usual and needs a C++ project or the build tools installed.
+4. Enable **Live Link** in **Edit ▸ Plugins** — this plugin extends it rather than replacing it.
 
 One plugin covers all three ports. Install it once, whichever direction you are working in.
 

@@ -55,13 +55,17 @@ Blender는 **4.5 이상**, Windows 64비트가 필요합니다.
 
 ### 다른 프로그램용 플러그인
 
-세 가지 기능이 Blender 외부의 프로그램에 접근하며, 각각 그쪽에 작은 플러그인이 필요합니다. **모두 이 애드온과 함께 제공됩니다** — 다운로드할 것이 없습니다.
+세 가지 기능이 Blender 외부의 프로그램에 접근하며, 각각 그쪽에 작은 플러그인이 필요합니다.
 
 | 프로그램 | 위치 | 용도 |
 | --- | --- | --- |
 | Marvelous Designer | `md_plugin` 폴더 | **MD Live** (§11) |
 | Cascadeur | `third_party/KimodoCascadeurPlugin` | **Send to Cascadeur** (§12) |
-| Unreal Engine | `third_party/MotionForgeLiveLink` | **Unreal Live**, **Follow Unreal** (§13) |
+| Unreal Engine | 처음 사용할 때 다운로드됨 | **Unreal Live**, **Follow Unreal** (§13) |
+
+Marvelous Designer와 Cascadeur 플러그인은 **이 애드온과 함께 제공됩니다** — 다운로드할 것이 없습니다. Unreal 플러그인은 이 패키지 안에 들어가지 않아서, **Edit ▸ Preferences ▸ Add-ons ▸ MetaBridge DNA**의 **Open Unreal Plugin Folder**를 처음 누르는 순간 대신 받아옵니다 — 그 한 번만 인터넷 연결이 필요합니다.
+
+**Install Cascadeur Plugin**도 로컬 사본이 없거나 손상됐으면 설치하기 전에 같은 방식으로 자동 복구합니다.
 
 처음에는 아무것도 설치하지 마세요. 아래의 각 절에서 해당 기능에 도달할 때 자체 설정을 다룹니다. 사용하지 않는 기능은 아무 비용도 들지 않습니다.
 
@@ -91,7 +95,7 @@ Blender는 **4.5 이상**, Windows 64비트가 필요합니다.
 4. **LOD** 레벨을 선택하세요 (0 = 최고 품질, 숫자가 높을수록 더 가볍고 빠름).
 5. **Assemble**을 클릭하세요.
 
-![metabridge_img01.gif](assets/metabridge_img01.gif)
+<video src="assets/metabridge_img01.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="metabridge_img01.gif"></video>
 
 **알아두면 좋은 점:**
 
@@ -114,7 +118,7 @@ Blender는 **4.5 이상**, Windows 64비트가 필요합니다.
 2. **Face Rig: ON**으로 설정하세요.
 3. 뷰포트에서 GUIArmature를 선택하고 **Pose Mode**로 들어가 본을 움직이세요. 움직일 때마다 얼굴이 실시간으로 업데이트됩니다.
 
-![metabridge_img02.gif](assets/metabridge_img02.gif)
+<video src="assets/metabridge_img02.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="metabridge_img02.gif"></video>
 
 **알아두면 좋은 점:**
 
@@ -146,7 +150,7 @@ Blender는 **4.5 이상**, Windows 64비트가 필요합니다.
 - **X** 버튼은 슬라이더 하나를 제거하고, **Clear All Sliders**는 모든 것을 중립으로 재설정합니다.
 - 슬라이더는 일반 Blender 프로퍼티이므로 키프레임을 찍고 애니메이션할 수 있습니다.
 
-![metabridge_img04.gif](assets/metabridge_img04.gif)
+<video src="assets/metabridge_img04.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="metabridge_img04.gif"></video>
 
 **알아두면 좋은 점:**
 
@@ -171,7 +175,7 @@ Apple의 무료 **Live Link Face** 앱을 사용하여 iPhone에서 실시간 �
 3. 앱에서 대상 IP 주소를 컴퓨터 주소로, 포트를 **11111**로 설정하세요.
 4. Blender의 ARKit Live 패널에서 **Host**를 `0.0.0.0`, **Port**를 `11111`로 두고 **Connect**를 클릭하세요.
 
-![metabridge_img05.gif](assets/metabridge_img05.gif)
+<video src="assets/metabridge_img05.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="metabridge_img05.gif"></video>
 
 **트래킹 느낌 조정:**
 
@@ -214,7 +218,7 @@ Rigify를 사용하여 MetaHuman 바디를 완전히 애니메이션 가능한 �
 5. **Remove Rigify Rig** — 처음부터 다시 시작해야 한다면 1~4단계의 모든 것을 제거합니다.
 
 **추가 옵션**
-![Rigify_IK.gif](assets/Rigify_IK.gif)
+<video src="assets/Rigify_IK.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="Rigify_IK.gif"></video>
 
 **Remove Rigify Rig** 아래에 접힌 섹션으로, 거의 건드릴 필요가 없는 스위치들이 있습니다:
 
@@ -261,7 +265,7 @@ Rigify에는 자체 Finger IK가 없으므로 이 애드온이 추가합니다. 
 - 손가락에는 팔꿈치 스타일의 방향 제어가 없으므로 솔버가 손가락이 구부러지는 방향을 결정합니다. 일반적인 포즈에서는 관절을 따라 합리적으로 움직이지만, 타겟을 옆으로 멀리 당기면 손가락이 이상하게 비틀릴 수 있습니다. 그럴 때는 해당 손가락의 슬라이더를 낮추세요.
 - Finger IK가 꺼져 있으면 리그는 기본 Rigify와 정확히 동일하게 작동합니다 — 손가락 마스터 컬과 개별 관절 컨트롤이 평소처럼 작동합니다.
 
-![metabridge_img03.gif](assets/metabridge_img03.gif)
+<video src="assets/metabridge_img03.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="metabridge_img03.gif"></video>
 
 **바디 코렉티브 — 자동 근육 및 비틀림 디테일**
 
@@ -330,7 +334,7 @@ Unreal에서 내보낸 MetaHuman 애니메이션(FBX)을 이 캐릭터에 직접
 ---
 
 ## 6. 바디 블렌드 (실험적)
-![Body_blend.gif](assets/Body_blend.gif)
+<video src="assets/Body_blend.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="Body_blend.gif"></video>
 
 두 개 이상의 MetaHuman 바디 타입 — 그리고 그에 맞는 머리 — 를 완전히 새로운 블렌드 캐릭터로 결합하세요. 기본적으로 접혀 있는 자체 **Body Blend (experimental)** 패널에서 찾을 수 있습니다.
 
@@ -341,7 +345,7 @@ Unreal에서 내보낸 MetaHuman 애니메이션(FBX)을 이 캐릭터에 직접
 - **Load Library...** — 컴팩트한 원형(archetype) 라이브러리를 로드하고 그 안의 모든 원형을 소스로 추가합니다.
 
 **Add Folder... — 라이브러리 구축**
-![Body_blend02.gif](assets/Body_blend02.gif)
+<video src="assets/Body_blend02.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="Body_blend02.gif"></video>
 여러 캐릭터의 **원본 `.dna` 파일**이 들어 있는 폴더를 가리키세요. 각 캐릭터의 머리와 몸이 나란히 있어야 합니다:
 
 ```
@@ -419,7 +423,7 @@ Build 후 가중치 슬라이더를 드래그하면 화면에 이미 있는 캐�
 캐릭터를 입히는 두 가지 방법이 있습니다: MetaHuman 골격용으로 제작된 **의류 FBX를 가져오거나**, 씬에 이미 있는 메시를 직접 **리깅**하는 것입니다. 둘 다 이후에는 같은 방식으로 캐릭터를 따라갑니다.
 
 **의류 (FBX):**
-![cloth_FBX.gif](assets/cloth_FBX.gif)
+<video src="assets/cloth_FBX.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="cloth_FBX.gif"></video>
 - **Top... / Bottom... / Full...** — MetaHuman 호환 의류 `.fbx`를 가져와 바디에 부착하고 해당 카테고리로 태그합니다.
 - **Head Accessory...** — 같은 개념으로, 머리에 부착하는 것(안경, 귀걸이 등)용.
 - **Retarget To Body Proportions** (기본 켜짐): 원래 만들어진 바디가 아닌 이 캐릭터의 실제 비율에 맞게 의복을 피팅합니다 — 피부에 달라붙지 않으므로 헐렁한 셔츠는 헐렁하게 유지됩니다.
@@ -429,7 +433,7 @@ Build 후 가중치 슬라이더를 드래그하면 화면에 이미 있는 캐�
 - **LOD0만**: FBX에 여러 LOD가 포함된 경우 LOD0만 유지됩니다.
 
 **씬 메시 가먼트 (Make + Bind):**
-![scene_garment.gif](assets/scene_garment.gif)
+<video src="assets/scene_garment.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="scene_garment.gif"></video>
 자체 MetaHuman 골격이 없는 씬의 메시용.
 
 1. 가먼트 메시를 선택하고 **Make Top / Bottom / Full / Shoes / Gloves / Head Acc**를 클릭하세요 — 캐릭터에 맞게 피팅하고 캐릭터 골격과 함께 움직이도록 리깅합니다. 이미 캐릭터에 대략 맞게 모델링된 가먼트에서 가장 잘 작동합니다.
@@ -452,7 +456,7 @@ Build 후 가중치 슬라이더를 드래그하면 화면에 이미 있는 캐�
 ---
 
 ## 8. 라이브 교정 스컬프팅 (베타)
-![Live_corrective.gif](assets/Live_corrective.gif)
+<video src="assets/Live_corrective.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="Live_corrective.gif"></video>
 **베타** — 하나의 포즈로만 스컬프한 교정은 그 포즈보다 더 멀리 포즈하면 그대로 유지됩니다. 포즈 속으로 더 들어갈 때 계속 모양이 변하길 원하면 같은 교정을 여러 포즈로 스컬프하세요. 머리 교정은 캐릭터의 `.dna`에 기록하여 Unreal에서 사용할 수 있습니다 — 아래 **교정을 Unreal로 보내기** 참조. 바디 교정은 Blender 안에 남습니다.
 
 캐릭터를 포즈한 다음 그 포즈 위에 직접 스컬프하세요 — 스컬프가 교정이 되어 그때부터 캐릭터가 그 포즈에 가까워지거나 멀어질 때마다 자동으로 페이드 인/아웃됩니다. 키프레임이 필요 없습니다. 얼굴과 바디 모두에서 작동하며, 캐릭터가 착용한 모든 의류에도 자동으로 전달됩니다.
@@ -496,7 +500,7 @@ Build 후 가중치 슬라이더를 드래그하면 화면에 이미 있는 캐�
 두 가지 방법이 있습니다.
 
 ### 부서지는 표정 수정 — Export Edited Shape Keys
-![export_shapekey.gif](assets/export_shapekey.gif)
+<video src="assets/export_shapekey.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="export_shapekey.gif"></video>
 특정 표정에서 얼굴이 접히거나, 뾰족해지거나, 붕괴될 때 사용하는 방법입니다. 캐릭터의 고유 표정을 손으로 수정하고 그 수정을 `.dna`로 다시 보냅니다.
 
 1. **페이스 컨트롤로 표정을 만드세요.** 문제가 화면에 나타날 때까지 컨트롤을 움직이세요 — 예를 들어 메시가 부서질 때까지 턱을 여세요.
@@ -700,9 +704,10 @@ Unreal 쪽에는 **플러그인 하나**가 있습니다. Blender의 어떤 기�
 
 ### Unreal 플러그인 설치
 
-[설치](#설치)에서 설명한 `third_party` 폴더에 이 애드온과 함께 제공됩니다.
+다른 두 플러그인과 달리 이건 애드온 안에 없습니다 — 필요할 때 GitHub에서 받아옵니다.
 
-1. **`MotionForgeLiveLink`** 폴더를 Unreal 프로젝트의 `Plugins` 폴더에 복사하여 다음 구조가 되게 하세요:
+1. **Edit ▸ Preferences ▸ Add-ons**에서 **MetaBridge DNA**를 찾아 펼치고 **Open Unreal Plugin Folder**를 클릭하세요. 처음 누르면 플러그인을 다운로드하고(인터넷 연결 필요), 그다음부터는 받아진 폴더를 그냥 엽니다.
+2. **`MotionForgeLiveLink`** 폴더를 Unreal 프로젝트의 `Plugins` 폴더에 복사하여 다음 구조가 되게 하세요:
 
 ```
 <YourProject>\Plugins\MotionForgeLiveLink\MotionForgeLiveLink.uplugin
@@ -710,8 +715,8 @@ Unreal 쪽에는 **플러그인 하나**가 있습니다. Blender의 어떤 기�
 
 프로젝트에 `Plugins` 폴더가 없으면 직접 만드세요.
 
-2. 에디터를 다시 시작하세요. Unreal이 열리면서 플러그인을 빌드하므로 첫 실행은 평소보다 오래 걸리며 C++ 프로젝트 또는 빌드 도구 설치가 필요합니다.
-3. **Edit ▸ Plugins**에서 **Live Link**를 활성화하세요 — 이 플러그인은 그것을 대체하는 것이 아니라 확장합니다.
+3. 에디터를 다시 시작하세요. Unreal이 열리면서 플러그인을 빌드하므로 첫 실행은 평소보다 오래 걸리며 C++ 프로젝트 또는 빌드 도구 설치가 필요합니다.
+4. **Edit ▸ Plugins**에서 **Live Link**를 활성화하세요 — 이 플러그인은 그것을 대체하는 것이 아니라 확장합니다.
 
 하나의 플러그인이 세 포트를 모두 처리합니다. 어느 방향으로 작업하든 한 번만 설치하세요.
 
