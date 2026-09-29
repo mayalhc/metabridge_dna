@@ -9,15 +9,19 @@
 
 ## 새로운 기능
 
-**v2.1.1 — Cascadeur 라이브**
+**v2.1.2 — Export ARKit Blend Shapes**
 
-*Send to Cascadeur*
+*ARKit Live*
 
-- **신규: 라이브 미러링.** Blender나 Cascadeur 어느 쪽에서 캐릭터를 포즈해도 다른 쪽이 실시간으로 따라옵니다. 손으로 보내거나 받을 필요가 없습니다. Send to Cascadeur 패널의 **Live: Mirror This Rig**로 시작하고, **Stop Mirroring**으로 끝냅니다.
-- 포즈가 어느 방향으로 전달될지 선택합니다: **Blender to Cascadeur**, **Cascadeur to Blender**, 또는 **Both Ways** — 지금 포즈를 잡고 있는 쪽이 다른 쪽을 구동합니다.
-- **Mapped Bones**는 Send와 Receive가 이미 합의한 본 세트를 미러링하며 기본값입니다. **Whole Skeleton**은 두 캐릭터가 이름으로 공유하는 모든 본을 미러링합니다 — Cascadeur의 캐릭터가 이 리그에서 건너간 경우에만 정확합니다.
-- **Onto Rigify Controls**는 기본적으로 켜져 있습니다. Cascadeur에서 온 포즈는 컨트롤 리그에 적용되므로, 캐릭터는 계속 자유롭게 포즈할 수 있고 몸을 구동하는 제약과 충돌하지 않습니다.
-- 라이브를 켜기 전에 캐릭터를 한 번 보내야 하고, Cascadeur를 재시작한 뒤에도 다시 보내야 합니다 — Send와 Receive가 이미 따르는 것과 같은 규칙입니다.
+- **신규: Export ARKit Blend Shapes (베타).** 캐릭터의 얼굴을 표준 ARKit 52개 표정으로 구워서, 실제 이름이 붙은 Shape Key로 별도의 FBX에 담습니다 — 이 캐릭터 고유의 MetaHuman 리그가 아니라 정확히 그 52개 세트를 기대하는 프로그램으로 옮길 때 씁니다. [4절](#4-arkit-live-iphone에서-실시간-얼굴-트래킹) 참조.
+- **Include Custom ARKit Presets**를 켜면 **Convert ARKit Payload**로 추가한, 표준 52개를 넘어서는 표정도 함께 굽습니다.
+- 이 캐릭터 본래의 리그와 메시는 전혀 건드리지 않습니다 — 익스포트는 구울 대상으로 자체 헤드를 새로 만들고, FBX를 다 쓴 뒤에도 씬에 남겨둡니다.
+- 이 52개는 애플 원본을 그대로 복제한 게 아니라 이 캐릭터만의 버전이며, 전부 평범한 표정 프리셋이라 마음에 안 드는 게 있으면 **Save Current Expression**으로 언제든 덮어쓸 수 있습니다.
+
+*Cascadeur / Unreal 설치*
+
+- **신규: Install Cascadeur Plugin**, **Open Unreal Plugin Folder** 버튼이 **Edit ▸ Preferences ▸ Add-ons**의 애드온 자체 행에 생겼습니다. Cascadeur 플러그인 설치가 더 이상 직접 압축 풀고 관리자 권한으로 실행할 필요 없이 버튼 하나로 끝납니다 — 관리자 권한이 정말 필요할 때만 창이 뜹니다.
+- Unreal 플러그인은 **Open Unreal Plugin Folder**를 처음 클릭하는 순간 GitHub에서 받아옵니다 — 이제 애드온 안에 직접 들어있지 않습니다.
 
 
 ## 이 애드온은 무엇인가요?
@@ -95,7 +99,7 @@ Marvelous Designer와 Cascadeur 플러그인은 **이 애드온과 함께 제공
 4. **LOD** 레벨을 선택하세요 (0 = 최고 품질, 숫자가 높을수록 더 가볍고 빠름).
 5. **Assemble**을 클릭하세요.
 
-<video src="assets/metabridge_img01.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="metabridge_img01.gif"></video>
+![metabridge_img01.gif](assets/metabridge_img01.gif)
 
 **알아두면 좋은 점:**
 
@@ -118,7 +122,7 @@ Marvelous Designer와 Cascadeur 플러그인은 **이 애드온과 함께 제공
 2. **Face Rig: ON**으로 설정하세요.
 3. 뷰포트에서 GUIArmature를 선택하고 **Pose Mode**로 들어가 본을 움직이세요. 움직일 때마다 얼굴이 실시간으로 업데이트됩니다.
 
-<video src="assets/metabridge_img02.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="metabridge_img02.gif"></video>
+![metabridge_img02.gif](assets/metabridge_img02.gif)
 
 **알아두면 좋은 점:**
 
@@ -150,7 +154,7 @@ Marvelous Designer와 Cascadeur 플러그인은 **이 애드온과 함께 제공
 - **X** 버튼은 슬라이더 하나를 제거하고, **Clear All Sliders**는 모든 것을 중립으로 재설정합니다.
 - 슬라이더는 일반 Blender 프로퍼티이므로 키프레임을 찍고 애니메이션할 수 있습니다.
 
-<video src="assets/metabridge_img04.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="metabridge_img04.gif"></video>
+![metabridge_img04.gif](assets/metabridge_img04.gif)
 
 **알아두면 좋은 점:**
 
@@ -175,7 +179,7 @@ Apple의 무료 **Live Link Face** 앱을 사용하여 iPhone에서 실시간 �
 3. 앱에서 대상 IP 주소를 컴퓨터 주소로, 포트를 **11111**로 설정하세요.
 4. Blender의 ARKit Live 패널에서 **Host**를 `0.0.0.0`, **Port**를 `11111`로 두고 **Connect**를 클릭하세요.
 
-<video src="assets/metabridge_img05.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="metabridge_img05.gif"></video>
+![metabridge_img05.gif](assets/metabridge_img05.gif)
 
 **트래킹 느낌 조정:**
 
@@ -200,6 +204,19 @@ Apple의 무료 **Live Link Face** 앱을 사용하여 iPhone에서 실시간 �
 - **아무것도 움직이지 않음**: 빨간색 **Apply error** 메시지가 있는지 확인하고 올바른 캐릭터가 활성화되었는지 확인하세요.
 - **휴식 상태에서 얼굴이 약간 어긋남**: 먼저 Live Link Face 앱의 **Calibrate** 기능을 사용한 다음 Deadzone/Gain으로 미세 조정하세요.
 
+**Export ARKit Blend Shapes (베타)**
+
+캐릭터의 얼굴을 표준 ARKit 52개 표정으로 구워서, 실제 이름이 붙은 Shape Key로 **별도의 FBX**에 담습니다 — 이 캐릭터 고유의 MetaHuman 리그가 아니라 정확히 그 52개 세트를 기대하는 프로그램으로 얼굴을 옮길 때 씁니다.
+
+1. **Export ARKit Blend Shapes (FBX)...**를 클릭하고 저장 위치를 고르세요.
+2. **Include Custom ARKit Presets**를 켜면 **Convert ARKit Payload**로 추가한, 표준 52개를 넘어서는 표정도 함께 굽습니다.
+
+이 캐릭터 본래의 리그와 메시는 전혀 건드리지 않습니다 — 익스포트는 구울 대상으로 자체 뼈대를 가진 별도의 헤드를 새로 만들고, FBX를 다 쓴 뒤에도 그걸 씬에 남겨둡니다. 나중에 직접 살펴보거나 다시 내보내고 싶을 때를 위해서입니다.
+
+이 52개는 애플의 원본 ARKit 셰이프를 바이트 단위로 그대로 복제한 게 아니라, 이 리그가 표현할 수 있는 한도 안에서 최대한 가깝게 만든 **이 캐릭터만의 버전**입니다. 대부분은 받는 쪽 프로그램에서 그대로 잘 읽히지만, 일부는 손으로 살짝 조정이 필요할 수 있습니다.
+
+52개 중 마음에 안 드는 게 있거나 자신만의 표정을 더 추가하고 싶다면, 이 52개도 전부 평범한 표정 프리셋입니다 — 원하는 대로 얼굴을 포즈한 뒤 [3절](#3-표정-프리셋-표정-저장-및-재사용)의 다른 프리셋과 똑같이 **Save Current Expression**으로 덮어쓰면 됩니다. 다음 익스포트부터 바뀐 내용이 그대로 반영됩니다.
+
 ---
 
 ## 5. Rigify 바디 컨트롤 리그
@@ -218,7 +235,7 @@ Rigify를 사용하여 MetaHuman 바디를 완전히 애니메이션 가능한 �
 5. **Remove Rigify Rig** — 처음부터 다시 시작해야 한다면 1~4단계의 모든 것을 제거합니다.
 
 **추가 옵션**
-<video src="assets/Rigify_IK.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="Rigify_IK.gif"></video>
+![Rigify_IK.gif](assets/Rigify_IK.gif)
 
 **Remove Rigify Rig** 아래에 접힌 섹션으로, 거의 건드릴 필요가 없는 스위치들이 있습니다:
 
@@ -265,7 +282,7 @@ Rigify에는 자체 Finger IK가 없으므로 이 애드온이 추가합니다. 
 - 손가락에는 팔꿈치 스타일의 방향 제어가 없으므로 솔버가 손가락이 구부러지는 방향을 결정합니다. 일반적인 포즈에서는 관절을 따라 합리적으로 움직이지만, 타겟을 옆으로 멀리 당기면 손가락이 이상하게 비틀릴 수 있습니다. 그럴 때는 해당 손가락의 슬라이더를 낮추세요.
 - Finger IK가 꺼져 있으면 리그는 기본 Rigify와 정확히 동일하게 작동합니다 — 손가락 마스터 컬과 개별 관절 컨트롤이 평소처럼 작동합니다.
 
-<video src="assets/metabridge_img03.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="metabridge_img03.gif"></video>
+![metabridge_img03.gif](assets/metabridge_img03.gif)
 
 **바디 코렉티브 — 자동 근육 및 비틀림 디테일**
 
@@ -334,7 +351,7 @@ Unreal에서 내보낸 MetaHuman 애니메이션(FBX)을 이 캐릭터에 직접
 ---
 
 ## 6. 바디 블렌드 (실험적)
-<video src="assets/Body_blend.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="Body_blend.gif"></video>
+![Body_blend.gif](assets/Body_blend.gif)
 
 두 개 이상의 MetaHuman 바디 타입 — 그리고 그에 맞는 머리 — 를 완전히 새로운 블렌드 캐릭터로 결합하세요. 기본적으로 접혀 있는 자체 **Body Blend (experimental)** 패널에서 찾을 수 있습니다.
 
@@ -345,7 +362,7 @@ Unreal에서 내보낸 MetaHuman 애니메이션(FBX)을 이 캐릭터에 직접
 - **Load Library...** — 컴팩트한 원형(archetype) 라이브러리를 로드하고 그 안의 모든 원형을 소스로 추가합니다.
 
 **Add Folder... — 라이브러리 구축**
-<video src="assets/Body_blend02.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="Body_blend02.gif"></video>
+![Body_blend02.gif](assets/Body_blend02.gif)
 여러 캐릭터의 **원본 `.dna` 파일**이 들어 있는 폴더를 가리키세요. 각 캐릭터의 머리와 몸이 나란히 있어야 합니다:
 
 ```
@@ -423,7 +440,7 @@ Build 후 가중치 슬라이더를 드래그하면 화면에 이미 있는 캐�
 캐릭터를 입히는 두 가지 방법이 있습니다: MetaHuman 골격용으로 제작된 **의류 FBX를 가져오거나**, 씬에 이미 있는 메시를 직접 **리깅**하는 것입니다. 둘 다 이후에는 같은 방식으로 캐릭터를 따라갑니다.
 
 **의류 (FBX):**
-<video src="assets/cloth_FBX.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="cloth_FBX.gif"></video>
+![cloth_FBX.gif](assets/cloth_FBX.gif)
 - **Top... / Bottom... / Full...** — MetaHuman 호환 의류 `.fbx`를 가져와 바디에 부착하고 해당 카테고리로 태그합니다.
 - **Head Accessory...** — 같은 개념으로, 머리에 부착하는 것(안경, 귀걸이 등)용.
 - **Retarget To Body Proportions** (기본 켜짐): 원래 만들어진 바디가 아닌 이 캐릭터의 실제 비율에 맞게 의복을 피팅합니다 — 피부에 달라붙지 않으므로 헐렁한 셔츠는 헐렁하게 유지됩니다.
@@ -433,7 +450,7 @@ Build 후 가중치 슬라이더를 드래그하면 화면에 이미 있는 캐�
 - **LOD0만**: FBX에 여러 LOD가 포함된 경우 LOD0만 유지됩니다.
 
 **씬 메시 가먼트 (Make + Bind):**
-<video src="assets/scene_garment.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="scene_garment.gif"></video>
+![scene_garment.gif](assets/scene_garment.gif)
 자체 MetaHuman 골격이 없는 씬의 메시용.
 
 1. 가먼트 메시를 선택하고 **Make Top / Bottom / Full / Shoes / Gloves / Head Acc**를 클릭하세요 — 캐릭터에 맞게 피팅하고 캐릭터 골격과 함께 움직이도록 리깅합니다. 이미 캐릭터에 대략 맞게 모델링된 가먼트에서 가장 잘 작동합니다.
@@ -456,7 +473,7 @@ Build 후 가중치 슬라이더를 드래그하면 화면에 이미 있는 캐�
 ---
 
 ## 8. 라이브 교정 스컬프팅 (베타)
-<video src="assets/Live_corrective.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="Live_corrective.gif"></video>
+![Live_corrective.gif](assets/Live_corrective.gif)
 **베타** — 하나의 포즈로만 스컬프한 교정은 그 포즈보다 더 멀리 포즈하면 그대로 유지됩니다. 포즈 속으로 더 들어갈 때 계속 모양이 변하길 원하면 같은 교정을 여러 포즈로 스컬프하세요. 머리 교정은 캐릭터의 `.dna`에 기록하여 Unreal에서 사용할 수 있습니다 — 아래 **교정을 Unreal로 보내기** 참조. 바디 교정은 Blender 안에 남습니다.
 
 캐릭터를 포즈한 다음 그 포즈 위에 직접 스컬프하세요 — 스컬프가 교정이 되어 그때부터 캐릭터가 그 포즈에 가까워지거나 멀어질 때마다 자동으로 페이드 인/아웃됩니다. 키프레임이 필요 없습니다. 얼굴과 바디 모두에서 작동하며, 캐릭터가 착용한 모든 의류에도 자동으로 전달됩니다.
@@ -500,7 +517,7 @@ Build 후 가중치 슬라이더를 드래그하면 화면에 이미 있는 캐�
 두 가지 방법이 있습니다.
 
 ### 부서지는 표정 수정 — Export Edited Shape Keys
-<video src="assets/export_shapekey.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="export_shapekey.gif"></video>
+![export_shapekey.gif](assets/export_shapekey.gif)
 특정 표정에서 얼굴이 접히거나, 뾰족해지거나, 붕괴될 때 사용하는 방법입니다. 캐릭터의 고유 표정을 손으로 수정하고 그 수정을 `.dna`로 다시 보냅니다.
 
 1. **페이스 컨트롤로 표정을 만드세요.** 문제가 화면에 나타날 때까지 컨트롤을 움직이세요 — 예를 들어 메시가 부서질 때까지 턱을 여세요.
