@@ -9,19 +9,15 @@
 
 ## 새로운 기능
 
-**v2.1.2 — Export ARKit Blend Shapes**
+**v2.1.4 — 비율**
 
-*ARKit Live*
+- **신규: Proportions.** 다리·상체·목·팔 길이, 어깨·골반 너비, 허리·가슴·엉덩이·허벅지·종아리·팔·목 굵기, 머리 크기, 하이힐의 힐·앞굽 높이를 바꿉니다 — **Long Legs** 한 번이면 롱레그 비율이 됩니다. 발은 바닥에 그대로 있고, 옷과 헤어가 따라오며, 새 비율은 DNA 내보내기, MD Live, Cascadeur에 그대로 들어갑니다. [7절](#7-비율-proportions) 참조.
 
-- **신규: Export ARKit Blend Shapes (베타).** 캐릭터의 얼굴을 표준 ARKit 52개 표정으로 구워서, 실제 이름이 붙은 Shape Key로 별도의 FBX에 담습니다 — 이 캐릭터 고유의 MetaHuman 리그가 아니라 정확히 그 52개 세트를 기대하는 프로그램으로 옮길 때 씁니다. [4절](#4-arkit-live-iphone에서-실시간-얼굴-트래킹) 참조.
-- **Include Custom ARKit Presets**를 켜면 **Convert ARKit Payload**로 추가한, 표준 52개를 넘어서는 표정도 함께 굽습니다.
-- 이 캐릭터 본래의 리그와 메시는 전혀 건드리지 않습니다 — 익스포트는 구울 대상으로 자체 헤드를 새로 만들고, FBX를 다 쓴 뒤에도 씬에 남겨둡니다.
-- 이 52개는 애플 원본을 그대로 복제한 게 아니라 이 캐릭터만의 버전이며, 전부 평범한 표정 프리셋이라 마음에 안 드는 게 있으면 **Save Current Expression**으로 언제든 덮어쓸 수 있습니다.
+*수정 사항*
 
-*Cascadeur / Unreal 설치*
-
-- **신규: Install Cascadeur Plugin**, **Open Unreal Plugin Folder** 버튼이 **Edit ▸ Preferences ▸ Add-ons**의 애드온 자체 행에 생겼습니다. Cascadeur 플러그인 설치가 더 이상 직접 압축 풀고 관리자 권한으로 실행할 필요 없이 버튼 하나로 끝납니다 — 관리자 권한이 정말 필요할 때만 창이 뜹니다.
-- Unreal 플러그인은 **Open Unreal Plugin Folder**를 처음 클릭하는 순간 GitHub에서 받아옵니다 — 이제 애드온 안에 직접 들어있지 않습니다.
+- **Remove Rigify Rig**로 지우거나 컨트롤 리그를 직접 지운 뒤에도 캐릭터가 리그가 있는 것처럼 동작했습니다 — **Proportions**가 계속 숨겨지고 **Import FBX Animation**도 막혀 있었으며, 같은 슬롯에 새로 만든 캐릭터도 마찬가지였습니다. 이제 리그가 없어지면 바로 둘 다 쓸 수 있습니다.
+- UV 이음새를 따라 피부에 가는 선이 보였습니다 — 특히 발목 둘레와 발바닥 옆. 이제 Unreal처럼 이음새 없이 매끄럽게 보입니다.
+- **Body Blend** 가중치 슬라이더, **Refit Clothing To Body**, **Clothing Offset**의 반응이 몇 배 빨라졌습니다.
 
 
 ## 이 애드온은 무엇인가요?
@@ -164,7 +160,7 @@ Marvelous Designer와 Cascadeur 플러그인은 **이 애드온과 함께 제공
 **다른 프로그램의 프리셋 변환:**
 
 - **Convert & Import (Maya/Houdini)...**: Maya나 Houdini에서 저장된 포즈를 가져와 본 이름을 자동으로 일치시킵니다.
-- **Convert ARKit Payload...**: ARKit Live에서 사용하는 52개의 `ARKit_...` 프리셋을 생성하는 일회성 설정 단계입니다.
+- **Convert ARKit Payload...**: ARKit 리맵 페이로드를 `ARKit_...` 프리셋으로 변환합니다. ARKit Live가 쓰는 표준 52개는 애드온에 이미 들어있으니, 그걸 바꾸거나 직접 추가할 때만 쓰세요.
 
 ---
 
@@ -431,7 +427,50 @@ Build 후 가중치 슬라이더를 드래그하면 화면에 이미 있는 캐�
 
 ---
 
-## 7. 웨어러블 (실험적)
+## 7. 비율 (Proportions)
+
+불러온 캐릭터의 체형을 바꿉니다 — 길이, 너비, 굵기, 머리 크기, 힐. 기본적으로 접혀 있는 자체 **Proportions** 패널에 있습니다.
+
+| 그룹 | 슬라이더 |
+|---|---|
+| **Length** (길이) | 다리, 상체, 목, 팔 |
+| **Width** (너비) | 어깨, 골반 |
+| **Size** (굵기) | 허리, 가슴, 엉덩이, 허벅지, 종아리, 위팔, 아래팔, 목 굵기 |
+| **Head** | 머리 크기 |
+| **Heels** (힐) | 힐 높이, 앞굽 높이 (cm) |
+
+**사용 순서:**
+
+1. 바디가 있는 캐릭터를 불러옵니다([1절](#1-캐릭터-불러오기)). Body Blend로 만든 캐릭터도 됩니다.
+2. **Proportions**를 열고 슬라이더를 움직입니다. 움직이는 대로 캐릭터가 바뀝니다.
+3. **Long Legs**를 누르면 한 번에 롱레그 비율이 됩니다. **Reset**을 누르면 불러왔을 때 모습으로 정확히 돌아갑니다.
+
+비율은 **Build Rigify Rig 전에** 정하세요. 컨트롤 리그가 있는 동안에는 슬라이더가 숨겨집니다 — 컨트롤 리그를 지우고, 비율을 바꾼 뒤, 다시 만드세요.
+
+**같이 따라오는 것:**
+
+- 발은 바닥에 그대로 붙어 있고, 다리가 길어진 만큼 몸 전체가 올라갑니다.
+- 다리와 팔은 굵어지지 않고 길어지며, 무릎·골반·어깨도 자연스럽게 굽혀집니다.
+- **Size** 슬라이더는 살만 바꿉니다. 굽혀지는 위치는 그대로이고, 허리는 가장 잘록한 곳이 가장 많이 줄어듭니다.
+- **Heels**는 뒤꿈치를 **Heel Height**만큼 올리고, 발가락은 **Front Height** 두께의 앞굽 위에 평평하게 둡니다. 몸도 같이 올라갑니다. 힐은 내보낸 DNA와 함께 Unreal로 가고, 굽힌 발은 애니메이션을 그대로 따라갑니다.
+- 머리는 틈 없이 목에 붙어 있습니다. 표정도 **Head Size**에 맞춰 커지고 작아집니다.
+- 이미 입힌 옷과 헤어가 따라옵니다 — 옷도 몸에 맞춰 길어지고, 넓어지고, 굵어집니다. 비율을 바꾼 뒤에 입힌 옷도 마찬가지입니다.
+- Body Blend 가중치 슬라이더를 움직여도 비율이 유지됩니다.
+- **Export Head DNA**와 **Export Body DNA** 모두 새 비율이 들어갑니다 — 둘 다 내보내서 Unreal에서 함께 쓰세요.
+- **Import FBX Animation**은 다리 길이에 맞춰 보폭을 늘려서 발이 미끄러지지 않습니다.
+- **MD Live**와 **Send to Cascadeur**는 새 비율로 캐릭터를 보냅니다. 비율을 바꾼 뒤에는 Cascadeur로 다시 보내세요.
+
+**알아두기:**
+
+- 슬라이더는 Object 모드에서 적용됩니다. 다른 모드에서 바꾸면 Object 모드로 돌아오는 순간 적용됩니다.
+- 슬라이더를 움직이는 동안 몸은 바로 따라오고, 표정과 옷은 손을 뗀 뒤 잠시 후에 맞춰집니다.
+- **Head Size**는 위아래로 10%까지입니다. Unreal에서는 표정이 원래 머리 크기 때의 세기로 움직입니다.
+- **Heel Height**는 15cm, **Front Height**는 5cm까지입니다.
+- `.blend`를 저장하면 비율도 저장되고, 다시 열어도 **Reset**으로 원래 모습으로 돌아갑니다.
+
+---
+
+## 8. 웨어러블 (실험적)
 
 **베타** — 일부 경우 애니메이션/포즈 중 가중치가 여전히 어색해 보일 수 있습니다. 계속 개선 중입니다. 필요하면 Weight Paint 모드에서 터치업하세요.
 
@@ -469,10 +508,11 @@ Build 후 가중치 슬라이더를 드래그하면 화면에 이미 있는 캐�
 
 - 의류 FBX 배치는 파일이 MetaHuman 골격과 본 이름을 공유하는지에 달려 있습니다.
 - 가져오거나 리깅한 웨어러블은 바디/헤드 메시처럼 캐릭터 슬롯의 일부로 추적되지 않습니다 — 다른 Blender 오브젝트처럼 이름을 바꾸거나, 이동하거나, 내보내세요.
+- 옷은 **Proportions**도 따라옵니다. 비율을 바꾸기 전에 입힌 옷이든 후에 입힌 옷이든 같습니다 — [7절](#7-비율-proportions) 참조.
 
 ---
 
-## 8. 라이브 교정 스컬프팅 (베타)
+## 9. 라이브 교정 스컬프팅 (베타)
 ![Live_corrective.gif](assets/Live_corrective.gif)
 **베타** — 하나의 포즈로만 스컬프한 교정은 그 포즈보다 더 멀리 포즈하면 그대로 유지됩니다. 포즈 속으로 더 들어갈 때 계속 모양이 변하길 원하면 같은 교정을 여러 포즈로 스컬프하세요. 머리 교정은 캐릭터의 `.dna`에 기록하여 Unreal에서 사용할 수 있습니다 — 아래 **교정을 Unreal로 보내기** 참조. 바디 교정은 Blender 안에 남습니다.
 
@@ -546,9 +586,9 @@ Build 후 가중치 슬라이더를 드래그하면 화면에 이미 있는 캐�
 
 ---
 
-## 9. 내보내기
+## 10. 내보내기
 
-- **DNA**: 별도의 **Head** 및 **Body** 버튼 (머리와 몸은 항상 두 개의 별도 `.dna` 파일입니다). 스컬프한 교정을 헤드 `.dna`로 보내려면 [8절](#8-라이브-교정-스컬프팅-베타)의 **Write to DNA**를 사용하세요.
+- **DNA**: 별도의 **Head** 및 **Body** 버튼 (머리와 몸은 항상 두 개의 별도 `.dna` 파일입니다). 스컬프한 교정을 헤드 `.dna`로 보내려면 [9절](#9-라이브-교정-스컬프팅-베타)의 **Write to DNA**를 사용하세요.
 - **FBX / glTF**: **Full / Head / Body** 버튼. 내보내기 대화상자에서 컨트롤 리그와 애니메이션 포함 여부를 선택하세요.
 
 **배치 도구:**
@@ -558,7 +598,7 @@ Build 후 가중치 슬라이더를 드래그하면 화면에 이미 있는 캐�
 
 ---
 
-## 10. 다른 사람이 저장한 파일 열기
+## 11. 다른 사람이 저장한 파일 열기
 
 `.blend` 파일은 각 캐릭터의 `.dna` 파일이 저장한 컴퓨터의 어디에 있었는지 기억합니다. 다른 컴퓨터에서는 그 파일들이 다른 곳에 있으므로 캐릭터는 나타나지만 아무것도 반응하지 않습니다.
 
@@ -576,7 +616,7 @@ Build 후 가중치 슬라이더를 드래그하면 화면에 이미 있는 캐�
 
 ---
 
-## 11. MD Live (Marvelous Designer)
+## 12. MD Live (Marvelous Designer)
 
 *이* 캐릭터에 Marvelous Designer에서 옷을 만들고, 이미 입은 상태로 가져오세요.
 
@@ -584,13 +624,27 @@ MD Live는 **MetaBridge DNA** 옆의 사이드바에 있는 자체 패널입니�
 
 **일회성 설정**
 
-1. **Shared Folder**를 선택하세요 — 두 프로그램 모두 접근할 수 있는 빈 폴더.
+1. **Shared Folder**를 선택하세요 — 두 프로그램 모두 접근할 수 있는 빈 폴더. 비워 두면 `~/MetaBridgeDNA/MDLive`를 사용합니다.
 2. **Open MD Plug-in Folder**를 클릭하세요.
-3. Marvelous Designer에서: **Plug-in ▸ Plug-in Manager ▸ Add**를 선택하고 그 폴더를 선택하세요. Plug-in 메뉴에 새 항목 두 개가 나타납니다.
+3. Marvelous Designer에서: **Plug-in ▸ Plug-in Manager ▸ Add**로 그 폴더의 스크립트를 등록하세요 — 실시간 연동은 `mb_live.py`, 한 번씩 주고받기는 `mb_load_avatar.py`와 `mb_send_garment.py`입니다.
 
 폴더와 모든 설정이 기억되므로 일회성 단계입니다.
 
-**캐릭터 보내기**
+**Live (실시간 연동)**
+
+1. Blender의 MD Live 패널에서 **Start Live**를 누르세요.
+2. Marvelous Designer에서 **Plug-in** 메뉴의 **mb_live**를 한 번 클릭하세요. 패널에 *MD: mb_live running*이 표시됩니다.
+
+이제 버튼 없이 양쪽이 따라갑니다:
+
+- Blender에서 캐릭터가 바뀌면(포즈, 표정, Body Blend, 스컬프트) 잠시 멈춘 뒤 아바타가 다시 전송되고, Marvelous Designer가 아바타를 교체합니다.
+- 옷이 있으면 Marvelous Designer가 **MD Simulate Frames**만큼 시뮬레이션하고 옷을 돌려보냅니다(**Auto-Return Garment**). 끄면 **Get Garment Now**를 누를 때만 보냅니다.
+- 돌아온 옷은 **Wear As**에서 고른 종류로 바로 입혀지고, 이전 Live 의상은 교체되어 쌓이지 않습니다.
+- **Get Garment Now**는 시뮬레이션을 기다리지 않고 지금 상태의 옷을 요청합니다.
+
+멈추려면 Blender에서 **Stop Live**, Marvelous Designer에서 **mb_live**를 한 번 더 클릭하세요. 다른 파일을 열면 Live는 자동으로 멈춥니다. 편집 모드에 있는 동안 도착한 옷은 오브젝트 모드로 돌아오면 입혀집니다.
+
+**캐릭터 보내기 (한 번씩)**
 
 1. **Send Body to MD**를 클릭하세요.
 2. Marvelous Designer에서 **Plug-in** 메뉴의 MetaBridge 아바타 항목을 클릭하세요.
@@ -599,32 +653,32 @@ MD Live는 **MetaBridge DNA** 옆의 사이드바에 있는 자체 패널입니�
 
 **Include Head**는 기본적으로 켜져 있습니다 — Marvelous Designer는 머리가 없는 아바타를 거부하며 모자와 칼라에도 필요합니다.
 
-**옷 가져오기**
+**옷 가져오기 (한 번씩)**
 
 1. Marvelous Designer에서 **Plug-in** 메뉴의 MetaBridge 가먼트 항목을 클릭하세요.
 2. Blender에서 **Import Garment from MD**를 클릭하세요.
 
-가먼트가 올바른 크기로 도착하고, 캐릭터에 피팅되며, 바로 리그를 따라갑니다 — [7절](#7-웨어러블-실험적)의 다른 의류와 동일합니다. **Category**를 선택하여 대체할 대상을 지정하세요.
+가먼트가 올바른 크기로 도착하고, 캐릭터에 피팅되며, 바로 리그를 따라갑니다 — [8절](#8-웨어러블-실험적)의 다른 의류와 동일합니다. **Category**를 선택하여 대체할 대상을 지정하세요.
 
 **Skip Stitches & Trims** (기본 켜짐)는 탑스티치, 버튼, 지퍼 메시를 제외합니다. 그것들이 파일 무게의 대부분을 차지하며 가먼트를 입는 데 하나도 필요하지 않습니다.
 
 **가져오기에 시간이 걸리는 경우**
 
-600MB에서도 파일 읽기는 빠릅니다. 기다림은 피팅 때문입니다: 가먼트의 모든 버텍스를 바디에 매칭하여 캐릭터와 함께 움직이게 해야 합니다. 탑스티치를 포함한 가먼트는 300만 버텍스에 달할 수 있으며, 거의 모두 스티칭입니다.
+기다림은 피팅 때문입니다: 가먼트의 모든 버텍스를 바디에 매칭하여 캐릭터와 함께 움직이게 해야 합니다. 탑스티치를 3D로 포함한 가먼트는 300만 버텍스에 달할 수 있으며, 거의 모두 스티칭입니다.
 
-**내보내기 전에 Marvelous Designer에서 탑스티치, 버튼, 지퍼를 숨기세요.** 숨겨진 오브젝트는 파일에서 제외되며, 가져오기가 약 1분에서 몇 초로 줄어듭니다. 잃는 것은 없습니다 — 가먼트를 입는 데 필요하지 않으며 Marvelous Designer 프로젝트에 여전히 있습니다.
+MetaBridge 플러그인은 내보내는 동안만 탑스티치를 텍스처로 바꾸고(끝나면 원래대로 돌려놓습니다) 숨긴 오브젝트를 제외합니다. Blender는 파일을 읽기 전에 스티치·버튼·지퍼 오브젝트를 걸러내므로, Marvelous Designer 메뉴에서 직접 내보낸 큰 파일도 몇 초 만에 들어옵니다. 잃는 것은 없습니다 — 가먼트를 입는 데 필요하지 않으며 Marvelous Designer 프로젝트에 여전히 있습니다.
 
 가먼트가 필요한 것보다 조밀하면 Marvelous Designer에서 **Particle Distance**를 낮출 수도 있습니다.
 
 **알아두면 좋은 점**
 
 - 패널은 가져올 가먼트와 크기를 보여줍니다. 100MB를 초과하면 경고합니다.
-- **Send Scale**과 **Import Scale**은 이미 올바릅니다. 도착한 것이 명백히 잘못된 크기일 때만 건드리세요. Blender가 상태 표시줄에 가져온 크기를 알려줍니다.
+- **Send Scale**과 **Import Scale**은 이미 올바릅니다. MetaBridge 플러그인이 보낸 가먼트는 단위를 함께 기록하고, 직접 내보낸 파일이 다른 단위로 와도 몸에 맞는 단위로 자동 보정됩니다. Blender가 상태 표시줄에 가져온 크기를 알려줍니다.
 - Marvelous Designer의 자체 **Auto Fit**은 라이브러리의 아바타를 기대합니다. **Prepare for Auto-Fit** (기본 켜짐)은 이 캐릭터도 같은 방식으로 대우하도록 요청합니다.
 
 ---
 
-## 12. Cascadeur로 보내기
+## 13. Cascadeur로 보내기
 
 이 캐릭터를 Cascadeur에 넣어 애니메이션할 준비를 하세요.
 
@@ -700,7 +754,7 @@ Cascadeur에서 애니메이션한 다음 **Receive from Cascadeur**를 누르�
 
 ---
 
-## 13. Unreal 엔진
+## 14. Unreal 엔진
 
 ![unreal_plugin_panel.jpg](assets/unreal_plugin_panel.jpg)
 
@@ -775,7 +829,7 @@ Unreal Live의 미러입니다. Unreal에서 캐릭터를 움직이는 것이 �
 
 ---
 
-## 14. 기타 유용한 도구
+## 15. 기타 유용한 도구
 
 ![other_tools_panels.jpg](assets/other_tools_panels.jpg)
 
@@ -927,6 +981,28 @@ Assemble · New · Delete Slot · Load Head DNA · Load Body DNA · Build Meta-R
 - **Replace** — Build가 새 슬롯을 추가하는 대신 마지막 Body Blend 캐릭터 슬롯을 제자리에서 덮어씀 (아직 대체할 것이 없으면 추가로 폴백, 예: 이 세션의 첫 Build)
 - **Live Preview** — Build 후 가중치 슬라이더를 드래그하면 또 다른 Build 클릭 대신 구축된 캐릭터를 라이브로 다시 블렌드하고 업데이트
 
+### Proportions
+
+- **Leg Length** — 허벅지와 정강이 길이
+- **Torso Length** — 골반에서 목까지 척추 길이
+- **Neck Length** — 목 길이
+- **Arm Length** — 위팔과 아래팔 길이
+- **Shoulder Width** — 어깨 너비
+- **Hip Width** — 양쪽 고관절 사이 너비
+- **Waist** — 허리 둘레
+- **Chest** — 가슴 둘레
+- **Hips** — 엉덩이 둘레
+- **Thigh** — 허벅지 굵기
+- **Calf** — 종아리 굵기
+- **Upper Arm** — 위팔 굵기
+- **Forearm** — 아래팔 굵기
+- **Neck Thickness** — 목 굵기
+- **Head Size** — 얼굴을 포함한 머리 전체 크기
+- **Heel Height** — 바닥에서 뒤꿈치까지 높이 (cm)
+- **Front Height** — 발볼 아래 앞굽 두께 (cm)
+- **Long Legs** — 더 긴 다리, 살짝 작은 머리, 더 가는 허리와 골반
+- **Reset** — 처음 만들었을 때 모습으로
+
 ### Wearables (experimental)
 
 - **Import Clothing (FBX)...** — MetaHuman 호환 의류 FBX(같은 골격 본 이름)를 가져와 활성 캐릭터에 부착 — 캐릭터 자체 골격을 재사용하고 가먼트의 휴식 셰이프를 이 캐릭터의 실제 본 비율로 리타겟 (Shrinkwrap이 아님 — 헐렁한 의류는 헐렁하게 유지)
@@ -966,15 +1042,20 @@ Assemble · New · Delete Slot · Load Head DNA · Load Body DNA · Build Meta-R
 
 ### MD Live
 
-- **Shared Folder** — Blender가 아바타를 쓰고 Marvelous Designer가 가먼트를 내보내는 폴더. 다음 파일을 위해 기억됨
+- **Start Live / Stop Live** — Live 시작/중지. 활성 캐릭터가 바뀔 때마다(포즈, 표정, Body Blend, 스컬프트) Marvelous Designer로 다시 보내고, Marvelous Designer가 쓴 가먼트를 Wear As로 입혀 이전 Live 가먼트를 교체합니다. Marvelous Designer에서 mb_live 플러그인도 실행하세요
+- **Wear As** — Marvelous Designer에서 도착한 가먼트를 무엇으로 입힐지(무엇을 대체할지). 다음 파일을 위해 기억됨
+- **MD Simulate Frames** — Live: 아바타가 바뀐 뒤 가먼트를 돌려보내기 전에 Marvelous Designer가 시뮬레이션할 프레임 수. 0이면 시뮬레이션 없이 보냅니다
+- **Auto-Return Garment** — Live: 새 아바타를 받은 뒤 Marvelous Designer가 스스로 시뮬레이션하고 가먼트를 돌려보냅니다. 끄면 Get Garment Now를 기다립니다
+- **Get Garment Now** — 실행 중인 mb_live에 지금 가먼트를 보내달라고 요청. Live가 도착하는 대로 입힙니다
+- **Shared Folder** — Blender가 아바타를 쓰고 Marvelous Designer가 가먼트를 내보내는 폴더. 비워 두면 ~/MetaBridgeDNA/MDLive를 사용. 다음 파일을 위해 기억됨
 - **Open Shared Folder** — 공유 폴더를 시스템 파일 브라우저에서 열기
 - **Send Scale** — 보낼 때 Blender 미터당 Marvelous Designer 단위. Blender는 미터로 작업하므로 1000은 밀리미터, 100은 센티미터를 보냅니다 — Marvelous Designer 자체 가져오기 대화상자에서 선택한 단위와 일치해야 합니다. 다음 파일을 위해 기억됨
 - **Include Head** — 바디와 함께 헤드 메시 전송. Marvelous Designer는 머리가 없는 아바타를 거부하므로 기본적으로 켜져 있습니다. 모자와 칼라에도 필요합니다. 다음 파일을 위해 기억됨
 - **Prepare for Auto-Fit** — Marvelous Designer가 아바타를 로드하는 동안 배치 포인트와 피팅 슈트를 구축하도록 요청. 일반 OBJ에는 둘 다 없으며, 준비된 아바타를 기대하는 도구는 거부합니다. 가져오기가 잘못 작동하면 끄세요
-- **Send Body to MD** — 활성 캐릭터의 바디를 공유 폴더에 OBJ 아바타로 Send Scale로 기록. 항상 같은 파일 이름이므로 캐릭터를 다시 셰이프하고 이 버튼을 다시 누르는 것이 전체 왕복입니다 — 그런 다음 Marvelous Designer에서 MetaBridge 플러그인을 실행하세요
-- **Import Scale** — 가먼트를 받을 때 Blender 미터당 Marvelous Designer 단위. Marvelous Designer의 내보내기 설정이 가져오기 대화상자와 일치할 필요가 없으므로 보내기 스케일과 별개입니다. 도착한 것의 크기가 보고되므로 확인할 수 있습니다
-- **Import Garment from MD...** — Marvelous Designer가 내보낸 가먼트를 센티미터에서 미터로 스케일링하여 가져오기. Rig To Character가 켜져 있으면 일반 의류 파이프라인을 바로 통과합니다 — 캐릭터 자체 바디의 스킨 가중치, 그런 다음 리그를 따라가는 가먼트로 착용
-- **Open MD Plug-in Folder** — Marvelous Designer 플러그인 스크립트가 있는 폴더 열기. Marvelous Designer의 Plug-in > Plug-in Manager > Add에서 이 폴더를 한 번 등록하면, 그곳의 메뉴 항목이 Send Body to MD가 마지막으로 쓴 것을 로드합니다
+- **Send Body to MD** — 활성 캐릭터의 바디를 현재 포즈 그대로 공유 폴더에 OBJ 아바타로 Send Scale로 기록. 항상 같은 파일 이름이므로 캐릭터를 다시 셰이프하고 이 버튼을 다시 누르는 것이 전체 왕복입니다 — 그런 다음 Marvelous Designer에서 MetaBridge 플러그인을 실행하세요
+- **Import Scale** — 직접 내보낸 가먼트를 받을 때 Blender 미터당 Marvelous Designer 단위. MetaBridge 플러그인이 보낸 가먼트는 자체 단위를 기록하며, 그래도 다른 단위로 도착한 가먼트는 몸에 맞는 단위로 보정됩니다
+- **Import Garment from MD...** — Marvelous Designer가 내보낸 가먼트를 미터 단위로 가져오기. Rig To Character가 켜져 있으면 일반 의류 파이프라인을 바로 통과합니다 — 캐릭터 자체 바디의 스킨 가중치, 그런 다음 리그를 따라가는 가먼트로 착용
+- **Open MD Plug-in Folder** — Marvelous Designer 플러그인 스크립트가 있는 폴더 열기. Marvelous Designer의 Plug-in > Plug-in Manager > Add에서 mb_live.py(원하면 한 번씩 주고받는 두 스크립트도)를 한 번 등록하세요
 
 ### Send to Cascadeur
 

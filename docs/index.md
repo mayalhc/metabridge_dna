@@ -9,19 +9,15 @@
 
 ## What's New
 
-**v2.1.2 — Export ARKit Blend Shapes**
+**v2.1.4 — Proportions**
 
-*ARKit Live*
+- **NEW: Proportions.** Leg, torso, neck and arm length, shoulder and hip width, waist, chest, hips, thigh, calf, arm and neck size, head size, and heel and front height for high heels — with a one-click **Long Legs** look. The feet stay on the ground, clothing and hair follow, and the new proportions go out with DNA export, MD Live and Cascadeur. See [section 7](#7-proportions).
 
-- **NEW: Export ARKit Blend Shapes (Beta).** Bakes the character's face into a separate FBX with the standard 52 ARKit expressions as real, named Shape Keys — for a program that expects that exact set, instead of this character's own MetaHuman rig. See [section 4](#4-arkit-live-real-time-face-tracking-from-your-iphone).
-- Turn on **Include Custom ARKit Presets** to also bake any extra expressions added through **Convert ARKit Payload**, beyond the standard 52.
-- This character's own rig and meshes are never touched — the export builds its own separate head to bake onto, and leaves that behind in the scene once the FBX is written.
-- These 52 are this character's own version of each expression, not a byte-for-byte copy of Apple's — and every one of them is a normal expression preset, so any that isn't quite right can be re-posed and overwritten with **Save Current Expression**.
+*Fixes*
 
-*Installing Cascadeur / Unreal*
-
-- **NEW: Install Cascadeur Plugin** and **Open Unreal Plugin Folder** buttons, on the addon's own row in **Edit ▸ Preferences ▸ Add-ons**. Installing Cascadeur's plugin no longer means unzipping anything by hand or running it as administrator yourself — the button does both, prompting for Administrator rights only if Cascadeur's own folder needs it.
-- The Unreal plugin is fetched from GitHub the first time **Open Unreal Plugin Folder** is clicked, rather than carried inside the addon itself.
+- After **Remove Rigify Rig** (or deleting the control rig by hand), the character kept acting as if the rig were still there — **Proportions** stayed hidden and **Import FBX Animation** stayed blocked, even for a new character built in the same slot. Both are available again as soon as the rig is gone.
+- Thin lines showed on the skin along the UV seams — round the ankle and along the sole most of all. The skin now shades smoothly across them, as it does in Unreal.
+- **Body Blend** weight sliders, **Refit Clothing To Body** and **Clothing Offset** respond several times faster.
 
 
 ## What is this addon?
@@ -164,7 +160,7 @@ Instead of posing a face from scratch every time, save an expression once and re
 **Converting presets from other programs:**
 
 - **Convert & Import (Maya/Houdini)...**: brings in a saved pose from Maya or Houdini and matches its bone names automatically.
-- **Convert ARKit Payload...**: a one-time setup step that generates the 52 `ARKit_...` presets used by ARKit Live.
+- **Convert ARKit Payload...**: turns an ARKit remap payload into `ARKit_...` presets. The standard 52 used by ARKit Live already come with the addon — use this only to replace them or add your own.
 
 ---
 
@@ -431,7 +427,50 @@ Two libraries ship with the addon, both in the `base_dna/` folder:
 
 ---
 
-## 7. Wearables (experimental)
+## 7. Proportions
+
+Change the body shape of the character you loaded — lengths, widths, sizes, head size and heels. Found in its own **Proportions** panel, collapsed by default.
+
+| Group | Sliders |
+|---|---|
+| **Length** | Leg, Torso, Neck, Arm |
+| **Width** | Shoulder, Hip |
+| **Size** | Waist, Chest, Hips, Thigh, Calf, Upper Arm, Forearm, Neck Thickness |
+| **Head** | Head Size |
+| **Heels** | Heel Height, Front Height (cm) |
+
+**Steps:**
+
+1. Load a character with a body ([section 1](#1-loading-a-character)), or build one with Body Blend.
+2. Open **Proportions** and drag the sliders. The character changes as you drag.
+3. **Long Legs** gives a long-legged look in one click. **Reset** puts the character back exactly as it was loaded.
+
+Set the proportions **before Build Rigify Rig**. While a control rig is on the character the sliders are hidden — remove the control rig, change the proportions, then build it again.
+
+**What follows along:**
+
+- The feet stay on the ground; the whole body rises by however much the legs grew.
+- Legs and arms get longer without getting thicker, and knees, hips and shoulders still bend smoothly.
+- **Size** sliders change only the flesh. The character bends at exactly the same places, and the waist narrows most at its narrowest point.
+- **Heels** lift the heel to **Heel Height** and keep the toes flat on a sole of **Front Height**; the body rises with them. The heels go to Unreal with the exported DNA, and the arched feet follow the animation.
+- The head stays joined to the neck with no gap. Facial expressions grow and shrink with **Head Size**.
+- Clothing and hair already on the character follow — clothing gets longer, wider and thicker with the body under it, and so does clothing put on after the proportions were changed.
+- Body Blend keeps the proportions when you move its weight sliders.
+- **Export Head DNA** and **Export Body DNA** both carry the new proportions — export both and use them together in Unreal.
+- **Import FBX Animation** lengthens the stride with the legs, so the feet don't slide.
+- **MD Live** and **Send to Cascadeur** send the character with its new proportions. Send to Cascadeur again after changing them.
+
+**Good to know:**
+
+- The sliders apply in Object Mode. Changed in another mode, they apply as soon as you return to Object Mode.
+- While you drag a slider the body follows straight away; facial expressions and clothing catch up a moment after you let go.
+- **Head Size** goes up to 10% either way. In Unreal, facial expressions keep the strength they had at the original head size.
+- **Heel Height** goes up to 15 cm and **Front Height** up to 5 cm.
+- Saving the `.blend` keeps the proportions, and **Reset** still gives back the original after reopening it.
+
+---
+
+## 8. Wearables (experimental)
 
 **Beta** — weights can still look off during animation/posing in some cases. Being actively improved; touch up in Weight Paint mode if needed.
 
@@ -469,10 +508,11 @@ If deformation looks off in an extreme pose at a tight spot (armpits, between th
 
 - Clothing FBX placement depends on the file sharing bone names with a MetaHuman skeleton.
 - Imported/rigged wearables aren't tracked as part of the character slot the way body/head meshes are — rename, move, or export them like any other Blender object.
+- Clothing follows **Proportions** too, whether it was put on before or after them — see [section 7](#7-proportions).
 
 ---
 
-## 8. Live Corrective Sculpting (Beta)
+## 9. Live Corrective Sculpting (Beta)
 ![Live_corrective.gif](assets/Live_corrective.gif)
 **Beta** — a correction sculpted with only one pose holds steady if you pose further than that; sculpt more than one pose for the same correction if you want it to keep changing shape further into the pose. Head corrections can be written back into the character's `.dna` and used in Unreal — see **Sending a correction to Unreal** below. Body corrections stay inside Blender.
 
@@ -546,9 +586,9 @@ Click the ⇱ button on a correction and choose which expression it should ride 
 
 ---
 
-## 9. Exporting
+## 10. Exporting
 
-- **DNA**: separate **Head** and **Body** buttons (head and body are always two separate `.dna` files). To send a sculpted correction into the head `.dna` instead, use **Write to DNA** in [section 8](#8-live-corrective-sculpting-beta).
+- **DNA**: separate **Head** and **Body** buttons (head and body are always two separate `.dna` files). To send a sculpted correction into the head `.dna` instead, use **Write to DNA** in [section 9](#9-live-corrective-sculpting-beta).
 - **FBX / glTF**: **Full / Head / Body** buttons. Choose whether to include the control rig and animation in the export dialog.
 
 **Batch Tools:**
@@ -558,7 +598,7 @@ Click the ⇱ button on a correction and choose which expression it should ride 
 
 ---
 
-## 10. Opening a File Someone Else Saved
+## 11. Opening a File Someone Else Saved
 
 A `.blend` remembers where each character's `.dna` files were on the computer that saved it. On your machine those files are somewhere else, so the character appears but nothing about it responds.
 
@@ -576,7 +616,7 @@ If you pick the wrong file, nothing is broken — it's refused and the character
 
 ---
 
-## 11. MD Live (Marvelous Designer)
+## 12. MD Live (Marvelous Designer)
 
 Make clothes on *this* character in Marvelous Designer, and bring them back already wearing.
 
@@ -584,13 +624,27 @@ MD Live is its own panel in the sidebar, next to **MetaBridge DNA**.
 
 **Set up once**
 
-1. Pick a **Shared Folder** — any empty folder both programs can reach.
+1. Pick a **Shared Folder** — any empty folder both programs can reach. Left empty, `~/MetaBridgeDNA/MDLive` is used.
 2. Click **Open MD Plug-in Folder**.
-3. In Marvelous Designer: **Plug-in ▸ Plug-in Manager ▸ Add**, and choose that folder. Two new entries appear in the Plug-in menu.
+3. In Marvelous Designer: **Plug-in ▸ Plug-in Manager ▸ Add**, and register the scripts in that folder — `mb_live.py` for Live, `mb_load_avatar.py` and `mb_send_garment.py` for one round trip at a time.
 
 The folder and every setting are remembered, so this is a one-time step.
 
-**Sending the character**
+**Live**
+
+1. In Blender's MD Live panel, press **Start Live**.
+2. In Marvelous Designer, click **mb_live** in the **Plug-in** menu once. The panel shows *MD: mb_live running*.
+
+From now on both sides follow each other with no buttons:
+
+- When the character changes in Blender (pose, face, Body Blend, sculpt), the avatar is re-sent once it holds still, and Marvelous Designer replaces its avatar.
+- If there is a garment, Marvelous Designer simulates it for **MD Simulate Frames** and sends it back (**Auto-Return Garment**). Turned off, it sends only when you press **Get Garment Now**.
+- What comes back is worn straight away as **Wear As**, and replaces the previous Live garment instead of piling up.
+- **Get Garment Now** asks for the garment as it is, without waiting for a simulation.
+
+To stop, press **Stop Live** in Blender and click **mb_live** in Marvelous Designer again. Opening another file stops Live by itself. A garment that arrives while you are in Edit Mode is worn when you return to Object Mode.
+
+**Sending the character (one at a time)**
 
 1. Click **Send Body to MD**.
 2. In Marvelous Designer, click the MetaBridge avatar entry in the **Plug-in** menu.
@@ -599,32 +653,32 @@ The character appears as the avatar. No import window, no settings to fill in. C
 
 **Include Head** is on by default — Marvelous Designer refuses an avatar without a head, and hats and collars need it too.
 
-**Bringing the clothes back**
+**Bringing the clothes back (one at a time)**
 
 1. In Marvelous Designer, click the MetaBridge garment entry in the **Plug-in** menu.
 2. In Blender, click **Import Garment from MD**.
 
-The garment arrives at the right size, is fitted to the character, and follows the rig straight away — the same as any other clothing in [section 7](#7-wearables-experimental). Pick the **Category** so it replaces what it should.
+The garment arrives at the right size, is fitted to the character, and follows the rig straight away — the same as any other clothing in [section 8](#8-wearables-experimental). Pick the **Category** so it replaces what it should.
 
 **Skip Stitches & Trims** (on by default) leaves out the topstitch, button and zipper meshes. They carry most of the file's weight and none of it is needed to wear the garment.
 
 **If the import takes a while**
 
-Reading the file is quick even at 600 MB. The wait is the fitting: every vertex of the garment has to be matched to the body so it moves with the character. A garment carrying its topstitches can reach three million vertices, and almost all of them are stitching.
+The wait is the fitting: every vertex of the garment has to be matched to the body so it moves with the character. A garment carrying its topstitches as 3D geometry can reach three million vertices, and almost all of them are stitching.
 
-**Hide the topstitches, buttons and zippers in Marvelous Designer before you export.** Hidden objects are left out of the file, and the import goes from about a minute to a few seconds. Nothing is lost — they aren't needed to wear the garment, and they're still in your Marvelous Designer project.
+The MetaBridge plug-ins switch topstitches to texture only while exporting (and switch them back after) and leave hidden objects out. Blender filters stitch, button and zipper objects out before reading the file, so even a big file exported from Marvelous Designer's own menu arrives in seconds. Nothing is lost — they aren't needed to wear the garment, and they're still in your Marvelous Designer project.
 
 You can also lower **Particle Distance** in Marvelous Designer if the garment is denser than it needs to be.
 
 **Good to know**
 
 - The panel shows the garment waiting to be imported and how big it is. Above 100 MB it warns you.
-- **Send Scale** and **Import Scale** are already correct. Only touch them if what arrives is obviously the wrong size; Blender tells you the size it imported in the status bar.
+- **Send Scale** and **Import Scale** are already correct. Garments the MetaBridge plug-ins send carry their own unit, and a file exported by hand in another unit is corrected to the unit that puts it on the body. Blender tells you the size it imported in the status bar.
 - Marvelous Designer's own **Auto Fit** expects avatars from its library. **Prepare for Auto-Fit** (on by default) asks it to treat this character the same way.
 
 ---
 
-## 12. Send to Cascadeur
+## 13. Send to Cascadeur
 
 Put this character into Cascadeur, ready to animate.
 
@@ -708,7 +762,7 @@ Send the character over once before turning Live on, and once more after restart
 
 ---
 
-## 13. Unreal Engine
+## 14. Unreal Engine
 
 ![unreal_plugin_panel.jpg](assets/unreal_plugin_panel.jpg)
 
@@ -799,7 +853,7 @@ exactly as they were when you press **Stop Following**.
 
 ---
 
-## 14. Other Useful Tools
+## 15. Other Useful Tools
 
 ![other_tools_panels.jpg](assets/other_tools_panels.jpg)
 
@@ -1041,6 +1095,28 @@ The main panel. The DNA inspector rows near the bottom are for troubleshooting o
 - **Live Preview** — After a Build, dragging a weight slider re-blends and
   updates the built character live instead of requiring another Build click
 
+### Proportions
+
+- **Leg Length** — Length of the thighs and shins
+- **Torso Length** — Length of the spine from the pelvis to the neck
+- **Neck Length** — Length of the neck
+- **Arm Length** — Length of the upper arms and forearms
+- **Shoulder Width** — Width across the shoulders
+- **Hip Width** — Width between the hip joints
+- **Waist** — Size around the waist
+- **Chest** — Size around the chest
+- **Hips** — Size around the hips and buttocks
+- **Thigh** — Thickness of the thighs
+- **Calf** — Thickness of the calves
+- **Upper Arm** — Thickness of the upper arms
+- **Forearm** — Thickness of the forearms
+- **Neck Thickness** — Thickness of the neck
+- **Head Size** — Size of the whole head, face included
+- **Heel Height** — Height of the heel above the floor, in cm
+- **Front Height** — Thickness of the sole under the ball of the foot, in cm
+- **Long Legs** — Longer legs, a slightly smaller head, a slimmer waist and hips
+- **Reset** — Back to the character as it was built
+
 ### Wearables (experimental)
 
 - **Import Clothing (FBX)...** — Import a MetaHuman-compatible clothing FBX
@@ -1137,8 +1213,24 @@ The main panel. The DNA inspector rows near the bottom are for troubleshooting o
 
 ### MD Live
 
+- **Start Live / Stop Live** — Start or stop Live: the active character is
+  re-sent to Marvelous Designer whenever it changes (pose, face, Body Blend,
+  sculpt), and every garment Marvelous Designer writes is worn here as Wear As,
+  replacing the previous one. Run the mb_live plug-in in Marvelous Designer as
+  well
+- **Wear As** — What a garment arriving from Marvelous Designer is worn as (and
+  what it replaces). Remembered for the next file
+- **MD Simulate Frames** — Live: how many frames Marvelous Designer simulates
+  after the avatar changed, before it sends the garment back. 0 sends it
+  without simulating
+- **Auto-Return Garment** — Live: after a new avatar, Marvelous Designer
+  simulates and sends the garment back by itself. Off: it waits for Get
+  Garment Now
+- **Get Garment Now** — Ask Marvelous Designer (mb_live running) to send the
+  garment now; Live wears it when it arrives
 - **Shared Folder** — The folder Blender writes avatars to and Marvelous
-  Designer exports garments into. Remembered for the next file
+  Designer exports garments into. Left empty, ~/MetaBridgeDNA/MDLive is used.
+  Remembered for the next file
 - **Open Shared Folder** — Open the shared folder in the system file browser
 - **Send Scale** — Marvelous Designer units per Blender metre when SENDING.
   Blender works in metres, so 1000 sends millimetres and 100 sends centimetres
@@ -1152,21 +1244,21 @@ The main panel. The DNA inspector rows near the bottom are for troubleshooting o
   the tools that expect a prepared avatar turn it away. Turn off if the import
   misbehaves
 - **Send Body to MD** — Write the active character's body out to the shared
-  folder as an OBJ avatar for Marvelous Designer at the Send Scale. Always the
+  folder as an OBJ avatar for Marvelous Designer at the Send Scale, in its
+  current pose. Always the
   same filename, so reshaping the character and pressing this again is the
   whole round trip - then run the MetaBridge plug-in in Marvelous Designer
 - **Import Scale** — Marvelous Designer units per Blender metre when RECEIVING a
-  garment. This is a separate number from the send scale because Marvelous
-  Designer's export settings need not match its import dialog. The size of
-  what arrives is reported so this can be checked
+  garment exported by hand. Garments the MetaBridge plug-ins send carry their
+  own unit, and one that still arrives in the wrong unit is corrected to the
+  unit that puts it on the body
 - **Import Garment from MD...** — Bring a garment Marvelous Designer exported
-  back in, scaled from centimetres to metres. With Rig To Character on it goes
+  back in, in metres. With Rig To Character on it goes
   straight through the normal clothing pipeline - skin weights from the
   character's own body, then worn as a garment that follows the rig
 - **Open MD Plug-in Folder** — Open the folder holding the Marvelous Designer
-  plug-in script. Register this folder once in Marvelous Designer under Plug-
-  in > Plug-in Manager > Add, and a menu entry there will load whatever Send
-  Body to MD last wrote
+  plug-in scripts. Register mb_live.py (and the two one-shot scripts if you
+  like) once in Marvelous Designer under Plug-in > Plug-in Manager > Add
 
 ### Send to Cascadeur
 
