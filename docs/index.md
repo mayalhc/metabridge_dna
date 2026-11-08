@@ -9,15 +9,24 @@
 
 ## What's New
 
-**v2.1.4 — Proportions**
+**v2.1.5 — Proportions**
 
-- **NEW: Proportions.** Leg, torso, neck and arm length, shoulder and hip width, waist, chest, hips, thigh, calf, arm and neck size, head size, and heel and front height for high heels — with a one-click **Long Legs** look. The feet stay on the ground, clothing and hair follow, and the new proportions go out with DNA export, MD Live and Cascadeur. See [section 7](#7-proportions).
+- **NEW: Blend Active Character.** Body Blend now reshapes the character you assembled, in place, instead of only building a new one. See [section 6](#6-body-blend-experimental).
+- **NEW: Proportions.** Leg, torso, neck and arm length, shoulder and hip width, waist, chest, hips, thigh, calf, arm and neck size, bust size, head size, and heel and front height for high heels — with a one-click **Long Legs** look. The feet stay on the ground, clothing and hair follow, and the new proportions go out with DNA export, MD Live and Cascadeur. See [section 7](#7-proportions).
+- **NEW: MetaHuman Package (.mhpkg).** Make a Fab-ready MetaHuman Package of a groom (with its hair cards) or an outfit straight from Blender, and open any MetaHuman Package in Blender — **File ▸ Export / Import ▸ MetaHuman Package (.mhpkg)**. Unreal Engine 5.8 needs to be installed; it does the work in the background, without opening. See [section 8](#8-wearables-experimental).
+- **NEW: Several characters in Cascadeur.** Each character you send keeps a Cascadeur tab of its own, and keyframes, **Receive from Cascadeur** and **Live** always reach that character's tab. While Live is on, activating another character hands Live to it. Click **Install Cascadeur Plugin** once more and restart Cascadeur to use it. See [section 13](#13-send-to-cascadeur).
+- **NEW: RGBMocap motion.** Pick **RGBMocap** as the Source Type in **Retarget Rigify Animation** to put a motion captured with RGBMocap onto your MetaHuman — the body it brings into Blender or its BVH, with or without fingers. The MetaHuman stands on the floor, faces the way the capture does, and its shoulders, wrists and fingers follow the capture. See [section 5](#5-rigify-body-control-rig).
 
 *Fixes*
 
+- The add-on failed to turn on, with an error about a missing bindings module, when the Polyhammer **Character DNA** extension was also installed. It now turns on alongside it.
+- A character sent to Cascadeur no longer carries the face's shape keys, which Cascadeur does not use. It opens using less memory, so several characters can stay open together. The character looks the same.
+- On a character without a Rigify rig, the head stayed still while the body moved during **Live** and after **Receive from Cascadeur**. The head now moves with the body.
 - After **Remove Rigify Rig** (or deleting the control rig by hand), the character kept acting as if the rig were still there — **Proportions** stayed hidden and **Import FBX Animation** stayed blocked, even for a new character built in the same slot. Both are available again as soon as the rig is gone.
 - Thin lines showed on the skin along the UV seams — round the ankle and along the sole most of all. The skin now shades smoothly across them, as it does in Unreal.
+- **Retarget Rigify Animation** with something other than the Rigify control rig as the Target Rig now tells you to build the Rigify rig first.
 - **Body Blend** weight sliders, **Refit Clothing To Body** and **Clothing Offset** respond several times faster.
+- A Body Blend character reopened from a saved file exported its skeleton as if it had never been blended. It now exports the blended skeleton.
 
 
 ## What is this addon?
@@ -59,9 +68,9 @@ Three features reach into a program outside Blender, and each needs a small plug
 
 | Program | Where it is | Needed for |
 | --- | --- | --- |
-| Marvelous Designer | the `md_plugin` folder | **MD Live** (§11) |
-| Cascadeur | `third_party/KimodoCascadeurPlugin` | **Send to Cascadeur** (§12) |
-| Unreal Engine | downloaded on first use | **Unreal Live**, **Follow Unreal** (§13) |
+| Marvelous Designer | the `md_plugin` folder | **MD Live** (§12) |
+| Cascadeur | `third_party/KimodoCascadeurPlugin` | **Send to Cascadeur** (§13) |
+| Unreal Engine | downloaded on first use | **Unreal Live**, **Follow Unreal** (§14) |
 
 Marvelous Designer's and Cascadeur's plug-ins **come with this addon** — nothing to download. The Unreal one does not fit inside this package, so **Open Unreal Plugin Folder** (in **Edit ▸ Preferences ▸ Add-ons ▸ MetaBridge DNA**) fetches it the first time you click it instead — needs an internet connection just that once.
 
@@ -327,8 +336,9 @@ Copy an animation from another already-animated character onto this character's 
    | **MetaHuman** | another MetaHuman (same bone names as UE5) |
    | **Mixamo** | anything downloaded from Mixamo |
    | **Blender Rigify** | a rig made with Blender's own Rigify |
+   | **RGBMocap** | a body or BVH captured with RGBMocap (ExMR, GVHMR, FlowHMR and the rest) |
 
-4. **Target Rig** — this character's Rigify control rig.
+4. **Target Rig** — this character's Rigify control rig (`Rigify_Ctrl_01`). Click **Build Rigify Rig** first if it is not there yet.
 5. Click **Retarget**.
 
 The animation is baked onto the target's controls, corrected for the two characters having different proportions and different rest poses.
@@ -393,7 +403,17 @@ The **highlighted row** is the primary source — it supplies the topology, skin
 
 **Replace:**
 
-Turn on **Replace** to overwrite your last Body Blend character in place instead of adding a new slot every time.
+Turn on **Replace** to overwrite your last Body Blend character in place instead of adding a new slot every time. A character you assembled is never overwritten.
+
+**Blending the character you assembled:**
+
+1. Make the assembled character active and click **Blend Active Character**. Its own body and head become the first row.
+2. Add sources and move their weights. The character itself changes — no new character is made.
+
+- Clothing, hair and **Proportions** follow, and the exported DNA carries the result.
+- Setting every other weight back to 0 gives back the character as it was assembled.
+- The blend replaces the Basis shape, so sculpting done directly on it is replaced too. Corrections made with **Live Corrective Sculpting** stay.
+- After working on another character, click **Blend Active Character** again to go back to blending this one.
 
 **Live Preview:**
 
@@ -435,7 +455,7 @@ Change the body shape of the character you loaded — lengths, widths, sizes, he
 |---|---|
 | **Length** | Leg, Torso, Neck, Arm |
 | **Width** | Shoulder, Hip |
-| **Size** | Waist, Chest, Hips, Thigh, Calf, Upper Arm, Forearm, Neck Thickness |
+| **Size** | Waist, Chest, Hips, Thigh, Calf, Upper Arm, Forearm, Neck Thickness, Bust |
 | **Head** | Head Size |
 | **Heels** | Heel Height, Front Height (cm) |
 
@@ -452,6 +472,7 @@ Set the proportions **before Build Rigify Rig**. While a control rig is on the c
 - The feet stay on the ground; the whole body rises by however much the legs grew.
 - Legs and arms get longer without getting thicker, and knees, hips and shoulders still bend smoothly.
 - **Size** sliders change only the flesh. The character bends at exactly the same places, and the waist narrows most at its narrowest point.
+- **Bust** makes the bust larger or smaller, on any body type, the way MetaHuman bodies differ from one another — it stays within the range of real MetaHuman bodies, so it never turns cartoonish. It works on the LOD 0 body; the panel says so on any other.
 - **Heels** lift the heel to **Heel Height** and keep the toes flat on a sole of **Front Height**; the body rises with them. The heels go to Unreal with the exported DNA, and the arched feet follow the animation.
 - The head stays joined to the neck with no gap. Facial expressions grow and shrink with **Head Size**.
 - Clothing and hair already on the character follow — clothing gets longer, wider and thicker with the body under it, and so does clothing put on after the proportions were changed.
@@ -503,6 +524,15 @@ If deformation looks off in an extreme pose at a tight spot (armpits, between th
 - **Bind To Head Surface** (on by default) — hair follows the head as it deforms, including through Body Blend changes, without collapsing onto the scalp.
 - **Bind Hair To Head** — for hair that came from somewhere else: a groom already in your scene, a beard that came with the character, or anything imported outside this addon. Select it and click. It then follows the head exactly like hair imported here, Body Blend included. Hair already attached is simply re-attached to where the head is now.
 - If hair sits still while the character's shape changes, the reason is written to the console — usually that it was never bound. Select it and use **Bind Hair To Head**.
+
+**MetaHuman Package (Fab):**
+
+A MetaHuman Package (`.mhpkg`) is the file Fab takes for MetaHuman grooms and outfits. Both buttons are at the bottom of this panel, and in **File ▸ Import** and **File ▸ Export** as **MetaHuman Package (.mhpkg)**. Unreal Engine 5.8 has to be installed; it runs in the background and nothing opens. The first time, set its folder in the options on the left of the file browser (it offers `C:\Program Files\Epic Games\UE_5.8`).
+
+- **Export...** — make the hair active and click. Select its card meshes too (named `..._LOD0`, `..._LOD1`, …) and they go in as the hair cards, the last one also as the helmet mesh. **Card Textures** takes the folder with the `_TS0`–`_TS3` textures. To package a garment instead, make the garment active. The package is verified with MetaHuman Manager's own checks and is ready to upload; any verification warnings are listed when it finishes.
+- **Groom Slot** — Hair, Eyebrows, Beard, Mustache, Eyelashes or Peachfuzz.
+- **Import...** — opens a package onto the active character: the hair bound to the head, the hair cards (LOD0 shown, the others hidden), or the garment on the body. The hair is exactly the hair Unreal has. Exporting it again keeps its cards and card textures.
+- The hair goes out as you see it in Blender, including any change of head shape.
 
 **Good to know:**
 
@@ -700,6 +730,8 @@ There are two things you can send, chosen at the top of the panel.
 
 The character opens in a new Cascadeur tab with its rig, its meshes and whatever animation is on it. Head and body arrive as one character, so the face stays on the body when you move it.
 
+**Several characters** — activate each character and send it the same way. Each one gets a Cascadeur tab of its own, and the others stay open. Sending the same character again replaces only its own tab.
+
 **Include Head** is on by default. Turn it off to send the body alone.
 
 **Face Bones** is off by default, and should stay off. On, the face's 843 joints go too. Off, the face rides the head joint and only the body skeleton is sent — a quarter of the character, and all Cascadeur needs to animate a body. Turn it on only if you want to pose the face there.
@@ -721,6 +753,8 @@ Keyframes only land correctly on a character Cascadeur received in that session.
 **Good to know**
 
 - The character on screen is the one that goes — whichever slot is active.
+- **Send Frame Range**, **Receive from Cascadeur** and **Live** work on the active character's own tab, whichever tab is in front in Cascadeur.
+- After updating this add-on, click **Install Cascadeur Plugin** again and restart Cascadeur. Until then everything works as before, with one character at a time.
 - **Cascadeur Status** tells you whether Cascadeur is listening.
 - Only change **Port** if Receive Poses was started on a different one.
 
@@ -759,6 +793,8 @@ Once the character has been sent over, click **Live: Mirror This Rig** to keep t
 If this body is built with a Rigify rig, **Onto Rigify Controls** appears and is on by default. Poses coming in from Cascadeur land on the control rig instead of the deform bones, so the character stays fully posable while mirroring runs.
 
 Send the character over once before turning Live on, and once more after restarting Cascadeur — the same rule as everywhere else on this panel.
+
+**Live with several characters** — Live follows the active character. Activate another character and Live moves to it: its tab comes to the front in Cascadeur and the previous character stops following. One character is mirrored at a time. A character that has not been sent yet starts following as soon as you send it.
 
 ---
 
@@ -1094,6 +1130,9 @@ The main panel. The DNA inspector rows near the bottom are for troubleshooting o
   replace yet, e.g. the first Build this session)
 - **Live Preview** — After a Build, dragging a weight slider re-blends and
   updates the built character live instead of requiring another Build click
+- **Blend Active Character** — Blend the active character itself instead of
+  building a new one: its own body and head become the first row, and moving
+  the weights reshapes it in place - clothing, hair and proportions follow
 
 ### Proportions
 
@@ -1111,6 +1150,7 @@ The main panel. The DNA inspector rows near the bottom are for troubleshooting o
 - **Upper Arm** — Thickness of the upper arms
 - **Forearm** — Thickness of the forearms
 - **Neck Thickness** — Thickness of the neck
+- **Bust** — Size of the bust, within the range of MetaHuman bodies
 - **Head Size** — Size of the whole head, face included
 - **Heel Height** — Height of the heel above the floor, in cm
 - **Front Height** — Thickness of the sole under the ball of the foot, in cm
@@ -1163,6 +1203,9 @@ The main panel. The DNA inspector rows near the bottom are for troubleshooting o
   already bound is simply re-bound to where the head is now
 - **Align Active Mesh to DNA Head** — Move the selected mesh's points onto the
   character's own head shape, so a head made elsewhere matches this character
+- **MetaHuman Package Import... / Export...** — Open a `.mhpkg` onto the active
+  character, or make one from the active hair (and selected card meshes) or
+  garment. Also in File ▸ Import / Export. Needs Unreal Engine 5.8 installed
 - **Retarget Hair to Selected Mesh** — Re-attach the selected hair to the mesh
   you pick, so it follows this character's head instead of the one it came
   with
@@ -1287,7 +1330,8 @@ The main panel. The DNA inspector rows near the bottom are for troubleshooting o
   range instead.
 - **Receive from Cascadeur** — Bring the work back.
 - **Live: Mirror This Rig / Stop Mirroring** — Keep Blender and Cascadeur in
-  sync while you work, in either or both directions.
+  sync while you work, in either or both directions. Follows the active
+  character, in that character's own Cascadeur tab.
 - **Live direction** — Blender to Cascadeur, Cascadeur to Blender, or Both
   Ways, where whichever side you are posing drives the other.
 - **Bones** — Mapped Bones (the set Send and Receive already agree about) or

@@ -9,15 +9,24 @@
 
 ## 새로운 기능
 
-**v2.1.4 — 비율**
+**v2.1.5 — 비율**
 
-- **신규: Proportions.** 다리·상체·목·팔 길이, 어깨·골반 너비, 허리·가슴·엉덩이·허벅지·종아리·팔·목 굵기, 머리 크기, 하이힐의 힐·앞굽 높이를 바꿉니다 — **Long Legs** 한 번이면 롱레그 비율이 됩니다. 발은 바닥에 그대로 있고, 옷과 헤어가 따라오며, 새 비율은 DNA 내보내기, MD Live, Cascadeur에 그대로 들어갑니다. [7절](#7-비율-proportions) 참조.
+- **신규: Blend Active Character.** 이제 Body Blend가 새 캐릭터만 만드는 것이 아니라, 어셈블한 캐릭터를 그 자리에서 바꿉니다. [6절](#6-바디-블렌드-실험적) 참조.
+- **신규: Proportions.** 다리·상체·목·팔 길이, 어깨·골반 너비, 허리·가슴·엉덩이·허벅지·종아리·팔·목 굵기, 가슴 크기, 머리 크기, 하이힐의 힐·앞굽 높이를 바꿉니다 — **Long Legs** 한 번이면 롱레그 비율이 됩니다. 발은 바닥에 그대로 있고, 옷과 헤어가 따라오며, 새 비율은 DNA 내보내기, MD Live, Cascadeur에 그대로 들어갑니다. [7절](#7-비율-proportions) 참조.
+- **신규: MetaHuman 패키지 (.mhpkg).** 그룸(헤어 카드 포함)이나 아웃핏을 블렌더에서 바로 Fab에 올릴 수 있는 MetaHuman 패키지로 만들고, 어떤 MetaHuman 패키지든 블렌더에서 엽니다 — **File ▸ Export / Import ▸ MetaHuman Package (.mhpkg)**. Unreal Engine 5.8이 설치되어 있어야 하며, 창을 열지 않고 뒤에서 작업합니다. [8절](#8-웨어러블-실험적) 참조.
+- **신규: Cascadeur 여러 캐릭터.** 보낸 캐릭터마다 Cascadeur 탭을 하나씩 따로 갖고, 키프레임, **Receive from Cascadeur**, **Live**가 항상 그 캐릭터의 탭으로 갑니다. Live가 켜진 상태에서 다른 캐릭터를 활성화하면 Live가 그 캐릭터로 넘어갑니다. **Install Cascadeur Plugin**을 한 번 더 누르고 Cascadeur를 다시 시작하면 쓸 수 있습니다. [13절](#13-cascadeur로-보내기) 참조.
+- **신규: RGBMocap 모션.** **Retarget Rigify Animation**의 Source Type에서 **RGBMocap**을 고르면 RGBMocap으로 캡처한 모션이 MetaHuman에 그대로 들어갑니다 — 블렌더로 가져온 바디든 BVH든, 손가락이 있든 없든 됩니다. MetaHuman은 바닥에 서서 캡처와 같은 방향을 보고, 어깨·손목·손가락도 캡처를 따라갑니다. [5절](#5-rigify-바디-컨트롤-리그) 참조.
 
 *수정 사항*
 
+- Polyhammer **Character DNA** 확장이 함께 설치돼 있으면 바인딩 모듈을 찾을 수 없다는 오류로 애드온이 켜지지 않았습니다. 이제 함께 설치돼 있어도 정상적으로 켜집니다.
+- Cascadeur로 보내는 캐릭터에 Cascadeur가 쓰지 않는 얼굴 셰이프 키가 더 이상 함께 가지 않습니다. 더 적은 메모리로 열리므로 여러 캐릭터를 함께 열어 둘 수 있습니다. 캐릭터 모습은 그대로입니다.
+- Rigify 리그가 없는 캐릭터는 **Live**와 **Receive from Cascadeur**에서 바디만 움직이고 헤드는 그대로 있었습니다. 이제 헤드가 바디와 함께 움직입니다.
 - **Remove Rigify Rig**로 지우거나 컨트롤 리그를 직접 지운 뒤에도 캐릭터가 리그가 있는 것처럼 동작했습니다 — **Proportions**가 계속 숨겨지고 **Import FBX Animation**도 막혀 있었으며, 같은 슬롯에 새로 만든 캐릭터도 마찬가지였습니다. 이제 리그가 없어지면 바로 둘 다 쓸 수 있습니다.
 - UV 이음새를 따라 피부에 가는 선이 보였습니다 — 특히 발목 둘레와 발바닥 옆. 이제 Unreal처럼 이음새 없이 매끄럽게 보입니다.
+- **Retarget Rigify Animation**의 Target Rig가 Rigify 컨트롤 리그가 아니면 Rigify 리그를 먼저 만들라고 안내합니다.
 - **Body Blend** 가중치 슬라이더, **Refit Clothing To Body**, **Clothing Offset**의 반응이 몇 배 빨라졌습니다.
+- 저장한 파일을 다시 연 Body Blend 캐릭터가 블렌드하지 않은 것처럼 뼈대를 내보냈습니다. 이제 블렌드된 뼈대를 내보냅니다.
 
 
 ## 이 애드온은 무엇인가요?
@@ -59,9 +68,9 @@ Blender는 **4.5 이상**, Windows 64비트가 필요합니다.
 
 | 프로그램 | 위치 | 용도 |
 | --- | --- | --- |
-| Marvelous Designer | `md_plugin` 폴더 | **MD Live** (§11) |
-| Cascadeur | `third_party/KimodoCascadeurPlugin` | **Send to Cascadeur** (§12) |
-| Unreal Engine | 처음 사용할 때 다운로드됨 | **Unreal Live**, **Follow Unreal** (§13) |
+| Marvelous Designer | `md_plugin` 폴더 | **MD Live** (§12) |
+| Cascadeur | `third_party/KimodoCascadeurPlugin` | **Send to Cascadeur** (§13) |
+| Unreal Engine | 처음 사용할 때 다운로드됨 | **Unreal Live**, **Follow Unreal** (§14) |
 
 Marvelous Designer와 Cascadeur 플러그인은 **이 애드온과 함께 제공됩니다** — 다운로드할 것이 없습니다. Unreal 플러그인은 이 패키지 안에 들어가지 않아서, **Edit ▸ Preferences ▸ Add-ons ▸ MetaBridge DNA**의 **Open Unreal Plugin Folder**를 처음 누르는 순간 대신 받아옵니다 — 그 한 번만 인터넷 연결이 필요합니다.
 
@@ -327,8 +336,9 @@ Unreal에서 내보낸 MetaHuman 애니메이션(FBX)을 이 캐릭터에 직접
    | **MetaHuman** | 다른 MetaHuman (UE5와 같은 본 이름) |
    | **Mixamo** | Mixamo에서 다운로드한 모든 것 |
    | **Blender Rigify** | Blender 자체 Rigify로 만든 리그 |
+   | **RGBMocap** | RGBMocap으로 캡처한 바디나 BVH (ExMR, GVHMR, FlowHMR 등) |
 
-4. **Target Rig** — 이 캐릭터의 Rigify 컨트롤 리그.
+4. **Target Rig** — 이 캐릭터의 Rigify 컨트롤 리그(`Rigify_Ctrl_01`). 아직 없으면 먼저 **Build Rigify Rig**를 클릭하세요.
 5. **Retarget**을 클릭하세요.
 
 애니메이션은 두 캐릭터의 비율과 휴식 포즈가 다르다는 것을 보정하여 타겟의 컨트롤에 베이크됩니다.
@@ -393,7 +403,17 @@ MyBodies\
 
 **Replace:**
 
-**Replace**를 켜면 매번 새 슬롯을 추가하는 대신 마지막 Body Blend 캐릭터를 제자리에서 덮어씁니다.
+**Replace**를 켜면 매번 새 슬롯을 추가하는 대신 마지막 Body Blend 캐릭터를 제자리에서 덮어씁니다. 어셈블한 캐릭터는 덮어쓰지 않습니다.
+
+**어셈블한 캐릭터를 블렌드하기:**
+
+1. 어셈블한 캐릭터를 활성으로 두고 **Blend Active Character**를 누릅니다. 그 캐릭터 자신의 바디와 헤드가 첫 번째 행이 됩니다.
+2. 소스를 추가하고 가중치를 움직입니다. 새 캐릭터를 만들지 않고 그 캐릭터가 바로 바뀝니다.
+
+- 옷, 헤어, **Proportions**가 따라오고, 내보낸 DNA에도 결과가 들어갑니다.
+- 다른 가중치를 모두 0으로 돌리면 어셈블했을 때 모습으로 돌아옵니다.
+- 블렌드는 Basis 모양을 바꾸므로 Basis에 직접 한 스컬프트도 바뀝니다. **Live Corrective Sculpting**으로 만든 교정은 그대로 남습니다.
+- 다른 캐릭터를 작업한 뒤에는 **Blend Active Character**를 다시 누르면 이 캐릭터 블렌드로 돌아옵니다.
 
 **Live Preview:**
 
@@ -435,7 +455,7 @@ Build 후 가중치 슬라이더를 드래그하면 화면에 이미 있는 캐�
 |---|---|
 | **Length** (길이) | 다리, 상체, 목, 팔 |
 | **Width** (너비) | 어깨, 골반 |
-| **Size** (굵기) | 허리, 가슴, 엉덩이, 허벅지, 종아리, 위팔, 아래팔, 목 굵기 |
+| **Size** (굵기) | 허리, 가슴, 엉덩이, 허벅지, 종아리, 위팔, 아래팔, 목 굵기, 가슴 크기 |
 | **Head** | 머리 크기 |
 | **Heels** (힐) | 힐 높이, 앞굽 높이 (cm) |
 
@@ -452,6 +472,7 @@ Build 후 가중치 슬라이더를 드래그하면 화면에 이미 있는 캐�
 - 발은 바닥에 그대로 붙어 있고, 다리가 길어진 만큼 몸 전체가 올라갑니다.
 - 다리와 팔은 굵어지지 않고 길어지며, 무릎·골반·어깨도 자연스럽게 굽혀집니다.
 - **Size** 슬라이더는 살만 바꿉니다. 굽혀지는 위치는 그대로이고, 허리는 가장 잘록한 곳이 가장 많이 줄어듭니다.
+- **Bust**는 어떤 체형이든 MetaHuman 바디들이 서로 다른 방식 그대로 가슴을 키우거나 줄입니다 — 실제 MetaHuman 바디의 범위 안에서만 움직여서 과장되지 않습니다. LOD 0 바디에서 동작하고, 다른 LOD에서는 패널에 그렇게 표시됩니다.
 - **Heels**는 뒤꿈치를 **Heel Height**만큼 올리고, 발가락은 **Front Height** 두께의 앞굽 위에 평평하게 둡니다. 몸도 같이 올라갑니다. 힐은 내보낸 DNA와 함께 Unreal로 가고, 굽힌 발은 애니메이션을 그대로 따라갑니다.
 - 머리는 틈 없이 목에 붙어 있습니다. 표정도 **Head Size**에 맞춰 커지고 작아집니다.
 - 이미 입힌 옷과 헤어가 따라옵니다 — 옷도 몸에 맞춰 길어지고, 넓어지고, 굵어집니다. 비율을 바꾼 뒤에 입힌 옷도 마찬가지입니다.
@@ -499,6 +520,11 @@ Build 후 가중치 슬라이더를 드래그하면 화면에 이미 있는 캐�
 
 **헤어 (Alembic):**
 
+- **MetaHuman 패키지 (Fab)** — 이 패널 맨 아래의 **Import... / Export...**, 또는 **File ▸ Import / Export ▸ MetaHuman Package (.mhpkg)**. Unreal Engine 5.8이 설치되어 있어야 하며 창 없이 뒤에서 실행됩니다. 처음 한 번 파일 브라우저 왼쪽 옵션에서 엔진 폴더를 지정하세요 (`C:\Program Files\Epic Games\UE_5.8`가 기본입니다).
+  - **Export...** — 헤어를 활성으로 하고 누릅니다. 카드 메시(`..._LOD0`, `..._LOD1`, …)도 함께 선택하면 헤어 카드로 들어가고, 마지막 것은 헬멧 메시로도 들어갑니다. **Card Textures**에는 `_TS0`–`_TS3` 텍스처가 있는 폴더를 지정합니다. 의상을 패키지로 만들려면 의상을 활성으로 합니다. MetaHuman Manager와 같은 검증을 거쳐 바로 올릴 수 있는 파일이 되며, 검증 경고가 있으면 끝날 때 보여줍니다.
+  - **Groom Slot** — Hair, Eyebrows, Beard, Mustache, Eyelashes, Peachfuzz 중 선택.
+  - **Import...** — 패키지를 활성 캐릭터에 엽니다: 헤어는 머리에 바인딩되고, 헤어 카드는 LOD0만 보이며, 의상은 바디에 붙습니다. 헤어는 언리얼에 있는 그대로입니다. 다시 내보내면 카드와 카드 텍스처가 그대로 들어갑니다.
+  - 헤어는 블렌더에서 보이는 모습 그대로 나갑니다. 머리 모양을 바꿨다면 그것까지 포함됩니다.
 - **Import Hair...** — `.abc` 그룸을 가져와 머리에 페어런트합니다. 기본값은 MetaHuman 그룸 내보내기에 맞춰져 있습니다 (**Scale 0.01**, **Rotation X -90°, Z -180°**) — 소스가 다르면 운영자 패널(가져온 후 왼쪽 하단)에서 조정하세요.
 - **Bind To Head Surface** (기본 켜짐) — 머리가 변형될 때 헤어가 머리를 따라갑니다. Body Blend 변경을 통해서도, 두피에 붕괴되지 않습니다.
 - **Bind Hair To Head** — 다른 곳에서 온 헤어용: 씬에 이미 있는 그룸, 캐릭터와 함께 온 수염, 또는 이 애드온 밖에서 가져온 모든 것. 선택하고 클릭하세요. 그러면 여기서 가져온 헤어와 정확히 같이 머리를 따라가며 Body Blend도 포함됩니다. 이미 부착된 헤어는 현재 머리 위치에 다시 부착될 뿐입니다.
@@ -700,6 +726,8 @@ MetaBridge 플러그인은 내보내는 동안만 탑스티치를 텍스처로 �
 
 캐릭터가 리그, 메시 및 그 위에 있는 애니메이션과 함께 새 Cascadeur 탭으로 열립니다. 머리와 몸이 하나의 캐릭터로 도착하므로 이동할 때 얼굴이 몸에 붙어 있습니다.
 
+**여러 캐릭터** — 캐릭터를 하나씩 활성화하고 같은 방법으로 보내세요. 캐릭터마다 Cascadeur 탭이 따로 생기고, 다른 캐릭터의 탭은 그대로 열려 있습니다. 같은 캐릭터를 다시 보내면 그 캐릭터의 탭만 바뀝니다.
+
 **Include Head**는 기본적으로 켜져 있습니다. 끄면 바디만 보냅니다.
 
 **Face Bones**는 기본적으로 꺼져 있으며 꺼두어야 합니다. 켜면 얼굴의 843개 조인트도 함께 갑니다. 끄면 얼굴이 헤드 조인트를 따라가고 바디 골격만 보내집니다 — 캐릭터의 4분의 1이며, Cascadeur가 바디를 애니메이션하는 데 필요한 전부입니다. 거기서 얼굴을 포즈하고 싶을 때만 켜세요.
@@ -722,6 +750,8 @@ Keyframes는 해당 세션에서 Cascadeur가 받은 캐릭터에만 올바르�
 
 - 화면의 캐릭터가 보내집니다 — 활성 슬롯이 무엇이든.
 - **Cascadeur Status**는 Cascadeur가 수신 중인지 알려줍니다.
+- **Send Frame Range**, **Receive from Cascadeur**, **Live**는 Cascadeur에서 어느 탭이 앞에 있든 활성 캐릭터의 탭에서 작동합니다.
+- 이 애드온을 업데이트한 뒤에는 **Install Cascadeur Plugin**을 다시 누르고 Cascadeur를 다시 시작하세요. 그 전까지는 지금처럼 한 번에 한 캐릭터로 작동합니다.
 - **Port**는 Receive Poses가 다른 포트에서 시작된 경우에만 변경하세요.
 
 **작업 가져오기**
@@ -751,6 +781,8 @@ Cascadeur에서 애니메이션한 다음 **Receive from Cascadeur**를 누르�
 이 바디가 Rigify 리그로 만들어졌다면 **Onto Rigify Controls**가 나타나며 기본적으로 켜져 있습니다. Cascadeur에서 들어오는 포즈는 디폼 본 대신 컨트롤 리그에 적용되므로, 미러링이 진행되는 동안에도 캐릭터를 계속 자유롭게 포즈할 수 있습니다.
 
 라이브를 켜기 전에 캐릭터를 한 번 보내야 하고, Cascadeur를 재시작한 뒤에도 다시 보내야 합니다 — 이 패널의 다른 모든 곳과 같은 규칙입니다.
+
+**여러 캐릭터로 Live** — Live는 활성 캐릭터를 따라갑니다. 다른 캐릭터를 활성화하면 Live가 그 캐릭터로 넘어갑니다: Cascadeur에서 그 캐릭터의 탭이 앞으로 오고, 이전 캐릭터는 더 이상 따라오지 않습니다. 한 번에 한 캐릭터만 미러링됩니다. 아직 보내지 않은 캐릭터는 보내는 즉시 따라오기 시작합니다.
 
 ---
 
@@ -980,6 +1012,7 @@ Assemble · New · Delete Slot · Load Head DNA · Load Body DNA · Build Meta-R
 - **Build Blended Body** — 나열된 바디 DNA 파일을 (가중치 적용하여) 캐릭터로 블렌드. 경고: 빌드 후 블렌드 가중치 슬라이더를 조정하면 페이스 리그 오류가 발생할 수 있습니다 — 가중치 변경 후 얼굴이 오작동하면 (Replace를 켠 상태로) Build를 다시 클릭하여 깨끗하게 재구축하세요
 - **Replace** — Build가 새 슬롯을 추가하는 대신 마지막 Body Blend 캐릭터 슬롯을 제자리에서 덮어씀 (아직 대체할 것이 없으면 추가로 폴백, 예: 이 세션의 첫 Build)
 - **Live Preview** — Build 후 가중치 슬라이더를 드래그하면 또 다른 Build 클릭 대신 구축된 캐릭터를 라이브로 다시 블렌드하고 업데이트
+- **Blend Active Character** — 새 캐릭터를 만들지 않고 활성 캐릭터 자체를 블렌드: 그 캐릭터의 바디와 헤드가 첫 번째 행이 되고, 가중치를 움직이면 그 자리에서 모양이 바뀝니다 - 옷, 헤어, 비율이 따라옵니다
 
 ### Proportions
 
@@ -997,6 +1030,7 @@ Assemble · New · Delete Slot · Load Head DNA · Load Body DNA · Build Meta-R
 - **Upper Arm** — 위팔 굵기
 - **Forearm** — 아래팔 굵기
 - **Neck Thickness** — 목 굵기
+- **Bust** — 가슴 크기, MetaHuman 바디 범위 안에서
 - **Head Size** — 얼굴을 포함한 머리 전체 크기
 - **Heel Height** — 바닥에서 뒤꿈치까지 높이 (cm)
 - **Front Height** — 발볼 아래 앞굽 두께 (cm)
@@ -1072,7 +1106,7 @@ Assemble · New · Delete Slot · Load Head DNA · Load Body DNA · Build Meta-R
 - **Onto Rigify Controls** — 돌아온 것을 디폼 본 대신 컨트롤 리그에 적용하여 거기서 조정할 수 있게 함.
 - **Whole Take** — Cascadeur가 보유한 모든 프레임을 읽음. 끄면 씬 프레임 범위를 대신 읽음.
 - **Receive from Cascadeur** — 작업을 가져옴.
-- **Live: Mirror This Rig / Stop Mirroring** — 작업하는 동안 Blender와 Cascadeur를 한 방향 또는 양방향으로 동기화 상태로 유지.
+- **Live: Mirror This Rig / Stop Mirroring** — 작업하는 동안 Blender와 Cascadeur를 한 방향 또는 양방향으로 동기화 상태로 유지. 활성 캐릭터를, 그 캐릭터의 Cascadeur 탭에서 따라감.
 - **Live 방향** — Blender to Cascadeur, Cascadeur to Blender, 또는 Both Ways — 지금 포즈하고 있는 쪽이 다른 쪽을 구동.
 - **Bones** — Mapped Bones(Send와 Receive가 이미 합의한 세트) 또는 Whole Skeleton(공유하는 모든 본 이름, 이 리그에서 보낸 캐릭터에만 해당).
 - **Onto Rigify Controls (Live)** — 들어오는 포즈가 디폼 본 대신 컨트롤 리그에 적용되어, 미러링 중에도 캐릭터를 계속 포즈할 수 있음.

@@ -1,0 +1,56 @@
+{
+    "FileVersion":  3,
+    "EngineAssociation":  "5.8",
+    "Category":  "",
+    "Description":  "MetaBridge DNA packaging sandbox",
+    "Plugins":  [
+                    {
+                        "Name":  "PythonScriptPlugin",
+                        "Enabled":  true
+                    },
+                    {
+                        "Name":  "EditorScriptingUtilities",
+                        "Enabled":  true
+                    },
+                    {
+                        "Name":  "MetaHuman",
+                        "Enabled":  true
+                    },
+                    {
+                        "Name":  "MetaHumanCharacter",
+                        "Enabled":  true
+                    },
+                    {
+                        "Name":  "MetaHumanCoreTech",
+                        "Enabled":  true
+                    },
+                    {
+                        "Name":  "ChaosOutfitAsset",
+                        "Enabled":  true
+                    },
+                    {
+                        "Name":  "ChaosClothAsset",
+                        "Enabled":  true
+                    },
+                    {
+                        "Name":  "ChaosClothAssetDataflowNodes",
+                        "Enabled":  true
+                    },
+                    {
+                        "Name":  "ChaosClothAssetEditor",
+                        "Enabled":  true
+                    },
+                    {
+                        "Name":  "AlembicHairImporter",
+                        "Enabled":  true
+                    },
+                    {
+                        "Name":  "HairStrands",
+                        "Enabled":  true
+                    },
+                    {
+                        "Name":  "MetaBridgeForge",
+                        "Enabled":  true
+                    }
+                ]
+}
