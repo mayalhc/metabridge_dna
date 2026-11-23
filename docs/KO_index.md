@@ -9,24 +9,11 @@
 
 ## 새로운 기능
 
-**v2.1.5 — 비율**
-
-- **신규: Blend Active Character.** 이제 Body Blend가 새 캐릭터만 만드는 것이 아니라, 어셈블한 캐릭터를 그 자리에서 바꿉니다. [6절](#6-바디-블렌드-실험적) 참조.
-- **신규: Proportions.** 다리·상체·목·팔 길이, 어깨·골반 너비, 허리·가슴·엉덩이·허벅지·종아리·팔·목 굵기, 가슴 크기, 머리 크기, 하이힐의 힐·앞굽 높이를 바꿉니다 — **Long Legs** 한 번이면 롱레그 비율이 됩니다. 발은 바닥에 그대로 있고, 옷과 헤어가 따라오며, 새 비율은 DNA 내보내기, MD Live, Cascadeur에 그대로 들어갑니다. [7절](#7-비율-proportions) 참조.
-- **신규: MetaHuman 패키지 (.mhpkg).** 그룸(헤어 카드 포함)이나 아웃핏을 블렌더에서 바로 Fab에 올릴 수 있는 MetaHuman 패키지로 만들고, 어떤 MetaHuman 패키지든 블렌더에서 엽니다 — **File ▸ Export / Import ▸ MetaHuman Package (.mhpkg)**. 그룸은 다른 머리에 맞춰 만든 것이어도 헤어와 헤어 카드가 함께 내 캐릭터의 머리에 맞게 열립니다. Unreal Engine 5.8이 설치되어 있어야 하며, 창을 열지 않고 뒤에서 작업합니다. [8절](#8-웨어러블-실험적) 참조.
-- **신규: Cascadeur 여러 캐릭터.** 보낸 캐릭터마다 Cascadeur 탭을 하나씩 따로 갖고, 키프레임, **Receive from Cascadeur**, **Live**가 항상 그 캐릭터의 탭으로 갑니다. Live가 켜진 상태에서 다른 캐릭터를 활성화하면 Live가 그 캐릭터로 넘어갑니다. **Install Cascadeur Plugin**을 한 번 더 누르고 Cascadeur를 다시 시작하면 쓸 수 있습니다. [13절](#13-cascadeur로-보내기) 참조.
-- **신규: RGBMocap 모션.** **Retarget Rigify Animation**의 Source Type에서 **RGBMocap**을 고르면 RGBMocap으로 캡처한 모션이 MetaHuman에 그대로 들어갑니다 — 블렌더로 가져온 바디든 BVH든, 손가락이 있든 없든 됩니다. MetaHuman은 바닥에 서서 캡처와 같은 방향을 보고, 어깨·손목·손가락도 캡처를 따라갑니다. [5절](#5-rigify-바디-컨트롤-리그) 참조.
+**v2.1.6 — 패키지 헤어 맞춤**
 
 *수정 사항*
 
-- Polyhammer **Character DNA** 확장이 함께 설치돼 있으면 바인딩 모듈을 찾을 수 없다는 오류로 애드온이 켜지지 않았습니다. 이제 함께 설치돼 있어도 정상적으로 켜집니다.
-- Cascadeur로 보내는 캐릭터에 Cascadeur가 쓰지 않는 얼굴 셰이프 키가 더 이상 함께 가지 않습니다. 더 적은 메모리로 열리므로 여러 캐릭터를 함께 열어 둘 수 있습니다. 캐릭터 모습은 그대로입니다.
-- Rigify 리그가 없는 캐릭터는 **Live**와 **Receive from Cascadeur**에서 바디만 움직이고 헤드는 그대로 있었습니다. 이제 헤드가 바디와 함께 움직입니다.
-- **Remove Rigify Rig**로 지우거나 컨트롤 리그를 직접 지운 뒤에도 캐릭터가 리그가 있는 것처럼 동작했습니다 — **Proportions**가 계속 숨겨지고 **Import FBX Animation**도 막혀 있었으며, 같은 슬롯에 새로 만든 캐릭터도 마찬가지였습니다. 이제 리그가 없어지면 바로 둘 다 쓸 수 있습니다.
-- UV 이음새를 따라 피부에 가는 선이 보였습니다 — 특히 발목 둘레와 발바닥 옆. 이제 Unreal처럼 이음새 없이 매끄럽게 보입니다.
-- **Retarget Rigify Animation**의 Target Rig가 Rigify 컨트롤 리그가 아니면 Rigify 리그를 먼저 만들라고 안내합니다.
-- **Body Blend** 가중치 슬라이더, **Refit Clothing To Body**, **Clothing Offset**의 반응이 몇 배 빨라졌습니다.
-- 저장한 파일을 다시 연 Body Blend 캐릭터가 블렌드하지 않은 것처럼 뼈대를 내보냈습니다. 이제 블렌드된 뼈대를 내보냅니다.
+- MetaHuman 패키지의 헤어와 헤어 카드가 아래로 내려앉아 열려 카드가 얼굴을 덮었습니다. 이제 다른 머리에 맞춰 만든 것이어도 헤어와 헤어 카드가 함께 캐릭터의 머리에 맞게 열리고, 다시 내보내도 같은 위치로 나갑니다.
 
 
 ## 이 애드온은 무엇인가요?

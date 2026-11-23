@@ -9,24 +9,11 @@
 
 ## What's New
 
-**v2.1.5 — Proportions**
-
-- **NEW: Blend Active Character.** Body Blend now reshapes the character you assembled, in place, instead of only building a new one. See [section 6](#6-body-blend-experimental).
-- **NEW: Proportions.** Leg, torso, neck and arm length, shoulder and hip width, waist, chest, hips, thigh, calf, arm and neck size, bust size, head size, and heel and front height for high heels — with a one-click **Long Legs** look. The feet stay on the ground, clothing and hair follow, and the new proportions go out with DNA export, MD Live and Cascadeur. See [section 7](#7-proportions).
-- **NEW: MetaHuman Package (.mhpkg).** Make a Fab-ready MetaHuman Package of a groom (with its hair cards) or an outfit straight from Blender, and open any MetaHuman Package in Blender — **File ▸ Export / Import ▸ MetaHuman Package (.mhpkg)**. A groom opens sitting on your character's head, hair and hair cards together, even when it was made for a different head. Unreal Engine 5.8 needs to be installed; it does the work in the background, without opening. See [section 8](#8-wearables-experimental).
-- **NEW: Several characters in Cascadeur.** Each character you send keeps a Cascadeur tab of its own, and keyframes, **Receive from Cascadeur** and **Live** always reach that character's tab. While Live is on, activating another character hands Live to it. Click **Install Cascadeur Plugin** once more and restart Cascadeur to use it. See [section 13](#13-send-to-cascadeur).
-- **NEW: RGBMocap motion.** Pick **RGBMocap** as the Source Type in **Retarget Rigify Animation** to put a motion captured with RGBMocap onto your MetaHuman — the body it brings into Blender or its BVH, with or without fingers. The MetaHuman stands on the floor, faces the way the capture does, and its shoulders, wrists and fingers follow the capture. See [section 5](#5-rigify-body-control-rig).
+**v2.1.6 — Package hair fit**
 
 *Fixes*
 
-- The add-on failed to turn on, with an error about a missing bindings module, when the Polyhammer **Character DNA** extension was also installed. It now turns on alongside it.
-- A character sent to Cascadeur no longer carries the face's shape keys, which Cascadeur does not use. It opens using less memory, so several characters can stay open together. The character looks the same.
-- On a character without a Rigify rig, the head stayed still while the body moved during **Live** and after **Receive from Cascadeur**. The head now moves with the body.
-- After **Remove Rigify Rig** (or deleting the control rig by hand), the character kept acting as if the rig were still there — **Proportions** stayed hidden and **Import FBX Animation** stayed blocked, even for a new character built in the same slot. Both are available again as soon as the rig is gone.
-- Thin lines showed on the skin along the UV seams — round the ankle and along the sole most of all. The skin now shades smoothly across them, as it does in Unreal.
-- **Retarget Rigify Animation** with something other than the Rigify control rig as the Target Rig now tells you to build the Rigify rig first.
-- **Body Blend** weight sliders, **Refit Clothing To Body** and **Clothing Offset** respond several times faster.
-- A Body Blend character reopened from a saved file exported its skeleton as if it had never been blended. It now exports the blended skeleton.
+- A hair or hair-card package from a MetaHuman Package opened too low, with the cards covering the face. It now opens on the character's head, hair and hair cards together, even when it was made for a different head, and goes out in the same place when you export it again.
 
 
 ## What is this addon?
