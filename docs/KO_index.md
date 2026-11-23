@@ -91,7 +91,7 @@ Marvelous Designer와 Cascadeur 플러그인은 **이 애드온과 함께 제공
 4. **LOD** 레벨을 선택하세요 (0 = 최고 품질, 숫자가 높을수록 더 가볍고 빠름).
 5. **Assemble**을 클릭하세요.
 
-![metabridge_img01.gif](assets/metabridge_img01.gif)
+<video src="assets/metabridge_img01.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="metabridge_img01.gif"></video>
 
 **알아두면 좋은 점:**
 
@@ -114,7 +114,7 @@ Marvelous Designer와 Cascadeur 플러그인은 **이 애드온과 함께 제공
 2. **Face Rig: ON**으로 설정하세요.
 3. 뷰포트에서 GUIArmature를 선택하고 **Pose Mode**로 들어가 본을 움직이세요. 움직일 때마다 얼굴이 실시간으로 업데이트됩니다.
 
-![metabridge_img02.gif](assets/metabridge_img02.gif)
+<video src="assets/metabridge_img02.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="metabridge_img02.gif"></video>
 
 **알아두면 좋은 점:**
 
@@ -146,7 +146,7 @@ Marvelous Designer와 Cascadeur 플러그인은 **이 애드온과 함께 제공
 - **X** 버튼은 슬라이더 하나를 제거하고, **Clear All Sliders**는 모든 것을 중립으로 재설정합니다.
 - 슬라이더는 일반 Blender 프로퍼티이므로 키프레임을 찍고 애니메이션할 수 있습니다.
 
-![metabridge_img04.gif](assets/metabridge_img04.gif)
+<video src="assets/metabridge_img04.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="metabridge_img04.gif"></video>
 
 **알아두면 좋은 점:**
 
@@ -171,7 +171,7 @@ Apple의 무료 **Live Link Face** 앱을 사용하여 iPhone에서 실시간 �
 3. 앱에서 대상 IP 주소를 컴퓨터 주소로, 포트를 **11111**로 설정하세요.
 4. Blender의 ARKit Live 패널에서 **Host**를 `0.0.0.0`, **Port**를 `11111`로 두고 **Connect**를 클릭하세요.
 
-![metabridge_img05.gif](assets/metabridge_img05.gif)
+<video src="assets/metabridge_img05.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="metabridge_img05.gif"></video>
 
 **트래킹 느낌 조정:**
 
@@ -227,7 +227,7 @@ Rigify를 사용하여 MetaHuman 바디를 완전히 애니메이션 가능한 �
 5. **Remove Rigify Rig** — 처음부터 다시 시작해야 한다면 1~4단계의 모든 것을 제거합니다.
 
 **추가 옵션**
-![Rigify_IK.gif](assets/Rigify_IK.gif)
+<video src="assets/Rigify_IK.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="Rigify_IK.gif"></video>
 
 **Remove Rigify Rig** 아래에 접힌 섹션으로, 거의 건드릴 필요가 없는 스위치들이 있습니다:
 
@@ -274,7 +274,7 @@ Rigify에는 자체 Finger IK가 없으므로 이 애드온이 추가합니다. 
 - 손가락에는 팔꿈치 스타일의 방향 제어가 없으므로 솔버가 손가락이 구부러지는 방향을 결정합니다. 일반적인 포즈에서는 관절을 따라 합리적으로 움직이지만, 타겟을 옆으로 멀리 당기면 손가락이 이상하게 비틀릴 수 있습니다. 그럴 때는 해당 손가락의 슬라이더를 낮추세요.
 - Finger IK가 꺼져 있으면 리그는 기본 Rigify와 정확히 동일하게 작동합니다 — 손가락 마스터 컬과 개별 관절 컨트롤이 평소처럼 작동합니다.
 
-![metabridge_img03.gif](assets/metabridge_img03.gif)
+<video src="assets/metabridge_img03.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="metabridge_img03.gif"></video>
 
 **바디 코렉티브 — 자동 근육 및 비틀림 디테일**
 
@@ -325,6 +325,8 @@ Unreal에서 내보낸 MetaHuman 애니메이션(FBX)을 이 캐릭터에 직접
    | **Blender Rigify** | Blender 자체 Rigify로 만든 리그 |
    | **RGBMocap** | RGBMocap으로 캡처한 바디나 BVH (ExMR, GVHMR, FlowHMR 등) |
 
+   ![소스 유형 목록](assets/retarget_source_types.png)
+
 4. **Target Rig** — 이 캐릭터의 Rigify 컨트롤 리그(`Rigify_Ctrl_01`). 아직 없으면 먼저 **Build Rigify Rig**를 클릭하세요.
 5. **Retarget**을 클릭하세요.
 
@@ -344,7 +346,7 @@ Unreal에서 내보낸 MetaHuman 애니메이션(FBX)을 이 캐릭터에 직접
 ---
 
 ## 6. 바디 블렌드 (실험적)
-![Body_blend.gif](assets/Body_blend.gif)
+<video src="assets/Body_blend.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="Body_blend.gif"></video>
 
 두 개 이상의 MetaHuman 바디 타입 — 그리고 그에 맞는 머리 — 를 완전히 새로운 블렌드 캐릭터로 결합하세요. 기본적으로 접혀 있는 자체 **Body Blend (experimental)** 패널에서 찾을 수 있습니다.
 
@@ -355,7 +357,7 @@ Unreal에서 내보낸 MetaHuman 애니메이션(FBX)을 이 캐릭터에 직접
 - **Load Library...** — 컴팩트한 원형(archetype) 라이브러리를 로드하고 그 안의 모든 원형을 소스로 추가합니다.
 
 **Add Folder... — 라이브러리 구축**
-![Body_blend02.gif](assets/Body_blend02.gif)
+<video src="assets/Body_blend02.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="Body_blend02.gif"></video>
 여러 캐릭터의 **원본 `.dna` 파일**이 들어 있는 폴더를 가리키세요. 각 캐릭터의 머리와 몸이 나란히 있어야 합니다:
 
 ```
@@ -438,6 +440,8 @@ Build 후 가중치 슬라이더를 드래그하면 화면에 이미 있는 캐�
 
 불러온 캐릭터의 체형을 바꿉니다 — 길이, 너비, 굵기, 머리 크기, 힐. 기본적으로 접혀 있는 자체 **Proportions** 패널에 있습니다.
 
+<video src="assets/proportions.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="비율에 따라 바뀌는 캐릭터"></video>
+
 | 그룹 | 슬라이더 |
 |---|---|
 | **Length** (길이) | 다리, 상체, 목, 팔 |
@@ -445,6 +449,8 @@ Build 후 가중치 슬라이더를 드래그하면 화면에 이미 있는 캐�
 | **Size** (굵기) | 허리, 가슴, 엉덩이, 허벅지, 종아리, 위팔, 아래팔, 목 굵기, 가슴 크기 |
 | **Head** | 머리 크기 |
 | **Heels** (힐) | 힐 높이, 앞굽 높이 (cm) |
+
+![비율 패널](assets/proportions_panel.png)
 
 **사용 순서:**
 
@@ -487,7 +493,7 @@ Build 후 가중치 슬라이더를 드래그하면 화면에 이미 있는 캐�
 캐릭터를 입히는 두 가지 방법이 있습니다: MetaHuman 골격용으로 제작된 **의류 FBX를 가져오거나**, 씬에 이미 있는 메시를 직접 **리깅**하는 것입니다. 둘 다 이후에는 같은 방식으로 캐릭터를 따라갑니다.
 
 **의류 (FBX):**
-![cloth_FBX.gif](assets/cloth_FBX.gif)
+<video src="assets/cloth_FBX.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="cloth_FBX.gif"></video>
 - **Top... / Bottom... / Full...** — MetaHuman 호환 의류 `.fbx`를 가져와 바디에 부착하고 해당 카테고리로 태그합니다.
 - **Head Accessory...** — 같은 개념으로, 머리에 부착하는 것(안경, 귀걸이 등)용.
 - **Retarget To Body Proportions** (기본 켜짐): 원래 만들어진 바디가 아닌 이 캐릭터의 실제 비율에 맞게 의복을 피팅합니다 — 피부에 달라붙지 않으므로 헐렁한 셔츠는 헐렁하게 유지됩니다.
@@ -497,7 +503,7 @@ Build 후 가중치 슬라이더를 드래그하면 화면에 이미 있는 캐�
 - **LOD0만**: FBX에 여러 LOD가 포함된 경우 LOD0만 유지됩니다.
 
 **씬 메시 가먼트 (Make + Bind):**
-![scene_garment.gif](assets/scene_garment.gif)
+<video src="assets/scene_garment.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="scene_garment.gif"></video>
 자체 MetaHuman 골격이 없는 씬의 메시용.
 
 1. 가먼트 메시를 선택하고 **Make Top / Bottom / Full / Shoes / Gloves / Head Acc**를 클릭하세요 — 캐릭터에 맞게 피팅하고 캐릭터 골격과 함께 움직이도록 리깅합니다. 이미 캐릭터에 대략 맞게 모델링된 가먼트에서 가장 잘 작동합니다.
@@ -508,6 +514,9 @@ Build 후 가중치 슬라이더를 드래그하면 화면에 이미 있는 캐�
 **헤어 (Alembic):**
 
 - **MetaHuman 패키지 (Fab)** — 이 패널 맨 아래의 **Import... / Export...**, 또는 **File ▸ Import / Export ▸ MetaHuman Package (.mhpkg)**. Unreal Engine 5.8이 설치되어 있어야 하며 창 없이 뒤에서 실행됩니다. 처음 한 번 파일 브라우저 왼쪽 옵션에서 엔진 폴더를 지정하세요 (`C:\Program Files\Epic Games\UE_5.8`가 기본입니다).
+
+  ![MetaHuman 패키지 가져오기·내보내기가 있는 웨어러블 패널](assets/wearables_panel.png)
+  <video src="assets/mhpkg_hair.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="MetaHuman 패키지에서 열린 헤어가 머리에 얹힌 모습"></video>
   - **Export...** — 헤어를 활성으로 하고 누릅니다. 카드 메시(`..._LOD0`, `..._LOD1`, …)도 함께 선택하면 헤어 카드로 들어가고, 마지막 것은 헬멧 메시로도 들어갑니다. **Card Textures**에는 `_TS0`–`_TS3` 텍스처가 있는 폴더를 지정합니다. 의상을 패키지로 만들려면 의상을 활성으로 합니다. MetaHuman Manager와 같은 검증을 거쳐 바로 올릴 수 있는 파일이 되며, 검증 경고가 있으면 끝날 때 보여줍니다.
   - **Groom Slot** — Hair, Eyebrows, Beard, Mustache, Eyelashes, Peachfuzz 중 선택.
   - **Import...** — 패키지를 활성 캐릭터에 엽니다: 헤어는 머리에 바인딩되고, 헤어 카드는 LOD0만 보이며, 의상은 바디에 붙습니다. 헤어는 언리얼에 있는 그대로입니다. 다시 내보내면 카드와 카드 텍스처가 그대로 들어갑니다.
@@ -526,10 +535,12 @@ Build 후 가중치 슬라이더를 드래그하면 화면에 이미 있는 캐�
 ---
 
 ## 9. 라이브 교정 스컬프팅 (베타)
-![Live_corrective.gif](assets/Live_corrective.gif)
+<video src="assets/Live_corrective.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="Live_corrective.gif"></video>
 **베타** — 하나의 포즈로만 스컬프한 교정은 그 포즈보다 더 멀리 포즈하면 그대로 유지됩니다. 포즈 속으로 더 들어갈 때 계속 모양이 변하길 원하면 같은 교정을 여러 포즈로 스컬프하세요. 머리 교정은 캐릭터의 `.dna`에 기록하여 Unreal에서 사용할 수 있습니다 — 아래 **교정을 Unreal로 보내기** 참조. 바디 교정은 Blender 안에 남습니다.
 
 캐릭터를 포즈한 다음 그 포즈 위에 직접 스컬프하세요 — 스컬프가 교정이 되어 그때부터 캐릭터가 그 포즈에 가까워지거나 멀어질 때마다 자동으로 페이드 인/아웃됩니다. 키프레임이 필요 없습니다. 얼굴과 바디 모두에서 작동하며, 캐릭터가 착용한 모든 의류에도 자동으로 전달됩니다.
+
+![라이브 교정 스컬프팅 패널](assets/sculpt_panel.png)
 
 **단계:**
 
@@ -570,7 +581,7 @@ Build 후 가중치 슬라이더를 드래그하면 화면에 이미 있는 캐�
 두 가지 방법이 있습니다.
 
 ### 부서지는 표정 수정 — Export Edited Shape Keys
-![export_shapekey.gif](assets/export_shapekey.gif)
+<video src="assets/export_shapekey.mp4" autoplay loop muted playsinline style="width:100%;border-radius:6px" title="export_shapekey.gif"></video>
 특정 표정에서 얼굴이 접히거나, 뾰족해지거나, 붕괴될 때 사용하는 방법입니다. 캐릭터의 고유 표정을 손으로 수정하고 그 수정을 `.dna`로 다시 보냅니다.
 
 1. **페이스 컨트롤로 표정을 만드세요.** 문제가 화면에 나타날 때까지 컨트롤을 움직이세요 — 예를 들어 메시가 부서질 때까지 턱을 여세요.
@@ -604,6 +615,8 @@ Build 후 가중치 슬라이더를 드래그하면 화면에 이미 있는 캐�
 - **DNA**: 별도의 **Head** 및 **Body** 버튼 (머리와 몸은 항상 두 개의 별도 `.dna` 파일입니다). 스컬프한 교정을 헤드 `.dna`로 보내려면 [9절](#9-라이브-교정-스컬프팅-베타)의 **Write to DNA**를 사용하세요.
 - **FBX / glTF**: **Full / Head / Body** 버튼. 내보내기 대화상자에서 컨트롤 리그와 애니메이션 포함 여부를 선택하세요.
 
+![내보내기 패널](assets/export_panel.png)
+
 **배치 도구:**
 
 - **Assemble All Characters** — 폴더에서 찾은 모든 캐릭터를 한 번에 로드합니다.
@@ -634,6 +647,8 @@ Build 후 가중치 슬라이더를 드래그하면 화면에 이미 있는 캐�
 *이* 캐릭터에 Marvelous Designer에서 옷을 만들고, 이미 입은 상태로 가져오세요.
 
 MD Live는 **MetaBridge DNA** 옆의 사이드바에 있는 자체 패널입니다.
+
+![MD Live 패널](assets/md_live_panel.png)
 
 **일회성 설정**
 
@@ -694,6 +709,8 @@ MetaBridge 플러그인은 내보내는 동안만 탑스티치를 텍스처로 �
 ## 13. Cascadeur로 보내기
 
 이 캐릭터를 Cascadeur에 넣어 애니메이션할 준비를 하세요.
+
+![Cascadeur로 보내기 패널](assets/cascadeur_panel.png)
 
 **처음 사용 전**
 
@@ -876,6 +893,8 @@ Unreal Live의 미러입니다. Unreal에서 캐릭터를 움직이는 것이 �
 스컬프한 교정은 씬에 존재합니다. **Bake to DNA**는 그것을 캐릭터의 `.dna` 파일에 기록하여 그때부터 캐릭터에 속하게 합니다 — 새 씬에서, 다른 머신에서, 또는 Unreal에서.
 
 **Bake Corrective to DNA**는 하나의 교정을 수행합니다. **Bake All to DNA**는 캐릭터의 모든 교정을 한 번에 수행합니다.
+
+![Bake 버튼은 라이브 교정 스컬프팅 패널에 있습니다](assets/sculpt_panel.png)
 
 원본 `.dna`는 덮어쓰지 않습니다. 새 파일이 기록되고 위치를 직접 선택합니다.
 
