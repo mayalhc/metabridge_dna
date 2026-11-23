@@ -13,7 +13,7 @@
 
 - **신규: Blend Active Character.** 이제 Body Blend가 새 캐릭터만 만드는 것이 아니라, 어셈블한 캐릭터를 그 자리에서 바꿉니다. [6절](#6-바디-블렌드-실험적) 참조.
 - **신규: Proportions.** 다리·상체·목·팔 길이, 어깨·골반 너비, 허리·가슴·엉덩이·허벅지·종아리·팔·목 굵기, 가슴 크기, 머리 크기, 하이힐의 힐·앞굽 높이를 바꿉니다 — **Long Legs** 한 번이면 롱레그 비율이 됩니다. 발은 바닥에 그대로 있고, 옷과 헤어가 따라오며, 새 비율은 DNA 내보내기, MD Live, Cascadeur에 그대로 들어갑니다. [7절](#7-비율-proportions) 참조.
-- **신규: MetaHuman 패키지 (.mhpkg).** 그룸(헤어 카드 포함)이나 아웃핏을 블렌더에서 바로 Fab에 올릴 수 있는 MetaHuman 패키지로 만들고, 어떤 MetaHuman 패키지든 블렌더에서 엽니다 — **File ▸ Export / Import ▸ MetaHuman Package (.mhpkg)**. Unreal Engine 5.8이 설치되어 있어야 하며, 창을 열지 않고 뒤에서 작업합니다. [8절](#8-웨어러블-실험적) 참조.
+- **신규: MetaHuman 패키지 (.mhpkg).** 그룸(헤어 카드 포함)이나 아웃핏을 블렌더에서 바로 Fab에 올릴 수 있는 MetaHuman 패키지로 만들고, 어떤 MetaHuman 패키지든 블렌더에서 엽니다 — **File ▸ Export / Import ▸ MetaHuman Package (.mhpkg)**. 그룸은 다른 머리에 맞춰 만든 것이어도 헤어와 헤어 카드가 함께 내 캐릭터의 머리에 맞게 열립니다. Unreal Engine 5.8이 설치되어 있어야 하며, 창을 열지 않고 뒤에서 작업합니다. [8절](#8-웨어러블-실험적) 참조.
 - **신규: Cascadeur 여러 캐릭터.** 보낸 캐릭터마다 Cascadeur 탭을 하나씩 따로 갖고, 키프레임, **Receive from Cascadeur**, **Live**가 항상 그 캐릭터의 탭으로 갑니다. Live가 켜진 상태에서 다른 캐릭터를 활성화하면 Live가 그 캐릭터로 넘어갑니다. **Install Cascadeur Plugin**을 한 번 더 누르고 Cascadeur를 다시 시작하면 쓸 수 있습니다. [13절](#13-cascadeur로-보내기) 참조.
 - **신규: RGBMocap 모션.** **Retarget Rigify Animation**의 Source Type에서 **RGBMocap**을 고르면 RGBMocap으로 캡처한 모션이 MetaHuman에 그대로 들어갑니다 — 블렌더로 가져온 바디든 BVH든, 손가락이 있든 없든 됩니다. MetaHuman은 바닥에 서서 캡처와 같은 방향을 보고, 어깨·손목·손가락도 캡처를 따라갑니다. [5절](#5-rigify-바디-컨트롤-리그) 참조.
 
